@@ -1,0 +1,298 @@
+{% load static %}
+
+<!doctype html>
+<html lang="en">
+  <head>
+    {% block meta %}
+    <!--Required Meta Tags-->
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <meta name="author" content="Dimie Egberipou">
+    <meta name="description"
+    content="Sewing machines for all.">
+    <meta name="keywords"
+    content="Sewing, machines, coverlock">
+    <meta property="og:title" content="Lamad | Sewing Machines">
+    <meta property="og:description" content="Lamad ecommerce store good for sewing machines and accessories.">
+    <meta property="og:url" content="{{ request.build_absolute_uri }}">
+    <!--Favicon-->
+    <link rel="shortcut icon" href="{% static 'images/favicon.ico' %}" type="image/x-icon">
+    {% endblock %}
+
+    {% block extra_meta %}
+    {% endblock %}
+
+    <title>Lamad Store | Sewing Machines.</title>
+
+    {% block corecss %}
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.6.2/dist/css/bootstrap.min.css" integrity="sha384-xOolHFLEh07PJGoPkLv1IbcEPTNtaed2xpHsD9ESMhqIYd0nLMwNLD69Npy4HI+N" crossorigin="anonymous">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.10.3/font/bootstrap-icons.css">
+    <link href="{% static 'css/base.css' %}" rel="stylesheet">
+    {% endblock %}
+
+    {% block extra_css %}
+    <!--Mailchimp Css-->
+    <link href="//cdn-images.mailchimp.com/embedcode/classic-071822.css" rel="stylesheet">
+    <style>
+        #mc_embed_signup{background:#fff; clear:left; font:14px Helvetica,Arial,sans-serif; }
+    </style>
+    {% endblock %}
+
+    {% block corejs %}
+    <!--Stripe-->
+    <script src="https://js.stripe.com/v3/"></script>
+    <!-- Font Awesont kit-->
+    <script src="https://kit.fontawesome.com/3af9543e24.js" crossorigin="anonymous"></script>
+    <!-- Bootstrap Scripts-->
+    <script src="https://code.jquery.com/jquery-3.6.3.min.js" integrity="sha256-pvPw+upLPUjgMXY0G+8O0xUf+/Im1MZjXxxgOcBQBXU=" crossorigin="anonymous"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@4.6.2/dist/js/bootstrap.bundle.min.js" integrity="sha384-Fy6S3B9q64WdZWQUiU+q4/2Lc9npb8tCaSX9FK7E8HnRr0Jz8D6OP9dO5Vg3Q9ct" crossorigin="anonymous"></script>
+    {% endblock %}
+
+    {% block extra_js %}
+    
+    {% endblock %}
+
+  </head>
+  <body>
+    <a href="#" id="off"></a>
+    <!-- Header Nav bar-->
+    <header class="container-fluid">
+        <div id="topnav" class="row nav-bg-color pt-lg-2 d-none d-lg-flex">
+            <!-- Nav logo-->
+            <div class="col-12 col-lg-4 my-auto py-1 py-lg-0 text-center text-lg-left">
+                <a href="{% url 'home:home' %}" class="nav-link main-logo-link">
+                    <img src="{% static 'images/logo-no-background.webp' %}" alt="logo image" width="180" class="img-fluid">
+                </a>
+            </div>
+            <!-- Nav center for links-->
+            <div class="col-12 col-lg-4 my-auto py-1 py-lg-0">
+                <form method="GET" action="#">
+                    <div class="input-group w-100">
+                        <input class="form-control border border-black rounded-0" type="text" name="q" placeholder="Search our site">
+                        <div class="input-group-append">
+                            <button class="form-control btn nav-bg-color border border-black rounded-0" type="submit" aria-label="Search our products">
+                                <span class="icon">
+                                    <i class="fas fa-search"></i>
+                                </span>
+                            </button>
+                        </div>
+                    </div>
+                </form>
+            </div>
+            <div class="col-12 col-lg-4 my-auto py-1 py-lg-0">
+                <!-- last col for account and cart options-->
+                <ul class="list-inline list-unstyled text-center text-lg-right my-0">
+                    <li class="list-inline-item dropdown">
+                        <a class="text-sly nav-link" href="#" id="dt-user-options" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                            <div class="text-center">
+                                {% if request.user.is_authenticated %}
+                                    <div><i class="fas fa-user fa-lg"></i></div>
+                                    <p class="my-0 text-sly">My Account</p>
+                                {% else %}
+                                    <div><i class="fas fa-user fa-lg"></i></div>
+                                    <p class="my-0 text-sly">Login / Sign Up</p>
+                                {% endif %}
+                            </div>
+                        </a>
+                        <div class="dropdown-menu border-0" aria-labelledby="user-options">
+                            {% if request.user.is_authenticated %}
+                                {% if user.is_superadmin %}
+                                    <a href="#" class="dropdown-item">Admin Panel</a>
+                                {% endif %}
+                                {% if user.is_staff %}
+                                    <a href="#" class="dropdown-item">Product Management</a>
+                                {% endif %}
+                                <a href="{% url 'account:profile' %}" class="dropdown-item">My Profile</a>
+                                <a href="#" class="dropdown-item">Logout</a>
+                            {% else %}
+                                <a href="{% url 'account:register' %}" class="dropdown-item">Register</a>
+                                <a href="{% url 'account:signin' %}" class="dropdown-item">Login</a>
+                            {% endif %}
+                        </div>
+                    </li>
+                    <li class="list-inline-item">
+                        <a class="{% if grand_total %}text-info font-weight-bold{% else %}text-white{% endif %} nav-link" href="#">
+                            <div class="text-center">
+                                <div><i class="fa-solid fa-cart-shopping fa-lg"></i></div>
+                                <p class="my-0 cart-amount">
+                                    {% if grand_total %}
+                                        ${{ grand_total|floatformat:2 }}
+                                    {% else %}
+                                        Cart
+                                    {% endif %}
+                                </p>
+                            </div>
+                        </a>
+                    </li>
+                </ul>
+            </div>
+        </div>
+        <div class="row second-nav">
+            <nav class="navbar navbar-expand-lg navbar-dark text-sly w-100">
+                
+                    <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#main-nav" aria-controls="main-nav" aria-expanded="false" aria-label="Toggle navigation">
+                        <span class="navbar-toggler-icon text-sly"></span>
+                    </button>
+                    {% include 'includes/mobile-top-header.html' %}
+                    {% include 'includes/main-nav.html' %}
+                
+            </nav>
+        </div>
+        <div id="delivery-banner" class="row text-center">
+            <div class="col my-secondary text-black">
+                <h4 class="logo-font my-1">Free delivery on orders over ${{ FREE_DELIVERY_TRESHOLD }}!</h4>                
+            </div>            
+        </div>
+    </header>
+    
+    {% if messages %}
+    <div class="message-container">
+        {% for message in messages %}
+            {% with message.level as level %}
+                {% if level == 40 %}
+                    {% include 'includes/toasts/toast_error.html' %}
+                    {% elif level == 30 %}
+                    {% include 'includes/toasts/toast_warning.html' %}
+                    {% elif level == 25 %}
+                        {% include 'includes/toasts/toast_success.html' %}
+                {% else %}
+                    {% include 'includes/toasts/toast_info.html' %}
+                {% endif %}
+            {% endwith %}
+        {% endfor %}
+    </div>
+    {% endif %}
+
+    {% block page_header %}
+    {% endblock %}
+
+    {% block content %}
+    {% endblock %}
+
+    {% block postloadjs %}
+    <script>
+        $('.toast').toast('show');
+    </script>
+
+    {% endblock %}
+    <a href="#" id="to-top" aria-label="move to top of page">
+      <span class="move_to_top">
+        <i class="fas fa-caret-up"></i>
+      </span>
+    </a>
+     <!-- Footer-->
+     <footer class="footer" style="background: #3a3a3a">
+        <!-- <div class="py-5 text-white" style="background: #171717">
+          <div class="container py-3">
+            <div class="row gy-4">
+              <div class="col-lg-4 border-lg-end border-dark">
+                <div class="d-flex align-items-center justify-content-center justify-content-lg-start">
+                  <svg class="svg-icon svg-icon-md mb-0">
+                    <use xlink:href="#delivery-time-1"> </use>
+                  </svg>
+                  <div class="ms-3">
+                    <h6 class="text-uppercase mb-0">Free shipping &amp; return</h6>
+                    <p class="text-muted text-sm mb-0">Free Shipping over $300</p>
+                  </div>
+                </div>
+              </div>
+              <div class="col-lg-4 border-lg-end border-dark">
+                <div class="d-flex align-items-center justify-content-center">
+                  <svg class="svg-icon svg-icon-md mb-0">
+                    <use xlink:href="#dollar-sign-1"> </use>
+                  </svg>
+                  <div class="ms-3">
+                    <h6 class="text-uppercase mb-0">Money back guarantee</h6>
+                    <p class="text-muted text-sm mb-0">30 Days Money Back Guarantee</p>
+                  </div>
+                </div>
+              </div>
+              <div class="col-lg-4">
+                <div class="d-flex align-items-center justify-content-center">
+                  <svg class="svg-icon svg-icon-md mb-0">
+                    <use xlink:href="#helpline-24h-1"> </use>
+                  </svg>
+                  <div class="ms-3">
+                    <h6 class="text-uppercase mb-0">020-800-456-747</h6>
+                    <p class="text-muted text-sm mb-0">24/7 Available Support</p>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div> -->
+        <div class="py-5">
+          <!-- Main Block -->
+          <div class="container py-5">
+            <div class="row gx-5 gy-4">
+              <div class="col-lg-4">
+                  <img src="{% static 'images/logo-no-background.webp' %}" alt="logo image" width="180" class="img-fluid">
+                <!-- <img class="mb-3 img-fluid" src="images/logo-no-backgroud.png" alt="logo image" width="180"> -->
+                 <p></p>
+                 <p></p>
+                 <br>
+                <ul class="list-inline mb-0">
+                  <li class="list-inline-item me-3"><a class="reset-anchor" href="#" target="_blank" title="twitter"><i class="fab fa-twitter"></i></a></li>
+                  <li class="list-inline-item me-3"><a class="reset-anchor" href="#" target="_blank" title="facebook"><i class="fab fa-facebook-f"></i></a></li>
+                  <li class="list-inline-item me-3"><a class="reset-anchor" href="#" target="_blank" title="instagram"><i class="fab fa-instagram"></i></a></li>
+                  <li class="list-inline-item me-3"><a class="reset-anchor" href="#" target="_blank" title="pinterest"><i class="fab fa-pinterest"></i></a></li>
+                  <li class="list-inline-item"><a class="reset-anchor" href="#" target="_blank" title="vimeo"><i class="fab fa-vimeo-v"></i></a></li>
+                </ul>
+              </div>
+              <div class="col-lg-2 col-md-6">
+                <h5 class="text-white text-uppercase mb-4">Shop</h5>
+                <ul class="list-unstyled text-sm fw-normal mb-0">
+                  <li class="mb-1 pb-1"> <a class="reset-anchor" href="#">For Women</a></li>
+                  <li class="mb-1 pb-1"> <a class="reset-anchor" href="#">For Men</a></li>
+                  <li class="mb-1 pb-1"> <a class="reset-anchor" href="#">Stores</a></li>
+                  <li class="mb-1 pb-1"> <a class="reset-anchor" href="#">Our Blog</a></li>
+                  <li class="mb-1 pb-1"> <a class="reset-anchor" href="#">Shop</a></li>
+                </ul>
+              </div>
+              <div class="col-lg-2 col-md-6">
+                <h5 class="text-white text-uppercase mb-4">Company</h5>
+                <ul class="list-unstyled text-sm fw-normal mb-0">
+                  <li class="mb-1 pb-1"> <a class="reset-anchor" href="#">Login</a></li>
+                  <li class="mb-1 pb-1"> <a class="reset-anchor" href="#">Register</a></li>
+                  <li class="mb-1 pb-1"> <a class="reset-anchor" href="#">Wishlist</a></li>
+                  <li class="mb-1 pb-1"> <a class="reset-anchor" href="#">Our Products</a></li>
+                  <li class="mb-1"> <a class="reset-anchor" href="#">Checkouts</a></li>
+                </ul>
+              </div>
+              <div class="newsletter col-lg-4">
+                <h5 class="text-white text-uppercase mb-4">Daily Offers &amp; Discounts</h5>
+                <p class="text-sm fw-normal">Lorem ipsum dolor sit amet, consectetur adipisicing elit. At itaque temporibus.</p>
+                <form action="#" id="newsletter-form">
+                  <div class="input-group mb-3 border">
+                    <input class="form-control bg-none border-0 shadow-0 text-white" type="text" placeholder="Your email address" aria-describedby="button-addon2">
+                    <div class="input-group-append text-muted">
+                      <button class="btn btn-link reset-anchor" type="submit"><i class="fas fa-paper-plane"></i></button>
+                    </div>
+                  </div>
+                </form>
+              </div>
+            </div>
+          </div>
+        </div>
+        <div class="copyrights py-4" style="background: #3a3a3a">
+          <div class="container py-3">
+            <div class="row align-items-center gy-3">
+              <div class="col-md-6">
+                <p class="mb-0 text-sm fw-normal">&copy; 2023 <a class="reset-anchor" href="{% url 'home:home' %}" target="_blank">Lamad</a> All rights reserved.</p>
+              </div>
+              <div class="col-md-6">
+                <ul class="list-inline text-lg-end mb-0">
+                  <li class="list-inline-item"><img src="https://d19m59y37dris4.cloudfront.net/hub/2-0/img/visa.5210170f.svg" alt="..." width="30"></li>
+                  <li class="list-inline-item"><img src="https://d19m59y37dris4.cloudfront.net/hub/2-0/img/mastercard.ea104053.svg" alt="..." width="30"></li>
+                  <li class="list-inline-item"><img src="https://d19m59y37dris4.cloudfront.net/hub/2-0/img/paypal.abed015f.svg" alt="..." width="30"></li>
+                  <li class="list-inline-item"><img src="https://d19m59y37dris4.cloudfront.net/hub/2-0/img/western-union.5550a98f.svg" alt="..." width="30"></li>
+                </ul>
+              </div>
+            </div>
+          </div>
+        </div>
+      </footer>
+
+  </body>
+</html>

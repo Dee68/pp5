@@ -1,0 +1,61 @@
+{% extends 'base.html' %}
+
+{% load static %}
+
+{% block extra_css %}
+    <link rel="stylesheet" href="{% static 'css/account.css' %}">
+{% endblock %}
+
+{% block content %}
+<div class="row mt-5 mb-5">
+    <div class="col-md-4"></div>
+    <div class="col-md-4 mt-5">
+        <div class="card logout">
+            <div class="card-body">
+              <h1 class="card-title title-lead">Sign In</h1>
+              <span class="bi"> <a href="#" class="rm">Forgot your password?</a></span>
+              <form action="#" method="POST" class="mt-5">
+                {% csrf_token %}
+                <!-- partial messages goes here -->
+                <div class="mb-3 form-group">
+                    <div class="input-group">
+                    <span class="input-group-text"><i class="bi bi-person-fill"></i></span>
+                    <input class="form-control text" type="text" name="username" placeholder="Username" id="usernameField">
+                    </div>
+					<div class="invalid-feedback" style="display:none;"></div>
+                    <p class="text-sm text-success usernameSuccess"></p>
+                </div>
+               
+                <div class="mb-3 form-group">
+                    <div class="input-group">
+                    <span class="input-group-text"><i class="bi bi-key-fill"></i></span>
+                    <input class="form-control" type="password" name="password" placeholder="Password" id="password1Field">
+                    </div>
+                </div>
+              
+                <div class="d-grid gap-2 col-12 mx-auto"> 
+                <button type="submit" class="btn btn-success btn-block lgn">Signin</button>
+                </div>
+                  
+               <br>
+               <span class="bi">Don't have an account yet? <a href="{% url 'account:register' %}" class="rm">Signup</a></span>
+              </form>
+              <hr class="my-4">
+             
+                <a href="#" class="btn btn-lg btn-facebook btn-block text-uppercase">
+              <i class="fa fa-facebook fa-fw"></i> Login with Facebook
+              </a>
+             
+             <a href="#" class="btn btn-lg btn-google btn-block text-uppercase">
+              <i class="fa fa-google fa-fw"></i> Login with Google+
+             </a>
+            
+            </div>
+        </div>
+        
+				
+				
+    </div>
+    <div class="col-md-4"></div>
+</div>
+{% endblock %}

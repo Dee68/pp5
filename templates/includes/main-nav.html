@@ -1,0 +1,45 @@
+{% load  static %}
+<div class="collapse navbar-collapse nav-bg-color" id="main-nav">
+    <a href="{% url 'home:home' %}" class="navbar-brand" id="small_screen">
+        <img src="{% static 'images/logo-no-background.webp' %}" alt="logo image" width="180" class="img-fluid">
+      </a>
+    <ul class="navbar-nav w-auto mx-auto">
+        <li class="nav-item">
+            <a class="logo-font font-weight-bold nav-link text-sly mr-5" href="{% url 'home:home' %}" id="home-link">
+                Home
+            </a>
+        </li>
+        <li class="nav-item dropdown">
+            <a class="logo-font font-weight-bold nav-link text-sly mr-5" href="#" id="products-link" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                Products
+            </a>
+            <div class="dropdown-menu border-0" aria-labelledby="contact-link">
+                <!-- {% for category in menu %}
+                    <a href="{{ category.get_url }}" class="dropdown-item">{{category.name}}</a>
+                {% endfor %}
+                <a href="#" class="dropdown-item">All Products</a> -->
+            </div>
+        </li>
+        <li class="nav-item">
+            <a class="logo-font font-weight-bold nav-link text-sly mr-5" href="#" id="subscriptions-link">
+                Blog
+            </a>
+        </li>
+        <li>
+            <a class="logo-font font-weight-bold nav-link text-sly mr-5" href="#" id="wish-link">
+                Wishlist
+            </a> 
+        </li>
+        <li class="nav-item dropdown">
+            <a class="logo-font font-weight-bold nav-link text-sly" href="#" id="contact-link" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                Contact
+            </a>
+            <div class="dropdown-menu border-0" aria-labelledby="contact-link">
+                <a href="#" class="dropdown-item">Contact</a>
+                <a href="#" class="dropdown-item">Shipping & Delivery</a>
+                <a href="#" class="dropdown-item">FAQ's</a>
+                <a href="#" class="dropdown-item">Returns</a>
+            </div>
+        </li>
+    </ul>
+</div>

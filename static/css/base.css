@@ -454,6 +454,9 @@ li{
     #small_screen {
         visibility: visible;
     }
+    img {
+        width: 50%;  
+    }
   }
 
   /* fixed top navbar only on medium and up */
@@ -479,6 +482,10 @@ li{
 
     .nav-link{
         padding: 2.5px;
+    }
+
+    img {
+        width: 50%;  
     }
 
     .navbar{
@@ -534,5 +541,8 @@ li{
     }
     #small_screen {
         visibility: visible;
+    }
+    img {
+        width: 50%;
     }
 }

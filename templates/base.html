@@ -15,7 +15,7 @@
     content="Sewing, machines, coverlock">
     <meta property="og:title" content="Lamad | Sewing Machines">
     <meta property="og:description" content="Lamad ecommerce store good for sewing machines and accessories.">
-    <meta property="og:url" content="{{ request.build_absolute_uri }}">
+    <meta property="og:url" content="#">
     <!--Favicon-->
     <link rel="shortcut icon" href="{% static 'images/favicon.ico' %}" type="image/x-icon">
     {% endblock %}
@@ -62,7 +62,7 @@
             <!-- Nav logo-->
             <div class="col-12 col-lg-4 my-auto py-1 py-lg-0 text-center text-lg-left">
                 <a href="{% url 'home:home' %}" class="nav-link main-logo-link">
-                    <img src="{% static 'images/logo-no-background.webp' %}" alt="logo image" width="180" class="img-fluid">
+                    <img src="{% static 'images/logo-no-background.webp' %}" alt="logo image" width="180" class="img-fluid" id="logo">
                 </a>
             </div>
             <!-- Nav center for links-->
@@ -146,23 +146,7 @@
         </div>
     </header>
     
-    {% if messages %}
-    <div class="message-container">
-        {% for message in messages %}
-            {% with message.level as level %}
-                {% if level == 40 %}
-                    {% include 'includes/toasts/toast_error.html' %}
-                    {% elif level == 30 %}
-                    {% include 'includes/toasts/toast_warning.html' %}
-                    {% elif level == 25 %}
-                        {% include 'includes/toasts/toast_success.html' %}
-                {% else %}
-                    {% include 'includes/toasts/toast_info.html' %}
-                {% endif %}
-            {% endwith %}
-        {% endfor %}
-    </div>
-    {% endif %}
+    
 
     {% block page_header %}
     {% endblock %}
@@ -183,45 +167,7 @@
     </a>
      <!-- Footer-->
      <footer class="footer" style="background: #3a3a3a">
-        <!-- <div class="py-5 text-white" style="background: #171717">
-          <div class="container py-3">
-            <div class="row gy-4">
-              <div class="col-lg-4 border-lg-end border-dark">
-                <div class="d-flex align-items-center justify-content-center justify-content-lg-start">
-                  <svg class="svg-icon svg-icon-md mb-0">
-                    <use xlink:href="#delivery-time-1"> </use>
-                  </svg>
-                  <div class="ms-3">
-                    <h6 class="text-uppercase mb-0">Free shipping &amp; return</h6>
-                    <p class="text-muted text-sm mb-0">Free Shipping over $300</p>
-                  </div>
-                </div>
-              </div>
-              <div class="col-lg-4 border-lg-end border-dark">
-                <div class="d-flex align-items-center justify-content-center">
-                  <svg class="svg-icon svg-icon-md mb-0">
-                    <use xlink:href="#dollar-sign-1"> </use>
-                  </svg>
-                  <div class="ms-3">
-                    <h6 class="text-uppercase mb-0">Money back guarantee</h6>
-                    <p class="text-muted text-sm mb-0">30 Days Money Back Guarantee</p>
-                  </div>
-                </div>
-              </div>
-              <div class="col-lg-4">
-                <div class="d-flex align-items-center justify-content-center">
-                  <svg class="svg-icon svg-icon-md mb-0">
-                    <use xlink:href="#helpline-24h-1"> </use>
-                  </svg>
-                  <div class="ms-3">
-                    <h6 class="text-uppercase mb-0">020-800-456-747</h6>
-                    <p class="text-muted text-sm mb-0">24/7 Available Support</p>
-                  </div>
-                </div>
-              </div>
-            </div>
-          </div>
-        </div> -->
+          
         <div class="py-5">
           <!-- Main Block -->
           <div class="container py-5">

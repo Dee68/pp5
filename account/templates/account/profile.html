@@ -1,15 +1,74 @@
-{% extends 'base.html' %}
-
+{% extends "base.html" %}
 {% load static %}
+
+{% block extra_css %}
+    <link rel="stylesheet" href="{% static 'css/profile.css' %}">
+{% endblock %}
 
 {% block page_header %}
     <div class="container header-container">
         <div class="row">
-            <div class="col"></div>
+            <div class="col text-center">
+                <h2 class="text-black">Account</h2>
+                <hr>
+            </div>
         </div>
     </div>
 {% endblock %}
 
 {% block content %}
-<h1>profile page</h1>
+    <div class="container-fluid profile-container justify-content-space-around mt-5 mb-5">
+        <div class="row text-center">
+            <div class="col-xs-12 col-md-4 profile-menu-items">
+                <h3>Profile Menu</h3>
+                <hr>
+                <ul class="profile-menu-list">
+                    <li><a href="{% url 'account:profile' %}" class="menu-item active"><i class="fa-solid fa-info"></i> Personal Information</a></li><hr>
+                    <li><a href="#" class="menu-item"><i class="fa-solid fa-truck-fast"></i> Shipping Details</a></li><hr>
+                    <li><a href="#" class="menu-item"><i class="fa-regular fa-image"></i></i> Change Profile Photo</a></li><hr>
+                    <li><a href="#" class="menu-item"><i class="fa-solid fa-receipt"></i> Order history</a></li><hr>
+                    <li><a href="#cancelModal" data-toggle="modal" class="menu-item"><i class="fa-regular fa-circle-xmark"></i> Close Account</a></li><hr>
+                </ul>
+            </div>
+            <div class="col-xs-12 col-md-8 profile-options-items">
+                <h3>Personal Information</h3>
+                    <hr>
+                {% if request.user.profile.avatar %}
+                    <img src="{{user.profile.avatar.url}}" height="100px" alt="users profile image">
+                {% else %}
+                    <img src="{% static 'images/userimage.png' %}" height="100px" alt="default user image">
+                {% endif %}
+                <h5><strong>Username:</strong> {{ user.username }}</h5>
+                <h5><strong>First Name:</strong> {{ user.first_name }} | <strong>Last Name:</strong> {{ user.last_name }}</h5>
+                <h5><strong>Account Number:</strong> 100121{{ user.id }}</h5> 
+                <h5><strong>Email:</strong> {{ user.email }}</h5>
+                <h5><strong>Phone:</strong> {{user.phone_number}}</h5>
+                <h5><strong>Date Joined:</strong> {{user.date_joined}}</h5>
+                <a href="#" class="btn btn-danger">Edit Profile</a>
+            </div>
+        </div>
+    </div>
+
+     <!-- close account Modal -->
+     <div class="modal fade" id="cancelModal" tabindex="-1" role="dialog" aria-labelledby="cancelModalLabel" aria-hidden="true">
+        <div class="modal-dialog" role="document">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h5 class="modal-title" id="cancelModalLabel"><strong>Close account confirmation</strong></h5>
+                    <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                        <span aria-hidden="true"><strong>&times;</strong></span>
+                    </button>
+                </div>
+                <div class="modal-body">
+                    <h3 class="text-center">Are you sure you want to close your account?</h3>
+                    <p class="text-center"><strong>This action is not reversable!</strong></p>
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-secondary" data-dismiss="modal">Go Back</button>
+                    <a href="#" class="btn btn-danger">Close Account</a>
+                </div>
+            </div>
+        </div>
+    </div>
+
 {% endblock %}

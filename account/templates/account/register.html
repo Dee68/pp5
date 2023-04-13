@@ -23,7 +23,7 @@
               <h1 class="card-title title-lead">Signup for a free account</h1>
               <form action="{% url 'account:register' %}" method="POST" class="mt-5">
                 {% csrf_token %}
-               
+                 {% include 'includes/messages.html' %}
                 <div class="mb-3 form-group">
                     <div class="input-group">
                     <span class="input-group-text"><i class="bi bi-person-fill"></i></span>
@@ -68,4 +68,67 @@
     <div class="col-md-4"></div>
 </div>
 
+{% endblock %}
+{% block postloadjs %}
+    <script src="{% static 'js/timer.js' %}"></script>
+<script>
+    const usernameField = document.querySelector('#usernameField');
+    const feedbackArea = document.querySelector(".invalid-feedback");
+    const usernameSuccess = document.querySelector(".usernameSuccess");
+    const emailField = document.querySelector('#emailField');
+    const emailFeedBack = document.querySelector('.emailFeedback');
+    const emailSuccess = document.querySelector(".emailSuccess");
+    const signup = document.querySelector(".signup");
+
+    usernameField.addEventListener('keyup', (e) => {
+        const usernameVal = e.target.value;
+        usernameField.classList.remove("is-invalid");
+        feedbackArea.style.display = 'none';
+        usernameSuccess.textContent = `Checking ${usernameVal}`;
+        if (usernameVal.length > 0) {
+            fetch('/account/validate-username', {
+                body: JSON.stringify({ 'username': usernameVal }),
+                method: 'POST'
+            }).then(res => res.json()).then(data => {
+                usernameSuccess.style.display = 'none';
+                if (data.username_error) {
+                    signup.disabled = true;
+                    usernameField.classList.add('is-invalid');
+                    feedbackArea.style.display = 'block';
+                    feedbackArea.innerHTML = `<p>${data.username_error}</p>`;
+                } else {
+                    signup.disabled = false;
+                }
+
+            });
+
+        }
+
+
+    });
+
+
+    emailField.addEventListener('keyup', (e) => {
+        const emailVal = e.target.value;
+        emailField.classList.remove("is-invalid");
+        emailFeedBack.style.display = 'none';
+        emailSuccess.textContent = `Checking ${emailVal}`;
+        if (emailVal.length > 0) {
+            fetch("/account/validate-email", {
+                body: JSON.stringify({ "email": emailVal }),
+                method: "POST",
+            }).then(res => res.json()).then((data) => {
+                emailSuccess.style.display = 'none';
+                if (data.email_error) {
+                    signup.disabled = true;
+                    emailField.classList.add("is-invalid");
+                    emailFeedBack.style.display = 'block';
+                    emailFeedBack.innerHTML = `<p>${data.email_error}</p>`;
+                } else {
+                    signup.disabled = false;
+                }
+            });
+        }
+    });
+</script>
 {% endblock %}

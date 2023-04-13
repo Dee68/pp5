@@ -2,7 +2,7 @@ from django.shortcuts import get_object_or_404, render, redirect
 from django.views import View
 from django.contrib import messages
 from django.http import JsonResponse, HttpResponseRedirect
-from django.contrib.auth.models import User
+from django.conf import settings
 from django.contrib.auth import (authenticate,
                                  login,
                                  logout,
@@ -101,7 +101,7 @@ class RegistrationView(View):
                             context,
                             status=404
                             )
-            if User.objects.filter(username=username).exists():
+            if CustomUser.objects.filter(username=username).exists():
                 messages.error(request, 'Email already taken, choose another.')
                 return render(
                             request,
@@ -117,7 +117,7 @@ class RegistrationView(View):
                             context,
                             status=400
                             )
-            if User.objects.filter(email=email).exists():
+            if CustomUser.objects.filter(email=email).exists():
                 messages.error(request, 'Email already taken, choose another.')
                 return render(
                             request,
@@ -125,7 +125,7 @@ class RegistrationView(View):
                             context,
                             status=409
                             )
-            user = User.objects.create_user(
+            user = CustomUser.objects.create_user(
                                             username=username,
                                             email=email,
                                             password=password1
@@ -149,7 +149,7 @@ class RegistrationView(View):
                 email_subject,
                 email_body,
                 settings.EMAIL_HOST_USER,
-                [reg_form.cleaned_data.get('email')],
+                [email],
                 fail_silently=False
                 )
             messages.success(request, mark_safe("Account created successfully.\
@@ -162,14 +162,41 @@ class RegistrationView(View):
         return render(request, template_name, context)
 
 
-def signin(request):
+class LoginView(View):
     '''
         this view shows the login form and enables
         a registered user to login the system
     '''
-    context = {}
-    template_name = 'account/login.html'
-    return render(request, template_name, context)
+    def get(self, request):
+        context = {}
+        template_name = 'account/login.html'
+        return render(request, template_name, context)
+
+    def post(self, request):
+        username = request.POST['username']
+        password = request.POST['password']
+        context = {'data': request.POST}
+        template_name = 'account/login.html'
+        if username and password:
+            user = authenticate(username=username, password=password)
+            if user and not user.is_email_verified:
+                messages.error(request,
+                               'Email is not verified,\
+                                please check your inbox.'
+                               )
+                return render(request, template_name, context)
+            elif user and user.is_email_verified:
+                login(request, user)
+                messages.success(request,
+                                 mark_safe('Welcome ' + user.username)
+                                 )
+                return redirect('home:home')
+            if not user:
+                messages.error(request, 'Invalid credentials')
+                return render(request, template_name, context)
+        else:
+            messages.error(request, 'All fields are required')
+            return render(request, template_name, context)
 
 
 def validate_username(request):
@@ -195,7 +222,7 @@ def validate_username(request):
             status=406,
             content_type='application/json'
             )
-    if User.objects.filter(username=username).exists():
+    if CustomUser.objects.filter(username=username).exists():
         return JsonResponse(
             {'username_error': err_str2},
             status=409,
@@ -219,9 +246,52 @@ def validate_email(request):
     err_str = 'Sorry,email already taken, choose another one'
     err_str1 = 'Email is invalid.'
     email = data['email']
-    if User.objects.filter(email=email):
+    if CustomUser.objects.filter(email=email):
         return JsonResponse({'email_error': err_str}, status=409)
     if (re.search(regex, email)):
         return JsonResponse({'email_valid': True}, status=200)
     else:
         return JsonResponse({'email_error': err_str1}, status=400)
+
+
+class VerificationView(View):
+    def get(self, request, uidb64, token):
+        try:
+            id = force_text(urlsafe_base64_decode(uidb64))
+            user = CustomUser.objects.get(pk=id)
+            if not token_generator.check_token(user, token):
+                messages.warning(request, 'Account already activated')
+                return redirect('home:home')
+            if user.is_active:
+                return redirect('account:signin')
+            user.is_active = True
+            user.is_email_verified = True
+            user.save()
+            messages.success(request, 'Account successfully activated')
+        except Exception as ex:
+            pass
+        return redirect('account:signin')
+
+
+def logout_page(request):
+    '''
+        This view displays the confirmation page
+        if a user wishes to log out.
+    '''
+    return render(request, 'account/confirm.html')
+
+
+def confirm_page(request):
+    '''
+        This view accounts for confirmation
+        of users action.
+    '''
+    form = request.POST
+    if request.method == 'POST':
+        if form.get('yes'):
+            logout(request)
+            messages.success(request, 'You are now logged out.')
+            return redirect('home:home')
+        else:
+            return redirect('home:home')
+    return render(request, 'account/confirm.html')

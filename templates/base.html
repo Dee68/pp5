@@ -104,7 +104,7 @@
                                     <a href="#" class="dropdown-item">Product Management</a>
                                 {% endif %}
                                 <a href="{% url 'account:profile' %}" class="dropdown-item">My Profile</a>
-                                <a href="#" class="dropdown-item">Logout</a>
+                                <a href="{% url 'account:confirmation' %}" class="dropdown-item">Logout</a>
                             {% else %}
                                 <a href="{% url 'account:register' %}" class="dropdown-item">Register</a>
                                 <a href="{% url 'account:signin' %}" class="dropdown-item">Login</a>
@@ -174,7 +174,6 @@
             <div class="row gx-5 gy-4">
               <div class="col-lg-4">
                   <img src="{% static 'images/logo-no-background.webp' %}" alt="logo image" width="180" class="img-fluid">
-                <!-- <img class="mb-3 img-fluid" src="images/logo-no-backgroud.png" alt="logo image" width="180"> -->
                  <p></p>
                  <p></p>
                  <br>

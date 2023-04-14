@@ -87,8 +87,12 @@
                         <a class="text-sly nav-link" href="#" id="dt-user-options" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
                             <div class="text-center">
                                 {% if request.user.is_authenticated %}
-                                    <div><i class="fas fa-user fa-lg"></i></div>
-                                    <p class="my-0 text-sly">My Account</p>
+                                <span style="margin-left: 15px;">
+                                  <p>Hi, {{ request.user.username }}</p>
+                                  <img src="{% if user.profile.avatar %}{{ user.profile.avatar.url }}{% else %}{% static 'images/userimage.png' %}{% endif %}" style="height:50px; border-radius:30%;">
+                                </span>
+                                    <!-- <div><i class="fas fa-user fa-lg"></i></div>
+                                    <p class="my-0 text-sly">My Account</p> -->
                                 {% else %}
                                     <div><i class="fas fa-user fa-lg"></i></div>
                                     <p class="my-0 text-sly">Login / Sign Up</p>

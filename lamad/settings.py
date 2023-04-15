@@ -88,6 +88,10 @@ AUTH_USER_MODEL = 'account.CustomUser'
 
 FREE_DELIVERY_THRESHOLD = 50
 STANDARD_DELIVERY_PERCENTAGE = 10
+
+STRIPE_CURRENCY = 'usd'
+STRIPE_PUBLIC_KEY = os.environ.get('STRIPE_PUBLIC_KEY')
+CLIENT_SECRET = os.environ.get('CLIENT_SECRET')
 # Database
 # https://docs.djangoproject.com/en/3.2/ref/settings/#databases
 

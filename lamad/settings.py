@@ -42,6 +42,7 @@ INSTALLED_APPS = [
     'django.contrib.staticfiles',
     'home',
     'shop',
+    'cart',
     'account.apps.AccountConfig',
     'crispy_forms',
     'crispy_bootstrap4',
@@ -73,6 +74,7 @@ TEMPLATES = [
                 'django.contrib.auth.context_processors.auth',
                 'django.contrib.messages.context_processors.messages',
                 'shop.contexts.nav_menu',
+                'cart.contexts.cart_contents',
             ],
         },
     },
@@ -81,6 +83,9 @@ TEMPLATES = [
 WSGI_APPLICATION = 'lamad.wsgi.application'
 
 AUTH_USER_MODEL = 'account.CustomUser'
+
+FREE_DELIVERY_THRESHOLD = 50
+STANDARD_DELIVERY_PERCENTAGE = 10
 # Database
 # https://docs.djangoproject.com/en/3.2/ref/settings/#databases
 

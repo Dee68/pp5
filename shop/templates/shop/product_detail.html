@@ -62,7 +62,7 @@
                     {% endif %}
                 </strong>
             </div>
-            <form class="form" action="#" method="POST">
+            <form class="form" action="{% url 'cart:add_to_cart' product.id %}" method="POST">
                 {% csrf_token %}
                 <div class="form-row">
                     {% with product.has_sizes as s %}

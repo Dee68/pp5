@@ -1,15 +1,18 @@
 {% extends "base.html" %}
+
 {% load static %}
 
+{% load crispy_forms_tags %}
+
 {% block extra_css %}
-    <link rel="stylesheet" href="{% static 'css/profile.css' %}">
+    <link rel="stylesheet" href="{% static 'css/account.css' %}">
 {% endblock %}
 
 {% block page_header %}
     <div class="container header-container">
         <div class="row">
             <div class="col text-center">
-                <h2 class="text-black">Account</h2>
+                <h2 class="text-black">Accounts</h2>
                 <hr>
             </div>
         </div>
@@ -17,39 +20,36 @@
 {% endblock %}
 
 {% block content %}
-    <div class="container-fluid profile-container justify-content-space-around mt-5 mb-5">
-        <div class="row text-center border-guide">
+    <div class="container-fluid profile-container justify-content-space-around">
+        <div class="row text-center">
             <div class="col-xs-12 col-md-4 profile-menu-items">
                 <h3>Profile Menu</h3>
                 <hr>
                 <ul class="profile-menu-list">
-                    <li><a href="{% url 'account:profile' %}" class="menu-item active"><i class="fa-solid fa-info"></i> Personal Information</a></li><hr>
+                    <li><a href="{% url 'account:profile' %}" class="menu-item"><i class="fa-solid fa-info"></i> Personal Information</a></li><hr>
                     <li><a href="#" class="menu-item"><i class="fa-solid fa-truck-fast"></i> Shipping Details</a></li><hr>
-                    <li><a href="{% url 'account:edit_image' user.id %}" class="menu-item"><i class="fa-regular fa-image"></i></i> Change Profile Photo</a></li><hr>
+                    <li><a href="" class="menu-item active"><i class="fa-regular fa-image"></i></i> Change Profile Photo</a></li><hr>
                     <li><a href="#" class="menu-item"><i class="fa-solid fa-receipt"></i> Order history</a></li><hr>
                     <li><a href="#cancelModal" data-toggle="modal" class="menu-item"><i class="fa-regular fa-circle-xmark"></i> Close Account</a></li><hr>
                 </ul>
             </div>
             <div class="col-xs-12 col-md-8 profile-options-items">
-                <h3>Personal Information</h3>
-                    <hr>
-                {% if request.user.profile.avatar %}
-                    <img src="{{user.profile.avatar.url}}" height="100px" alt="users profile image">
+                <h3>Edit Personal Information</h3>
+                <hr>
+                {% if user.userprofile.avatar %}
+                    <img src="{{user.userprofile.avatar.url}}" height="100px">
                 {% else %}
-                    <img src="{% static 'images/userimage.png' %}" height="100px" alt="default user image">
+                    <img src="{% static 'images/userimage.png' %}" height="100px">
                 {% endif %}
-                <h5><strong>Username:</strong> {{ user.username }}</h5>
-                <h5><strong>First Name:</strong> {{ user.first_name }} | <strong>Last Name:</strong> {{ user.last_name }}</h5>
-                <h5><strong>Account Number:</strong> 100121{{ user.id }}</h5> 
-                <h5><strong>Email:</strong> {{ user.email }}</h5>
-                <h5><strong>Phone:</strong> {{user.phone_number}}</h5>
-                <h5><strong>Date Joined:</strong> {{user.date_joined}}</h5>
-                <a href="#" class="btn btn-danger">Edit Profile</a>
+                <form method="POST" class="userinfo-form" id="profile_picture" value="profile_picture"  enctype="multipart/form-data">
+                    {% crispy form %}
+                    <a href="{% url 'account:profile' %}" class="btn btn-danger">Cancel Changes</a>
+                </form>
             </div>
         </div>
     </div>
 
-     <!-- close account Modal -->
+     <!--Close Account Modal -->
      <div class="modal fade" id="cancelModal" tabindex="-1" role="dialog" aria-labelledby="cancelModalLabel" aria-hidden="true">
         <div class="modal-dialog" role="document">
             <div class="modal-content">

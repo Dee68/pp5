@@ -3,12 +3,12 @@
 {% load crispy_forms_field %}
 
 {% block extra_css %}
-    <link rel="stylesheet" href="{% static 'css/products.css' %}">
+    <link rel="stylesheet" href="{% static 'css/product.css' %}">
 {% endblock %}
 
 {% block content %}
 
-<div class="container product-detail-container mb-4">
+<div class="container product-detail-container mb-4" id="sly">
     <div class="row">
         <div class="col-xs-12 col-md-6 product-detail-left">
             {% if product.image_url %}

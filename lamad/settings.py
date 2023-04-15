@@ -44,6 +44,7 @@ INSTALLED_APPS = [
     'shop',
     'account.apps.AccountConfig',
     'crispy_forms',
+    'crispy_bootstrap4',
 ]
 
 CRISPY_TEMPLATE_PACK = 'bootstrap4'

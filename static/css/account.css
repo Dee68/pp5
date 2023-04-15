@@ -22,7 +22,7 @@ h3 {
     color: #e1e6df;
 }
 .bg-primary {
-    background-color: #342408!important;
+    background-color: #1c9a59!important;
 }
 .signup, .lgn {
     color: #fff;
@@ -52,3 +52,22 @@ hr {
     background-color: #3b5998;
   }
   
+  .cfm {
+    color: #292F36!important;
+    border: 2px solid #0c7224;
+    background-color: #f1efec;
+}
+.cfm:hover {
+    color: #fff!important;
+    background-color: rgba(6, 63, 32, 0.9);
+    border: 2px solid #0c7224!important;
+}
+.kn {
+    display: flex;
+}
+/* .profile-container {
+    min-height: 500px;
+    border: 1px solid #42a235!important;
+    margin-top: 30px;
+    padding-top: 30px;
+} */

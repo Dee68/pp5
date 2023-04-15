@@ -295,3 +295,27 @@ def confirm_page(request):
         else:
             return redirect('home:home')
     return render(request, 'account/confirm.html')
+
+
+@login_required(login_url='account/signin')
+def edit_image(request, user_id):
+    """Allow user to edit image from their account"""
+    user = get_object_or_404(CustomUser, id=user_id)
+    userprofile = get_object_or_404(Profile, user=user)
+    if request.POST:
+        form = ImageForm(request.POST, request.FILES)
+        if form.is_valid():
+            userprofile.avatar = request.FILES['avatar']
+            userprofile.save()
+
+            messages.success(request,
+                             'Your image has been updated')
+        return redirect('account:profile')
+
+    user = get_object_or_404(CustomUser, id=user_id)
+    form = ImageForm(instance=userprofile)
+    context = {
+        'form': form
+    }
+    template = 'account/edit_image.html'
+    return render(request, template, context)

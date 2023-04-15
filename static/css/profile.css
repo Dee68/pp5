@@ -38,6 +38,9 @@
     background-color: #dddddd;
   }
 
+.border-guide {
+  border: 2px solid rgb(31, 115, 31)!important;
+}
   @media only screen and (max-width: 768px) {
     .profile-menu-items{
         min-height: 100%;

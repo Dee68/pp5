@@ -5,6 +5,7 @@ from django.contrib.auth import views as auth_views
 from .views import (index,
                     logout_page,
                     confirm_page,
+                    edit_image,
                     RegistrationView,
                     LoginView,
                     validate_email,
@@ -18,6 +19,7 @@ urlpatterns = [
     path('', index, name='profile'),
     path('register/', RegistrationView.as_view(), name='register'),
     path('signin/', LoginView.as_view(), name='signin'),
+    path('edit_image/<user_id>', edit_image, name='edit_image'),
     path(
         'validate-username',
         csrf_exempt(validate_username), name='validate-username'),

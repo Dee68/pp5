@@ -4,7 +4,7 @@ html {
 
 body {
     font-family: 'Courier New', Courier, monospace;
-    background-color: #f4eeee;
+    background-color: #fff;
 }
 
 .nav-bg-color{
@@ -38,11 +38,15 @@ a:hover{
     color: #fd473b;
 }
 
+.title-lead {
+    text-align: center;
+    color: #058a34;
+}
+.alert {
+    text-align: center;
+}
 .text-white{
     color: white;
-}
-.text-sly {
-    color: #7ec37d;
 }
 
 .navbar{

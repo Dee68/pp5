@@ -10,3 +10,20 @@ def home(request):
     template_name = 'home/home.html'
     context = {}
     return render(request, template_name, context)
+
+
+def terms(request):
+    '''
+        this view renders the terms of use
+    '''
+    template_name = 'home/terms.html'
+    return render(request, template_name)
+
+
+def privacy(request):
+    '''
+        this view renders the privacy policies of
+        lamad shop
+    '''
+    template_name = 'home/privacy.html'
+    return render(request, template_name)

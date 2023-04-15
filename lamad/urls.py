@@ -24,6 +24,7 @@ urlpatterns = [
     path('account/', include('account.urls')),
     path('shop/', include('shop.urls')),
     path('cart/', include('cart.urls')),
+    path('checkout/', include('checkout.urls')),
     path('', include('home.urls')),
     # ~~~~~~ password reset ~~~~~~~~~~~~~~~~~~~~~~
     path('password-reset/', auth_views.PasswordResetView.as_view(

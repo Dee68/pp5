@@ -86,12 +86,12 @@ WSGI_APPLICATION = 'lamad.wsgi.application'
 
 AUTH_USER_MODEL = 'account.CustomUser'
 
+# stripe
 FREE_DELIVERY_THRESHOLD = 50
 STANDARD_DELIVERY_PERCENTAGE = 10
-
 STRIPE_CURRENCY = 'usd'
-STRIPE_PUBLIC_KEY = os.environ.get('STRIPE_PUBLIC_KEY')
-CLIENT_SECRET = os.environ.get('CLIENT_SECRET')
+STRIPE_PUBLIC_KEY = os.environ.get('STRIPE_PUBLIC_KEY', '')
+CLIENT_SECRET = os.environ.get('CLIENT_SECRET', '')
 # Database
 # https://docs.djangoproject.com/en/3.2/ref/settings/#databases
 

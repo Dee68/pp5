@@ -275,26 +275,12 @@ class VerificationView(View):
 
 def logout_page(request):
     '''
-        This view displays the confirmation page
+        This view displays a modal for confirmation
         if a user wishes to log out.
     '''
-    return render(request, 'account/confirm.html')
-
-
-def confirm_page(request):
-    '''
-        This view accounts for confirmation
-        of users action.
-    '''
-    form = request.POST
-    if request.method == 'POST':
-        if form.get('yes'):
-            logout(request)
-            messages.success(request, 'You are now logged out.')
-            return redirect('home:home')
-        else:
-            return redirect('home:home')
-    return render(request, 'account/confirm.html')
+    logout(request)
+    messages.success(request, 'You are now logged out.')
+    return redirect('home:home')
 
 
 @login_required(login_url='account/signin')

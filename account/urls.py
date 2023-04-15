@@ -4,7 +4,6 @@ from django.views.decorators.csrf import csrf_exempt
 from django.contrib.auth import views as auth_views
 from .views import (index,
                     logout_page,
-                    confirm_page,
                     edit_image,
                     RegistrationView,
                     LoginView,
@@ -30,5 +29,5 @@ urlpatterns = [
          VerificationView.as_view(),
          name='activate'
          ),
-    path('confirmation', confirm_page, name='confirmation'),
+    path('logout/', logout_page, name='logout'),
 ]

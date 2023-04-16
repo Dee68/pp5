@@ -38,11 +38,6 @@ class Product(models.Model):
     image_url = models.URLField(max_length=1024, null=True, blank=True)
     image = models.ImageField(null=True, blank=True, upload_to='products/')
     rating = models.FloatField(null=True)
-    users_wishlist = models.ManyToManyField(
-                                            settings.AUTH_USER_MODEL,
-                                            related_name='users_wishlist',
-                                            blank=True
-                                            )
 
     def image_tag(self):
         if self.image:

@@ -393,20 +393,20 @@ def whishlist(request):
         this view displays the products the user
         wishes to buy
     '''
-    products = Product.objects.filter(users_wishlist=request.user)
-    userprofile = get_object_or_404(Profile, user=request.user)
-    context = {'products': products, 'userprofile': userprofile}
+    # products = Product.objects.filter(users_wishlist=request.user)
+    # userprofile = get_object_or_404(Profile, user=request.user)
+    # context = {'products': products, 'userprofile': userprofile}
     template_name = 'account/whish_list.html'
-    return render(request, template_name, context)
+    return render(request, template_name)
 
 
 @login_required(login_url='account:signin')
-def add_to_whishlist(request, prod_slug):
-    product = get_object_or_404(Product, slug=prod_slug)  
-    if product.users_wishlist.filter(id=request.user.id).exists():
-        product.users_wishlist.remove(request.user)
-        messages.warning(request, f' {product.title} removed from wishlist.')
-    else:
-        product.users_wishlist.add(request.user)
-        messages.success(request, f'Added {product.title } to whishlist.')
+def add_to_whishlist(request, id):
+    # product = get_object_or_404(Product, id=id)  
+    # if product.users_wishlist.filter(id=request.user.id).exists():
+    #     product.users_wishlist.remove(request.user)
+    #     messages.warning(request, f' {product.title} removed from wishlist.')
+    # else:
+    #     product.users_wishlist.add(request.user)
+    #     messages.success(request, f'Added {product.title } to whishlist.')
     return HttpResponseRedirect(request.META["HTTP_REFERER"])

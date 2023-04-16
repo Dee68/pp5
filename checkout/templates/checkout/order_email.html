@@ -1,0 +1,16 @@
+{% autoescape off %}
+ Hi {{ user.username }}
+ This is the datails of your order: {{ order_number }}
+ Order Details:
+    {% for item in order.lineitems.all %}
+    {{ item.quantity }} items of ${{ item.product.price }} each.
+    {% endfor %}
+  
+  Delivering To: {{ order.first_name }} {{order.last_name}}
+  Address:  {{ order.street_address1 }}
+  Billing Info:
+  Total - {{ order.order_total }}
+  Delivery Cost - {{ order.delivery_cost }}
+  Grand Total - {{ order.grand_total }}
+
+{% endautoescape %}

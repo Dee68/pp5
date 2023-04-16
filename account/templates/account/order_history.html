@@ -1,8 +1,5 @@
 {% extends "base.html" %}
-
 {% load static %}
-
-{% load crispy_forms_tags %}
 
 {% block extra_css %}
     <link rel="stylesheet" href="{% static 'css/account.css' %}">
@@ -26,25 +23,36 @@
                 <h3>Profile Menu</h3>
                 <hr>
                 <ul class="profile-menu-list">
-                    <li><a href="{% url 'account:profile' %}" class="menu-item"><i class="fa-solid fa-info"></i> Personal Information</a></li><hr>
+                    <li><a href="{% url 'account:profile' %}" class="menu-item active"><i class="fa-solid fa-info"></i> Personal Information</a></li><hr>
                     <li><a href="{% url 'account:shipping_details' %}" class="menu-item"><i class="fa-solid fa-truck-fast"></i> Shipping Details</a></li><hr>
-                    <li><a href="" class="menu-item active"><i class="fa-regular fa-image"></i></i> Change Profile Photo</a></li><hr>
-                    <li><a href="{% url 'account:order_history' %}" class="menu-item"><i class="fa-solid fa-receipt"></i> Order history</a></li><hr>
+                    <li><a href="{% url 'account:edit_image' user.id %}" class="menu-item"><i class="fa-regular fa-image"></i></i> Change Profile Photo</a></li><hr>
+                    <li><a href="{% url 'account:order_history' %}" class="menu-item active"><i class="fa-solid fa-receipt"></i> Order history</a></li><hr>
                     <li><a href="#cancelModal" data-toggle="modal" class="menu-item"><i class="fa-regular fa-circle-xmark"></i> Close Account</a></li><hr>
-                </ul>
+                    </ul>
             </div>
-            <div class="col-xs-12 col-md-8 profile-options-items">
-                <h3>Edit Personal Information</h3>
+            <div class="col-xs-12 col-md-8 order-items">
+                <h3>Order History</h3>
                 <hr>
-                {% if userprofile.avatar %}
-                    <img src="{{ userprofile.avatar.url }}" height="100px">
-                {% else %}
-                    <img src="{% static 'images/userimage.png' %}" height="100px">
-                {% endif %}
-                <form method="POST" class="userinfo-form" id="profile_picture" value="profile_picture"  enctype="multipart/form-data">
-                    {% crispy form %}
-                    <a href="{% url 'account:profile' %}" class="btn btn-danger">Cancel Changes</a>
-                </form>
+
+                <table class="table order-table table-bordered">
+                    <tr>
+                        <th>Order Number</th>
+                        <th>Date</th>
+                        <th>Time</th>
+                        <th>Amount</th>
+                    </tr>
+                    <!--This works if the user id is set to the order. Need it done automatically-->
+                    {% for order in orders %}
+                    {% if order.user_id == user.id %}
+                    <tr>
+                        <th><a href="{% url 'account:order_history_details' order.order_number %}" target="_blank">{{ order.order_number|slice:":12" }}</a></th>
+                        <th>{{ order.date|date:"dS M Y" }}</th>
+                        <th>{{ order.date|date:"h:ia"}}</th>
+                        <th>{{ order.grand_total}}</th>
+                    </tr>
+                    {% endif %}
+                    {% endfor %}
+                </table>
             </div>
         </div>
     </div>
@@ -70,5 +78,5 @@
             </div>
         </div>
     </div>
-
+    
 {% endblock %}

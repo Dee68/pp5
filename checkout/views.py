@@ -6,8 +6,10 @@ from django.shortcuts import (render,
                               )
 from django.contrib import messages
 from django.core.mail import send_mail
+from django.template.loader import render_to_string
 from django.views.decorators.http import require_POST
 from django.conf import settings
+from account.models import CustomUser, Profile
 from . forms import OrderForm
 from .models import Order, OrderLineItem
 from shop.models import Product
@@ -45,7 +47,6 @@ def checkout(request):
 
     if request.method == 'POST':
         cart = request.session.get('cart', {})
-
         form_data = {
             'first_name': request.POST['first_name'],
             'last_name': request.POST['last_name'],
@@ -144,6 +145,19 @@ def checkout_success(request, order_number):
         Your order number is {order_number}. A confirmation \
         email will be sent to {order.email}.')
     # send email here
+    email_subject = f'Your order - {order_number}'
+    email_body = render_to_string('checkout/order_email.html',
+                                  {'user': order.user,
+                                   'order': order
+                                   }
+                                  )
+    send_mail(
+              email_subject,
+              email_body,
+              settings.EMAIL_HOST_USER,
+              [order.email],
+              fail_silently=False
+              )
     if 'cart' in request.session:
         del request.session['cart']
 

@@ -1,4 +1,5 @@
 from django import forms
+from datetime import datetime
 from django.contrib.auth.forms import UserCreationForm, UserChangeForm
 from crispy_forms.helper import FormHelper
 from crispy_forms.layout import Submit
@@ -14,7 +15,16 @@ class CustomUserCreationForm(UserCreationForm):
         fields = ['username', 'email', 'password1', 'password2']
 
 
-class CustomUserChangeForm(UserChangeForm):
+class CustomUserChangeForm(ModelForm):
+    def __init__(self, *args, **kwargs):
+        super().__init__(*args, **kwargs)
+        self.helper = FormHelper(self)
+        self.helper.add_input(Submit('submit', 'Submit'))
+
+    username = forms.CharField(max_length=20)
+    first_name = forms.CharField(max_length=40)
+    last_name = forms.CharField(max_length=40)
+    email = forms.EmailField(required=True)
 
     class Meta:
         model = CustomUser

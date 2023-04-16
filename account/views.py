@@ -19,6 +19,8 @@ from django.urls import reverse
 from django.core.mail import send_mail
 from django.utils.safestring import mark_safe
 from . utils import token_generator
+from shop.models import Product
+from checkout.models import Order, OrderLineItem
 from .models import Profile, CustomUser
 from .forms import (CustomUserCreationForm,
                     CustomUserChangeForm,
@@ -28,16 +30,14 @@ from .forms import (CustomUserCreationForm,
 import json
 import re
 
-# Create your views here.
 
-
+@login_required(login_url='account/signin')
 def index(request):
     '''
         this view renders the profile page of a logged in user
     '''
-    context = {}
     template_name = 'account/profile.html'
-    return render(request, template_name, context)
+    return render(request, template_name)
 
 
 class RegistrationView(View):
@@ -283,6 +283,28 @@ def logout_page(request):
     return redirect('home:home')
 
 
+@login_required(login_url='account:signin')
+def edit_profile(request, user_id):
+    """View to allow updating user account info"""
+    user = get_object_or_404(CustomUser, id=user_id)
+    form = CustomUserChangeForm(instance=user)
+    userprofile = get_object_or_404(Profile, user=user)
+    if request.POST:
+        form = CustomUserChangeForm(request.POST, instance=user)
+        if form.is_valid():
+            form.save()
+            messages.success(request,
+                             'Your profile has been updated')
+        return redirect('account:profile')
+    user = CustomUserChangeForm(instance=user)
+    context = {
+        'form': form,
+        'userprofile': userprofile
+    }
+    template = 'account/edit_profile.html'
+    return render(request, template, context)
+
+
 @login_required(login_url='account/signin')
 def edit_image(request, user_id):
     """Allow user to edit image from their account"""
@@ -301,7 +323,90 @@ def edit_image(request, user_id):
     user = get_object_or_404(CustomUser, id=user_id)
     form = ImageForm(instance=userprofile)
     context = {
-        'form': form
+        'form': form,
+        'userprofile': userprofile
     }
     template = 'account/edit_image.html'
     return render(request, template, context)
+
+
+@login_required(login_url='account:signin')
+def order_history(request):
+    """ A view to return profile page """
+    orders = Order.objects.all()
+    template = 'account/order_history.html'
+    context = {
+        'orders': orders
+    }
+    return render(request, template, context)
+
+
+@login_required(login_url='account:signin')
+def order_history_details(request, order_number):
+    order = get_object_or_404(Order, order_number=order_number)
+
+    messages.info(request, (
+        f'This is a past confirmation for order number {order_number}. '
+        'A confirmation email was sent on the order date.'
+    ))
+
+    template = 'checkout/checkout_success.html'
+    context = {
+        'order': order,
+        # 'from_profile': True,
+    }
+
+    return render(request, template, context)
+
+
+@login_required(login_url='account:signin')
+def shipping_details(request):
+    """ A view to return profile page with user shipping addresses """
+    # userprofile = get_object_or_404(Profile, user=request.user)
+    # context = {'userprofile': userprofile, 'user:'}
+    return render(request, 'account/shipping_details.html')
+
+
+@login_required(login_url='account:signin')
+def edit_shipping(request, user_id):
+    """View to allow updating user shipping info"""
+    profile = get_object_or_404(Profile, user=user_id)
+    form = AddressForm(instance=profile)
+    if request.POST:
+        form = AddressForm(request.POST, instance=profile)
+        if form.is_valid():
+            form.save()
+            messages.success(request,
+                             'Your profile has been updated')
+        return redirect('account:profile')
+    profile = AddressForm(instance=profile)
+    context = {
+        'form': form,
+    }
+    template = 'account/edit_shipping.html'
+    return render(request, template, context)
+
+
+@login_required(login_url='account:signin')
+def whishlist(request):
+    '''
+        this view displays the products the user
+        wishes to buy
+    '''
+    products = Product.objects.filter(users_wishlist=request.user)
+    userprofile = get_object_or_404(Profile, user=request.user)
+    context = {'products': products, 'userprofile': userprofile}
+    template_name = 'account/whish_list.html'
+    return render(request, template_name, context)
+
+
+@login_required(login_url='account:signin')
+def add_to_whishlist(request, prod_slug):
+    product = get_object_or_404(Product, slug=prod_slug)  
+    if product.users_wishlist.filter(id=request.user.id).exists():
+        product.users_wishlist.remove(request.user)
+        messages.warning(request, f' {product.title} removed from wishlist.')
+    else:
+        product.users_wishlist.add(request.user)
+        messages.success(request, f'Added {product.title } to whishlist.')
+    return HttpResponseRedirect(request.META["HTTP_REFERER"])

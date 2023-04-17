@@ -207,6 +207,12 @@ button.navbar-toggler{
 .text-black {
     color: #000;
 }
+#cancelModalLabel {
+    color: #000!important;
+}
+.modal-body {
+    color: #000!important;
+}
 .heading{
     margin-bottom: 200px;
 }

@@ -37,7 +37,9 @@ def index(request):
         this view renders the profile page of a logged in user
     '''
     template_name = 'account/profile.html'
-    return render(request, template_name)
+    user = request.user
+    context = {'user': user}
+    return render(request, template_name, context)
 
 
 class RegistrationView(View):
@@ -388,25 +390,11 @@ def edit_shipping(request, user_id):
 
 
 @login_required(login_url='account:signin')
-def whishlist(request):
+def delete_account(request, user_id):
     '''
-        this view displays the products the user
-        wishes to buy
+        this view enables user to delete his/her
+        account
     '''
-    # products = Product.objects.filter(users_wishlist=request.user)
-    # userprofile = get_object_or_404(Profile, user=request.user)
-    # context = {'products': products, 'userprofile': userprofile}
-    template_name = 'account/whish_list.html'
-    return render(request, template_name)
-
-
-@login_required(login_url='account:signin')
-def add_to_whishlist(request, id):
-    # product = get_object_or_404(Product, id=id)  
-    # if product.users_wishlist.filter(id=request.user.id).exists():
-    #     product.users_wishlist.remove(request.user)
-    #     messages.warning(request, f' {product.title} removed from wishlist.')
-    # else:
-    #     product.users_wishlist.add(request.user)
-    #     messages.success(request, f'Added {product.title } to whishlist.')
-    return HttpResponseRedirect(request.META["HTTP_REFERER"])
+    user = get_object_or_404(CustomUser, id=user_id)
+    messages.warning(request, 'Your account has been closed.')
+    return redirect('home:home')

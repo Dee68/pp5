@@ -81,8 +81,8 @@
                            
                         </div>
 
-                        {% if user.is_superadmin %}
-                            <a href="#" class="btn btn-warning mt-2">
+                        {% if user.is_superuser %}
+                            <a href="{% url 'shop:edit_product' product.id %}" class="btn btn-warning mt-2">
                                 <span class="text-uppercase">Edit</span>
                             </a>
                             <!--Delete product modal button-->
@@ -103,7 +103,7 @@
                                         </div>
                                         <div class="modal-footer">
                                             <button type="button" class="btn btn-secondary" data-dismiss="modal">Go Back</button>
-                                            <a href="#" class="btn btn-danger mt-2">Delete Product</a>
+                                            <a href="{% url 'shop:delete_product' product.id %}" class="btn btn-danger mt-2">Delete Product</a>
                                         </div>
                                     </div>
                                 </div>

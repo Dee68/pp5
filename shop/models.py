@@ -56,16 +56,21 @@ class Product(models.Model):
 
 
 class Review(models.Model):
+    RATING = (
+        (1, '1'),
+        (2, '2'),
+        (3, '3'),
+        (4, '4'),
+        (5, '5'),
+    )
     product = models.ForeignKey(Product, on_delete=models.CASCADE)
     user = models.ForeignKey(
                              settings.AUTH_USER_MODEL,
                              on_delete=models.CASCADE
                              )
-    subject = models.CharField(max_length=100, blank=True)
-    review = models.TextField(max_length=500, blank=True)
-    rating = models.FloatField()
-    status = models.BooleanField(default=True)
+    review = models.TextField(max_length=200, blank=True)
+    rating = models.CharField(max_length=10, choices=RATING, default=1)
     created_at = models.DateTimeField(auto_now_add=True)
 
     def __str__(self):
-        return self.subject
+        return self.rating

@@ -4,11 +4,12 @@
 
 {% block extra_css %}
     <link rel="stylesheet" href="{% static 'css/product.css' %}">
+    <link rel="stylesheet" href="{% static 'css/custom.css' %}">
 {% endblock %}
 
 {% block content %}
 
-<div class="container product-detail-container mb-4" id="sly">
+<div class="container product-detail-container mb-4">
     <div class="row">
         <div class="col-xs-12 col-md-6 product-detail-left">
             {% if product.image_url %}
@@ -62,88 +63,185 @@
                     {% endif %}
                 </strong>
             </div>
-            <form class="form" action="{% url 'cart:add_to_cart' product.id %}" method="POST">
-                {% csrf_token %}
-                <div class="form-row">
-                    {% with product.has_sizes as s %}
-                        {% if s %}
-                            <div class="col">
-                                <p><strong>Size:</strong></p>
-                                <select class="form-control rounded-0 w-50" name="product-size" id="id_product_size">
-                                    <option value="s">S</option>
-                                    <option value="m">M</option>
-                                    <option value="l">L</option>
-                                </select>
-                            </div>
-                        {% endif %}
-                        <div class="col-12">
-                            <p class="mt-3"><strong>Quantity:</strong></p>
-                            <div class="form-group w-50">
-                                <div class="input-group">
-                                    <div class="input-group-prepend">
-                                        <button class="decrement-qty btn btn-custom-green rounded-0" 
-                                            data-item_id="{{ product.id }}" id="decrement-qty_{{ product.id }}">
-                                            <span class="icon">
-                                                <i class="fas fa-minus"></i>
-                                            </span>
-                                        </button>
-                                    </div>
-                                    <input class="form-control qty_input" type="number"
-                                        name="quantity" value="1" min="1" max="99"
-                                        data-item_id="{{ product.id }}"
-                                        id="id_qty_{{ product.id }}">
-                                    <div class="input-group-append">
-                                        <button class="increment-qty btn btn-custom-green rounded-0"
-                                            data-item_id="{{ product.id }}" id="increment-qty_{{ product.id }}">
-                                            <span class="icon">
-                                                <i class="fas fa-plus"></i>
-                                            </span>
-                                        </button>
+            <div class="row">
+                <div class="col-6">
+                    <form class="form" action="{% url 'cart:add_to_cart' product.id %}" method="POST">
+                        {% csrf_token %}
+                        <div class="form-row">
+                            
+                                <div class="col-12">
+                                    <p class="mt-3"><strong>Quantity:</strong></p>
+                                    <div class="form-group w-50">
+                                        <div class="input-group">
+                                            <div class="input-group-prepend">
+                                                <button class="decrement-qty btn btn-custom-green rounded-0" 
+                                                    data-item_id="{{ product.id }}" id="decrement-qty_{{ product.id }}">
+                                                    <span class="icon">
+                                                        <i class="fas fa-minus"></i>
+                                                    </span>
+                                                </button>
+                                            </div>
+                                            <input class="form-control qty_input" type="number"
+                                                name="quantity" value="1" min="1" max="99"
+                                                data-item_id="{{ product.id }}"
+                                                id="id_qty_{{ product.id }}">
+                                            <div class="input-group-append">
+                                                <button class="increment-qty btn btn-custom-green rounded-0"
+                                                    data-item_id="{{ product.id }}" id="increment-qty_{{ product.id }}">
+                                                    <span class="icon">
+                                                        <i class="fas fa-plus"></i>
+                                                    </span>
+                                                </button>
+                                            </div>
+                                        </div>
                                     </div>
                                 </div>
-                            </div>
+                                <div class="row">
+                                <div class="col-6 mt-2">
+                                    <a href="{% url 'shop:products' %}" class="btn btn-outline-secondary rounded-0 mt-5">
+                                        <span class="icon">
+                                            <i class="fas fa-chevron-left"></i>
+                                            <span class="text-uppercase">Shop</span>
+                                        </span>
+                                       
+                                    </a>
+                                    
+                                </div>
+                                <div class="col-6 mt-2">
+                                    {% if product.in_stock %}
+                                    <input type="submit" class="btn btn-danger rounded-0 text-uppercase mt-5" value="Add to Cart">
+                                    
+                                    {% else %}
+                                    <input type="submit" class="btn btn-black rounded-0 text-uppercase mt-5 disabled" value="Out of Stock">
+                                    {% endif %}
+                                </div>
+                                </div>
+                                <input type="hidden" name="redirect_url" value="{{ request.path }}">
+                           
                         </div>
-
-                        <div class="col{% if s %}-12 mt-2{% endif %}">
-                            <a href="{% url 'shop:products' %}" class="btn btn-outline-secondary rounded-0 mt-5">
-                                <span class="icon">
-                                    <i class="fas fa-chevron-left"></i>
-                                </span>
-                                <span class="text-uppercase">Keep Shopping</span>
-                            </a>
-                            {% if product.in_stock %}
-                            <input type="submit" class="btn btn-danger rounded-0 text-uppercase mt-5" value="Add to Cart">
-                            
-                            {% else %}
-                            <input type="submit" class="btn btn-black rounded-0 text-uppercase mt-5 disabled" value="Out of Stock">
-                            {% endif %}
-                        </div>
-                        <input type="hidden" name="redirect_url" value="{{ request.path }}">
-                    {% endwith %}
+                    </form>
                 </div>
-            </form>
-            <form class="form" action="{% url 'wishlist:add_to_wishlist' %}" method="POST">
-                {% csrf_token %}
-                <div class="form-row">
-                        <div class="col{% if s %}-12 mt-2{% endif %}">
-                            <input type="submit" class="btn btn-danger rounded-0 text-uppercase mt-5" value="Add to wishlist">
-                            
+           
+                <div class="col-6">
+                    <form class="form" action="{% url 'wishlist:add_to_wishlist' %}" method="POST">
+                        {% csrf_token %}
+                        <div class="form-row">
+                                <div class="col{% if s %}-12 mt-2{% endif %}">
+                                    <!-- <input type="submit" class="btn btn-danger rounded-0 text-uppercase mt-5" value="Add to wishlist"> -->
+                                    <button type="submit" class="btn btn-success rounded-0 text-uppercase mt-5">Wish List <i class="fas fa-heart" id="love"></i></button>
+                                </div>
+                                <input type="hidden" name="product-id" value="{{ product.id }}">
                         </div>
-                        <input type="hidden" name="product-id" value="{{ product.id }}">
+                    </form>
                 </div>
-            </form>
+            </div>
         </div>
     </div>
     <!--Description Row-->
     <hr>
-    <div class="row">
-        <div class="col-md-8 mb-4  mt-3 ">
-            <h3 class="text-center">Description</h3>
-            <div class="card-body">
-                <p>{{ product.description }}</p>
+    <div class="card">
+        <div class="card-header">
+          
+          <div class="d-flex">
+            <div class="title pt-3 pb-4 text-center">
+              <h3>Details</h3>
             </div>
+          </div>
+          
+          <!-- START TABS DIV -->
+          <div class="tabbable-responsive">
+            <div class="tabbable">
+              <ul class="nav nav-tabs" id="myTab" role="tablist">
+                <li class="nav-item">
+                  <a class="nav-link active" id="first-tab" data-toggle="tab" href="#first" role="tab" aria-controls="first" aria-selected="true">Description</a>
+                </li>
+                <li class="nav-item">
+                  <a class="nav-link" id="second-tab" data-toggle="tab" href="#second" role="tab" aria-controls="second" aria-selected="false">Review</a>
+                </li>
+              </ul>
+            </div>
+          </div>
         </div>
-    </div>
+        <div class="card-body">
+          <div class="tab-content">
+            <div class="tab-pane fade show active" id="first" role="tabpanel" aria-labelledby="first-tab">
+              <div class="row">
+                <div class="col-12  mt-3 ">
+                   
+                    <div class="card-body">
+                        <p>{{ product.description }}</p>
+                    </div>
+                </div>
+            </div>
+            </div>
+            <div class="tab-pane fade" id="second" role="tabpanel" aria-labelledby="second-tab">
+              <div class="row">
+                <div class="col-6">
+                    {% if reviews %}
+                    {% for review in reviews %}
+                     <ul>
+                        <li>{{ review }}</li>
+                     </ul>
+                    {% endfor %}
+                    {% else %}
+                    <h3>No review for this product yet.</h3>
+                    {% endif %}
+                </div>
+                <div class="col-6">
+                    <div class="card">
+                        <div class="card-body">
+                            <h3>Add a Review</h3>
+                            <form action="{% url 'shop:add_review' product.id %}" method="post">
+                                {% csrf_token %}
+                                <div class="row">
+                                    <div class="col-md-3"><label for="author" class="ci">User:</label></div>
+                                    <div class="col-md-9 mb-3">
+                                     <input type="text" id="author" name="author" class="form-control" value="{{ request.user.username}}">
+                                    </div>
+                              
+                                </div>
+                                <div class="row">
+                                    <div class="col-md-3"><label for="rating" class="ci">Rating:</label></div>
+                                    <div class="col-md-9 mb-3">
+                                     <select name="rating" id="rating" class="form-control">
+                                        {% for value, label in form.fields %}
+                                            <option value="{{ value }}">{{ label }}</option>
+                                        {% endfor %}
+                                     </select>
+                                    </div>
+                              
+                                </div>
+                                    <div class="row">
+                                        <div class="col-md-3"><label for="content" class="ci">Review:</label></div>
+                                        <div class="col-md-9 mb-3">
+                                         <textarea name="content" id="content" cols="15" rows="5" class="form-control"></textarea>
+                                        </div>
+                                  
+                                    </div>
+                            </div>
+                            <div class="row pb-2 btn-group gap-4">
+                                {% if request.user.is_authenticated %}
+                                <div class="col d-grid pl-5">
+                                    <button type="submit" class="btn btn-success btn-lg cfm" name="submit">Review</button>
+                                </div>
+                                {% else %}
+                                <div class="col d-grid">
+                                    <a href="{% url 'account:signin' %}" class="btn btn-outline btn-lg cfm">Login To Review</a>
+                                </div>
+                                {% endif %}
+                                
+                            </form>
+                        </div>
+                    </div>
+                </div>
+              </div>
+            </div>
+    
+          </div>      
+        </div>
+      </div>
+    
+  
 </div>
 
 {% endblock %}

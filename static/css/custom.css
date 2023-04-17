@@ -1,0 +1,27 @@
+.tabbable-responsive {
+    display: block;
+    min-width: 100%;
+    overflow-x: auto;
+    margin: 0px -20px -13px -20px;
+  }
+#love {
+    color: red!important;
+}
+li > a {
+    color: black!important;
+}
+.tabbable {
+    min-width: 100%;
+} 
+.nav-tabs {
+    white-space: nowrap;
+    display: inline-block;
+    min-width: 100%;
+    padding: 0px 21px;
+    }
+.nav-item {
+        display: inline-block;
+}  
+.nav-link {
+        display: inline-block;
+          }

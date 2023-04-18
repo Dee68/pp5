@@ -1,6 +1,6 @@
 {% extends "base.html" %}
 {% load static %}
-{% load crispy_forms_field %}
+{% load crispy_forms_tags %}
 
 {% block extra_css %}
     <link rel="stylesheet" href="{% static 'css/product.css' %}">
@@ -193,7 +193,9 @@
                             <h3>Add a Review</h3>
                             <form action="{% url 'shop:add_review' product.id %}" method="post">
                                 {% csrf_token %}
-                                <div class="row">
+                                
+                                {{ form | crispy }}
+                                <!-- <div class="row">
                                     <div class="col-md-3"><label for="author" class="ci">User:</label></div>
                                     <div class="col-md-9 mb-3">
                                      <input type="text" id="author" name="author" class="form-control" value="{{ request.user.username}}">
@@ -217,7 +219,7 @@
                                          <textarea name="content" id="content" cols="15" rows="5" class="form-control"></textarea>
                                         </div>
                                   
-                                    </div>
+                                    </div> -->
                             </div>
                             <div class="row pb-2 btn-group gap-4">
                                 {% if request.user.is_authenticated %}

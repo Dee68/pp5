@@ -4,7 +4,7 @@ from django.http import HttpResponseRedirect
 from django.db.models import Q
 from django.contrib.auth.decorators import login_required
 from .models import Product, Category, Review
-from . forms import ReviewForm, ProductForm
+from . forms import ProductForm, ReviewForm
 
 # Create your views here.
 
@@ -51,12 +51,14 @@ def product_detail(request, category_slug, product_slug):
         product = Product.objects.get(category__slug=category_slug,
                                       slug=product_slug)
         reviews = Review.objects.all()
+        
     except Exception as e:
         raise e
-
+    # form = ReviewForm()
     context = {
         'product': product,
-        'reviews': reviews
+        'reviews': reviews,
+        # 'form': form
     }
 
     template = 'shop/product_detail.html'
@@ -97,7 +99,7 @@ def add_product(request):
         if form.is_valid():
             form.save()
             messages.success(request, 'Successfully added product!')
-            return redirect(reverse('add_product'))
+            return redirect(reverse('shop:add_product'))
         else:
             messages.error(request, 'Failed to add product. '
                            'Please ensure the form is valid.')

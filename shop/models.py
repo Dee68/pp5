@@ -55,22 +55,22 @@ class Product(models.Model):
         return self.name
 
 
+class Rating(models.Model):
+    rating = models.SmallIntegerField()
+
+    def __str__(self):
+        return str(self.rating)
+
+
 class Review(models.Model):
-    RATING = (
-        (1, '1'),
-        (2, '2'),
-        (3, '3'),
-        (4, '4'),
-        (5, '5'),
-    )
     product = models.ForeignKey(Product, on_delete=models.CASCADE)
     user = models.ForeignKey(
                              settings.AUTH_USER_MODEL,
                              on_delete=models.CASCADE
                              )
+    rating = models.ForeignKey(Rating, on_delete=models.CASCADE)
     review = models.TextField(max_length=200, blank=True)
-    rating = models.CharField(max_length=10, choices=RATING, default=1)
     created_at = models.DateTimeField(auto_now_add=True)
 
     def __str__(self):
-        return self.rating
+        return f"{self.user}'s review on {self.product.name}"

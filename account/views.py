@@ -18,7 +18,7 @@ from django.contrib.sites.shortcuts import get_current_site
 from django.urls import reverse
 from django.core.mail import send_mail
 from django.utils.safestring import mark_safe
-from . utils import token_generator
+from .utils import token_generator
 from shop.models import Product
 from checkout.models import Order, OrderLineItem
 from .models import Profile, CustomUser

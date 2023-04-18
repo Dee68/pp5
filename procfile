@@ -1,1 +1,1 @@
-web: gunicorn lamad.wsgi:application
+web: gunicorn lamad.wsgi

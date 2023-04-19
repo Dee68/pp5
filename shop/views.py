@@ -45,20 +45,14 @@ def products(request, category_slug=None):
     return render(request, 'shop/products.html', context)
 
 
-def product_detail(request, category_slug, product_slug):
+def product_detail(request, product_id):
     """ A view to show individual product details """
-    try:
-        product = Product.objects.get(category__slug=category_slug,
-                                      slug=product_slug)
-        reviews = Review.objects.all()
-        
-    except Exception as e:
-        raise e
-    # form = ReviewForm()
+    product = get_object_or_404(Product, pk=product_id)
+    reviews = Review.objects.filter(product=product).all()
+    form = ReviewForm(request.POST)
     context = {
         'product': product,
-        'reviews': reviews,
-        # 'form': form
+        'reviews': reviews
     }
 
     template = 'shop/product_detail.html'
@@ -66,25 +60,25 @@ def product_detail(request, category_slug, product_slug):
     return render(request, template, context)
 
 
-def add_review(request, prod_id):
+def add_review(request, product_id):
     '''
         this view enables logged in users to
         give their review
     '''
     form = ReviewForm()
-    product = get_object_or_404(Product, id=prod_id)
+    product = get_object_or_404(Product, pk=product_id)
     user = request.user
     if request.method == 'POST':
         form = ReviewForm(request.POST)
         if form.is_valid():
             form.save()
             messages.success(request, 'Review added successfully')
-            return HttpResponseRedirect(request.META.get('HTTP_REFERER'))
+            return redirect(reverse('shop:products'))
         else:
             messages.error(request, 'All fields are required')
             return HttpResponseRedirect(request.META.get('HTTP_REFERER'))
     context = {'product': product, 'user': user, 'form': form}
-    return render(request, 'shop/product_detail.html', context)
+    return render(request, 'shop/add_review.html', context)
 
 
 @login_required(login_url='account:signin')
@@ -152,7 +146,7 @@ def delete_product(request, product_id):
         return redirect(reverse('home:home'))
 
     """Delete a product function"""
-    product = get_object_or_404(Product, id=product_id)
+    product = get_object_or_404(Product, pk=product_id)
     product.delete()
-    messages.success(request, f"{product.product_name} has been deleted")
+    messages.success(request, f"{product.name} has been deleted")
     return redirect(reverse('shop:products'))

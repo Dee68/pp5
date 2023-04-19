@@ -120,6 +120,7 @@
                            
                         </div>
                     </form>
+                    
                 </div>
            
                 <div class="col-6">
@@ -127,7 +128,6 @@
                         {% csrf_token %}
                         <div class="form-row">
                                 <div class="col{% if s %}-12 mt-2{% endif %}">
-                                    <!-- <input type="submit" class="btn btn-danger rounded-0 text-uppercase mt-5" value="Add to wishlist"> -->
                                     <button type="submit" class="btn btn-success rounded-0 text-uppercase mt-5">Wish List <i class="fas fa-heart" id="love"></i></button>
                                 </div>
                                 <input type="hidden" name="product-id" value="{{ product.id }}">
@@ -176,66 +176,15 @@
             </div>
             <div class="tab-pane fade" id="second" role="tabpanel" aria-labelledby="second-tab">
               <div class="row">
-                <div class="col-6">
-                    {% if reviews %}
+                {% if reviews %}
                     {% for review in reviews %}
-                     <ul>
-                        <li>{{ review }}</li>
-                     </ul>
+                    <ul>
+                        <li>{{ review.rating }}</li>
+                    </ul>
                     {% endfor %}
-                    {% else %}
-                    <h3>No review for this product yet.</h3>
-                    {% endif %}
-                </div>
-                <div class="col-6">
-                    <div class="card">
-                        <div class="card-body">
-                            <h3>Add a Review</h3>
-                            <form action="{% url 'shop:add_review' product.id %}" method="post">
-                                {% csrf_token %}
-                                
-                                {{ form | crispy }}
-                                <!-- <div class="row">
-                                    <div class="col-md-3"><label for="author" class="ci">User:</label></div>
-                                    <div class="col-md-9 mb-3">
-                                     <input type="text" id="author" name="author" class="form-control" value="{{ request.user.username}}">
-                                    </div>
-                              
-                                </div>
-                                <div class="row">
-                                    <div class="col-md-3"><label for="rating" class="ci">Rating:</label></div>
-                                    <div class="col-md-9 mb-3">
-                                     <select name="rating" id="rating" class="form-control">
-                                        {% for value, label in form.fields %}
-                                            <option value="{{ value }}">{{ label }}</option>
-                                        {% endfor %}
-                                     </select>
-                                    </div>
-                              
-                                </div>
-                                    <div class="row">
-                                        <div class="col-md-3"><label for="content" class="ci">Review:</label></div>
-                                        <div class="col-md-9 mb-3">
-                                         <textarea name="content" id="content" cols="15" rows="5" class="form-control"></textarea>
-                                        </div>
-                                  
-                                    </div> -->
-                            </div>
-                            <div class="row pb-2 btn-group gap-4">
-                                {% if request.user.is_authenticated %}
-                                <div class="col d-grid pl-5">
-                                    <button type="submit" class="btn btn-success btn-lg cfm" name="submit">Review</button>
-                                </div>
-                                {% else %}
-                                <div class="col d-grid">
-                                    <a href="{% url 'account:signin' %}" class="btn btn-outline btn-lg cfm">Login To Review</a>
-                                </div>
-                                {% endif %}
-                                
-                            </form>
-                        </div>
-                    </div>
-                </div>
+                {% else %}
+                <p>list of reviews goes here.</p>
+                {% endif %}
               </div>
             </div>
     

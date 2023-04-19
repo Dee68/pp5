@@ -177,58 +177,10 @@
             <div class="tab-pane fade" id="second" role="tabpanel" aria-labelledby="second-tab">
               <div class="row">
                <div class="col-lg-6">
-                {% if reviews %}
-                {% for review in reviews %}
-                <div class="col-12">
-                    <small class="text-muted ml-5">
-                        <strong>
-                            <span class="text-black"> Rating:</span>
-                            {% if review.rating.rating == 1 %}
-                            <i class="fa-solid fa-star fa-orange"></i>
-                            <i class="fa-regular fa-star"></i>
-                            <i class="fa-regular fa-star"></i>
-                            <i class="fa-regular fa-star"></i>
-                            <i class="fa-regular fa-star"></i>
-                            {% elif review.rating.rating == 2 %}
-                            <i class="fa-solid fa-star fa-orange"></i>
-                            <i class="fa-solid fa-star fa-orange"></i>
-                            <i class="fa-regular fa-star"></i>
-                            <i class="fa-regular fa-star"></i>
-                            <i class="fa-regular fa-star"></i>
-                            {% elif review.rating.rating == 3 %}
-                            <i class="fa-solid fa-star fa-orange"></i>
-                            <i class="fa-solid fa-star fa-orange"></i>
-                            <i class="fa-solid fa-star fa-orange"></i>
-                            <i class="fa-regular fa-star"></i>
-                            <i class="fa-regular fa-star"></i>
-                            {% elif review.rating.rating == 4 %}
-                            <i class="fa-solid fa-star fa-orange"></i>
-                            <i class="fa-solid fa-star fa-orange"></i>
-                            <i class="fa-solid fa-star fa-orange"></i>
-                            <i class="fa-solid fa-star fa-orange"></i>
-                            <i class="fa-regular fa-star"></i>
-                            {% else %}
-                            <i class="fa-solid fa-star fa-orange"></i>
-                            <i class="fa-solid fa-star fa-orange"></i>
-                            <i class="fa-solid fa-star fa-orange"></i>
-                            <i class="fa-solid fa-star fa-orange"></i>
-                            <i class="fa-solid fa-star fa-orange"></i>
-                            {% endif %}
-                        </strong>
-                    </small>
-                    <p class="ml-5">{{ review.review}}</p>
-                    <br>
-                </div>
-                <div class="col-12 text-center">
-                    <p class="ml-10">  - {{ review.user.username }} on {{ review.created_at }}</p>
-                </div>
-                {% endfor %}
-            {% else %}
-            <p>No review on this product yet.</p>
-            {% endif %}
+               <!-- add code here -->
                </div>
                <div class="col-lg-6">
-                <a href="{% url 'shop:add_review' product.id  %}" class="btn btn-warning rounded-0 mt-5 text-uppercase">Add Review</a>
+                <a href="#" class="btn btn-warning rounded-0 mt-5 text-uppercase">Add Review</a>
                </div>
               </div>
             </div>

@@ -3,8 +3,8 @@ from django.contrib import messages
 from django.http import HttpResponseRedirect
 from django.db.models import Q
 from django.contrib.auth.decorators import login_required
-from .models import Product, Category, Review
-from . forms import ProductForm, ReviewForm
+from .models import Product, Category
+from . forms import ProductForm
 
 # Create your views here.
 
@@ -48,37 +48,37 @@ def products(request, category_slug=None):
 def product_detail(request, product_id):
     """ A view to show individual product details """
     product = get_object_or_404(Product, pk=product_id)
-    reviews = Review.objects.filter(product=product).all()
-    form = ReviewForm(request.POST)
+    # reviews = Review.objects.filter(product=product).all()
+    # form = ReviewForm(request.POST)
     context = {
         'product': product,
-        'reviews': reviews
+        # 'reviews': reviews
     }
     template = 'shop/product_detail.html'
 
     return render(request, template, context)
 
 
-@login_required(login_url='account:signin')
-def add_review(request, product_id):
-    '''
-        this view enables logged in users to
-        give their review
-    '''
-    form = ReviewForm()
-    product = get_object_or_404(Product, pk=product_id)
-    user = request.user
-    if request.method == 'POST':
-        form = ReviewForm(request.POST)
-        if form.is_valid():
-            form.save()
-            messages.success(request, 'Review added successfully')
-            return redirect(reverse('shop:products'))
-        else:
-            messages.error(request, 'All fields are required')
-            return HttpResponseRedirect(request.META.get('HTTP_REFERER'))
-    context = {'product': product, 'user': user, 'form': form}
-    return render(request, 'shop/add_review.html', context)
+# @login_required(login_url='account:signin')
+# def add_review(request, product_id):
+#     '''
+#         this view enables logged in users to
+#         give their review
+#     '''
+#     form = ReviewForm()
+#     product = get_object_or_404(Product, pk=product_id)
+#     user = request.user
+#     if request.method == 'POST':
+#         form = ReviewForm(request.POST)
+#         if form.is_valid():
+#             form.save()
+#             messages.success(request, 'Review added successfully')
+#             return redirect(reverse('shop:products'))
+#         else:
+#             messages.error(request, 'All fields are required')
+#             return HttpResponseRedirect(request.META.get('HTTP_REFERER'))
+#     context = {'product': product, 'user': user, 'form': form}
+#     return render(request, 'shop/add_review.html', context)
 
 
 @login_required(login_url='account:signin')

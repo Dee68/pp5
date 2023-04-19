@@ -54,7 +54,6 @@ def product_detail(request, product_id):
         'product': product,
         'reviews': reviews
     }
-    print(reviews[0].rating.rating)
     template = 'shop/product_detail.html'
 
     return render(request, template, context)

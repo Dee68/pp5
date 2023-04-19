@@ -19,6 +19,9 @@ from django.conf import settings
 from django.conf.urls.static import static
 from django.contrib.auth import views as auth_views
 
+
+admin.site.index_title = 'Lamad Shop Administraion'
+
 urlpatterns = [
     path('admin/', admin.site.urls),
     path('account/', include('account.urls')),
@@ -50,3 +53,6 @@ urlpatterns = [
         ),
     # ~~~~~~~~~~~~~ end password reset ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 ] + static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT)
+
+handler404 = "lamad.views.page_not_found_view"  # custom 404 handler
+handler500 = "lamad.views.internal_server_error" # cuctom 500 handler

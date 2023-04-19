@@ -8,7 +8,7 @@ body {
 }
 
 .nav-bg-color{
-    background-color: #3a3a3a;
+    background-color: #59adaf;
 }
 
 
@@ -21,9 +21,9 @@ li > a{
 }
 
 
-a:hover{
+footer a:hover{
     cursor: pointer;
-    color: #35dc3b;
+    color: #59adaf!important;
 }
 
 .bg-black {
@@ -31,7 +31,7 @@ a:hover{
 }
 
 .my-secondary {
-    background-color: #7ec37d;
+    background-color: #3a3a3a;
 }
 
 .my-button {
@@ -53,24 +53,30 @@ a:hover{
     padding: 0;
 }
 
+
 .second-nav {
     padding: 0;
-    background-color:#3a3a3a;
+    background-color:#59adaf;
     min-width: 100%;
 }
 
 .fas{
-    color: #7ec37d;
+    color: #fff;
 }
 
 .fa-cart-shopping{
-    color: #7ec37d;
+    color: #fff;
 }
 .btn-sly {
     background-color: #7ec37d;
 }
+.btn-success {
+    color: #fff;
+    background-color: #59adaf;
+    border-color: #59adaf;
+}
 .text-sly {
-    color: #7ec37d !important;
+    color: #59adaf !important;
 }
 .img-fluid {
     max-width: 100%;
@@ -93,11 +99,11 @@ button.navbar-toggler{
 }
 
 .cart-amount{
-    color: #7ec37d;
+    color: #fff;
 }
 
 .shop-now-button {
-    background: #42a235;
+    background: #59adaf;
     color: white;
     min-width: 260px;
     font-size: 140%;
@@ -115,21 +121,8 @@ button.navbar-toggler{
 .btn-white:active,
 .btn-white:focus {
     background: white;
-    color: #2c964c;
+    color: #59adaf;
 }
-
-/* .hero-image{
-    background: url('{{MEDIA_URL}}/media/hero-image1.jpg') no-repeat center top fixed;
-    background-repeat: no-repeat;
-    background-position: center top;
-    background-attachment: fixed;
-    height: 380px;
-    min-width: 100%;
-} */
-
-/* .hero-row{
-    margin-top: 60px;
-} */
 
 .overlay{
     background-color: rgba(226, 235, 229, 0.6);
@@ -151,9 +144,10 @@ button.navbar-toggler{
 
 }
 
-.cta-h1{
+.cta-h1, .cta-h2{
     font-size: 28px;
-    color: rgb(19, 88, 12);
+    font-weight: bold;
+    color: rgb(234, 78, 11);
     margin-top: 15px;
 }
 
@@ -182,7 +176,7 @@ button.navbar-toggler{
 
 .div-col{
     text-align: center;
-    color: #7ec37d;
+    color: #fff;
     border-bottom: solid white 1px;
     background-color: #3a3a3a;
 }
@@ -373,9 +367,7 @@ li{
     visibility: hidden;
 }
 
-.navbar-toggler-icon  {
-    background-color: #7ec37d!important;
-}
+
 /* move to top icon */
 #to-top {
     text-decoration: none;
@@ -391,7 +383,7 @@ li{
     border-radius: 52px;
     text-decoration: none;
     line-height: 52px;
-    background-color: rgba(79, 143, 69, 0.7);
+    background-color: rgba(137, 227, 191, 0.7);
     border: 2px solid transparent;
     text-align: center;
 }

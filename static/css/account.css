@@ -3,7 +3,7 @@
 }
 .title-lead, a {
     text-align: center;
-    color: #9fe391!important;
+    color: #fff!important;
 }
 .title-lead {
     font-size: 150%;
@@ -12,9 +12,9 @@
     text-align: center;
 }
 .logout {
-    border: 2px solid #1b7030;
-    background-color: #2a2a2c;
-    box-shadow: 15px 10px 10px rgba(108, 190, 145, 0.5); 
+    border: 2px solid #1b6f70;
+    background-color: #59adaf;
+    box-shadow: 15px 10px 10px rgba(143, 227, 181, 0.5); 
     
 }
 h3 {
@@ -28,19 +28,19 @@ h3 {
     color: #fff;
     font-size: 140%;
     border: 1px solid #47b686;
-    background-color: #296a1c!important;
+    background-color: #000!important;
 }
 .signup:hover, .lgn:hover {
     border: 1px solid #47b686;
 }
 .bi {
-   color: #296a1c; 
+   color: #59adaf; 
 }
 span.bi {
-    color: #9fe391!important;
+    color: #fff!important;
 }
 hr {
-    border: 1px solid #9fe391;
+    border: 1px solid #fff;
 }
 .btn-google {
     color: white!important;

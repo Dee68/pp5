@@ -62,7 +62,7 @@
             <!-- Nav logo-->
             <div class="col-12 col-lg-4 my-auto py-1 py-lg-0 text-center text-lg-left">
                 <a href="{% url 'home:home' %}" class="nav-link main-logo-link">
-                  <h2 class="logo-font text-sly my-0"><strong>Lamad</strong> Shop</h2>
+                  <h2 class="logo-font text-white my-0"><strong>Lamad</strong> Shop</h2>
                 </a>
             </div>
             <!-- Nav center for links-->
@@ -88,10 +88,10 @@
                             <div class="text-center">
                                 {% if request.user.is_authenticated %}
                                     <div><i class="fas fa-user fa-lg"></i></div>
-                                    <p class="my-0 text-sly">My Account</p>
+                                    <p class="my-0 text-white">My Account</p>
                                 {% else %}
                                     <div><i class="fas fa-user fa-lg"></i></div>
-                                    <p class="my-0 text-sly">Login / Sign Up</p>
+                                    <p class="my-0 text-white">Login / Sign Up</p>
                                 {% endif %}
                             </div>
                         </a>
@@ -130,7 +130,7 @@
             <nav class="navbar navbar-expand-lg navbar-dark text-sly w-100">
                 
                     <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#main-nav" aria-controls="main-nav" aria-expanded="false" aria-label="Toggle navigation">
-                        <span class="navbar-toggler-icon text-sly"></span>
+                        <span class="navbar-toggler-icon"></span>
                     </button>
                     {% include 'includes/mobile-top-header.html' %}
                     {% include 'includes/main-nav.html' %}
@@ -138,7 +138,7 @@
             </nav>
         </div>
         <div id="delivery-banner" class="row text-center">
-            <div class="col my-secondary text-black">
+            <div class="col my-secondary text-white">
                 <h4 class="logo-font my-1">Free delivery on orders over ${{ free_delivery_threshold }}!</h4>                
             </div>            
         </div>
@@ -210,7 +210,7 @@
             <div class="row gx-5 gy-4">
               <div class="col-lg-4">
                   <!-- <img src="{% static 'images/logo-no-background.webp' %}" alt="logo image" width="180" class="img-fluid"> -->
-                 <h5 class="text-white text-uppercase mb-4 text-sly">ABOUT</h5>
+                 <h5 class="text-white text-uppercase mb-4">ABOUT</h5>
                  <p class="text-white">The lamad shop shipping policies: <a href="#" class='text-white'>Shipping</a></p>
                  <br>
                 <ul class="list-inline mb-0">
@@ -222,17 +222,16 @@
                 </ul>
               </div>
               <div class="col-lg-2 col-md-6">
-                <h5 class="text-white text-uppercase mb-4 text-sly">Shop</h5>
+                <h5 class="text-white text-uppercase mb-4">Shop</h5>
                 <ul class="list-unstyled text-sm fw-normal mb-0">
-                  <li class="mb-1 pb-1"> <a class="reset-anchor" href="#">For Women</a></li>
-                  <li class="mb-1 pb-1"> <a class="reset-anchor" href="#">For Men</a></li>
-                  <li class="mb-1 pb-1"> <a class="reset-anchor" href="#">Stores</a></li>
+                  <li class="mb-1 pb-1"> <a class="reset-anchor" href="#">Sewing Machines</a></li>
+                  <li class="mb-1 pb-1"> <a class="reset-anchor" href="#">Overlockers</a></li>
+                  <li class="mb-1 pb-1"> <a class="reset-anchor" href="#">Coverlockers</a></li>
                   <li class="mb-1 pb-1"> <a class="reset-anchor" href="#">Our Blog</a></li>
-                  <li class="mb-1 pb-1"> <a class="reset-anchor" href="#">Shop</a></li>
                 </ul>
               </div>
               <div class="col-lg-2 col-md-6">
-                <h5 class="text-white text-uppercase mb-4 text-sly">Company</h5>
+                <h5 class="text-white text-uppercase mb-4">Company</h5>
                 <ul class="list-unstyled text-sm fw-normal mb-0">
                   <li class="mb-1 pb-1"> <a class="reset-anchor" href="{% url 'account:signin' %}">Login</a></li>
                   <li class="mb-1 pb-1"> <a class="reset-anchor" href="{% url 'account:register' %}">Register</a></li>
@@ -242,7 +241,7 @@
                 </ul>
               </div>
               <div class="newsletter col-lg-4">
-                <h5 class="text-white text-uppercase mb-4 text-sly">Contact</h5>
+                <h5 class="text-white text-uppercase mb-4">Contact</h5>
                 <ul class="list-unstyled text-sm fw-normal mb-0">
                   <li class="mb-1 pb-1 text-white">Phone: 0877850472</li>
                   <li class="mb-1 pb-1 text-white">Email: helper@lamadshop.com</li>
@@ -256,13 +255,13 @@
           <div class="container py-3">
             <div class="row align-items-center gy-3">
               <div class="col-md-6">
-                <p class="mb-0 text-sm fw-normal text-sly">&copy; 2023 <a class="reset-anchor text-sly" href="{% url 'home:home' %}">Lamad</a> All rights reserved.</p>
+                <p class="mb-0 text-sm fw-normal text-white">&copy; 2023 <a class="reset-anchor text-white" href="{% url 'home:home' %}">Lamad</a> All rights reserved.</p>
               </div>
               <div class="col-md-3">
-                <p class="mb-0 text-sm fw-normal text-sly"><a class="reset-anchor text-sly" href="{% url 'home:privacy' %}">Privacy Policy</a></p>
+                <p class="mb-0 text-sm fw-normal text-sly"><a class="reset-anchor text-white" href="{% url 'home:privacy' %}">Privacy Policy</a></p>
               </div>
               <div class="col-md-3">
-                <p class="mb-0 text-sm fw-normal text-sly"><a class="reset-anchor text-sly" href="{% url 'home:terms' %}">Terms Of Use</a></p>
+                <p class="mb-0 text-sm fw-normal text-sly"><a class="reset-anchor text-white" href="{% url 'home:terms' %}">Terms Of Use</a></p>
               </div>
             </div>
           </div>

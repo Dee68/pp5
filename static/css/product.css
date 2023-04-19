@@ -1,5 +1,5 @@
 .btn-custom-green{
-    background-color: #0e690e;
+    background-color: #59adaf;
     color: white;
 }
 #sly {
@@ -7,4 +7,13 @@
 }
 .product-detail-image {
     background-color: transparent;
+}
+.fa-orange {
+    color: orange!important;
+}
+.fa-regular {
+    color: aliceblue!important;
+}
+footer li > a {
+    color: #fff!important;
 }

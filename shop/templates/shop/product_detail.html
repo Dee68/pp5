@@ -31,35 +31,35 @@
                 <strong>
                     Rating: 
                     {% if product.rating == 1 %}
-                    <i class="fa-solid fa-star"></i>
+                    <i class="fa-solid fa-star fa-orange"></i>
                     <i class="fa-regular fa-star"></i>
                     <i class="fa-regular fa-star"></i>
                     <i class="fa-regular fa-star"></i>
                     <i class="fa-regular fa-star"></i>
                     {% elif product.rating == 2 %}
-                    <i class="fa-solid fa-star"></i>
-                    <i class="fa-solid fa-star"></i>
+                    <i class="fa-solid fa-star fa-orange"></i>
+                    <i class="fa-solid fa-star fa-orange"></i>
                     <i class="fa-regular fa-star"></i>
                     <i class="fa-regular fa-star"></i>
                     <i class="fa-regular fa-star"></i>
                     {% elif product.rating == 3 %}
-                    <i class="fa-solid fa-star"></i>
-                    <i class="fa-solid fa-star"></i>
-                    <i class="fa-solid fa-star"></i>
+                    <i class="fa-solid fa-star fa-orange"></i>
+                    <i class="fa-solid fa-star fa-orange"></i>
+                    <i class="fa-solid fa-star fa-orange"></i>
                     <i class="fa-regular fa-star"></i>
                     <i class="fa-regular fa-star"></i>
                     {% elif product.rating == 4 %}
-                    <i class="fa-solid fa-star"></i>
-                    <i class="fa-solid fa-star"></i>
-                    <i class="fa-solid fa-star"></i>
-                    <i class="fa-solid fa-star"></i>
+                    <i class="fa-solid fa-star fa-orange"></i>
+                    <i class="fa-solid fa-star fa-orange"></i>
+                    <i class="fa-solid fa-star fa-orange"></i>
+                    <i class="fa-solid fa-star fa-orange"></i>
                     <i class="fa-regular fa-star"></i>
                     {% else %}
-                    <i class="fa-solid fa-star"></i>
-                    <i class="fa-solid fa-star"></i>
-                    <i class="fa-solid fa-star"></i>
-                    <i class="fa-solid fa-star"></i>
-                    <i class="fa-solid fa-star"></i>
+                    <i class="fa-solid fa-star fa-orange"></i>
+                    <i class="fa-solid fa-star fa-orange"></i>
+                    <i class="fa-solid fa-star fa-orange"></i>
+                    <i class="fa-solid fa-star fa-orange"></i>
+                    <i class="fa-solid fa-star fa-orange"></i>
                     {% endif %}
                 </strong>
             </div>
@@ -100,8 +100,8 @@
                                 <div class="col-6 mt-2">
                                     <a href="{% url 'shop:products' %}" class="btn btn-outline-secondary rounded-0 mt-5">
                                         <span class="icon">
-                                            <i class="fas fa-chevron-left"></i>
-                                            <span class="text-uppercase">Shop</span>
+                                            
+                                            <span class="text-uppercase">To Shop</span>
                                         </span>
                                        
                                     </a>
@@ -176,15 +176,60 @@
             </div>
             <div class="tab-pane fade" id="second" role="tabpanel" aria-labelledby="second-tab">
               <div class="row">
+               <div class="col-lg-6">
                 {% if reviews %}
-                    {% for review in reviews %}
-                    <ul>
-                        <li>{{ review.rating }}</li>
-                    </ul>
-                    {% endfor %}
-                {% else %}
-                <p>list of reviews goes here.</p>
-                {% endif %}
+                {% for review in reviews %}
+                <div class="col-12">
+                    <small class="text-muted ml-5">
+                        <strong>
+                            <span class="text-black"> Rating:</span>
+                            {% if review.rating.rating == 1 %}
+                            <i class="fa-solid fa-star fa-orange"></i>
+                            <i class="fa-regular fa-star"></i>
+                            <i class="fa-regular fa-star"></i>
+                            <i class="fa-regular fa-star"></i>
+                            <i class="fa-regular fa-star"></i>
+                            {% elif review.rating.rating == 2 %}
+                            <i class="fa-solid fa-star fa-orange"></i>
+                            <i class="fa-solid fa-star fa-orange"></i>
+                            <i class="fa-regular fa-star"></i>
+                            <i class="fa-regular fa-star"></i>
+                            <i class="fa-regular fa-star"></i>
+                            {% elif review.rating.rating == 3 %}
+                            <i class="fa-solid fa-star fa-orange"></i>
+                            <i class="fa-solid fa-star fa-orange"></i>
+                            <i class="fa-solid fa-star fa-orange"></i>
+                            <i class="fa-regular fa-star"></i>
+                            <i class="fa-regular fa-star"></i>
+                            {% elif review.rating.rating == 4 %}
+                            <i class="fa-solid fa-star fa-orange"></i>
+                            <i class="fa-solid fa-star fa-orange"></i>
+                            <i class="fa-solid fa-star fa-orange"></i>
+                            <i class="fa-solid fa-star fa-orange"></i>
+                            <i class="fa-regular fa-star"></i>
+                            {% else %}
+                            <i class="fa-solid fa-star fa-orange"></i>
+                            <i class="fa-solid fa-star fa-orange"></i>
+                            <i class="fa-solid fa-star fa-orange"></i>
+                            <i class="fa-solid fa-star fa-orange"></i>
+                            <i class="fa-solid fa-star fa-orange"></i>
+                            {% endif %}
+                        </strong>
+                    </small>
+                    <p class="ml-5">{{ review.review}}</p>
+                    <br>
+                </div>
+                <div class="col-12 text-center">
+                    <p class="ml-10">  - {{ review.user.username }} on {{ review.created_at }}</p>
+                </div>
+                {% endfor %}
+            {% else %}
+            <p>No review on this product yet.</p>
+            {% endif %}
+               </div>
+               <div class="col-lg-6">
+                <a href="{% url 'shop:add_review' product.id  %}" class="btn btn-warning rounded-0 mt-5 text-uppercase">Add Review</a>
+               </div>
               </div>
             </div>
     

@@ -54,12 +54,13 @@ def product_detail(request, product_id):
         'product': product,
         'reviews': reviews
     }
-
+    print(reviews[0].rating.rating)
     template = 'shop/product_detail.html'
 
     return render(request, template, context)
 
 
+@login_required(login_url='account:signin')
 def add_review(request, product_id):
     '''
         this view enables logged in users to

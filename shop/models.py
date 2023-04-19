@@ -59,7 +59,7 @@ class Rating(models.Model):
     rating = models.SmallIntegerField()
 
     def __str__(self):
-        return str(self.rating)
+        return int(self.rating)
 
 
 class Review(models.Model):

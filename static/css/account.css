@@ -17,6 +17,9 @@
     box-shadow: 15px 10px 10px rgba(143, 227, 181, 0.5); 
     
 }
+.dropdown-item {
+    color: #000!important;
+}
 h3 {
     text-align: center;
     color: #e1e6df;
@@ -65,9 +68,3 @@ hr {
 .kn {
     display: flex;
 }
-/* .profile-container {
-    min-height: 500px;
-    border: 1px solid #42a235!important;
-    margin-top: 30px;
-    padding-top: 30px;
-} */

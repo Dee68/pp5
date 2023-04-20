@@ -83,21 +83,21 @@ TEMPLATES = [
                 'shop.contexts.nav_menu',
                 'cart.contexts.cart_contents',
 
-                'social_django.context_processors.backends', 
-                'social_django.context_processors.login_redirect', 
+                # 'social_django.context_processors.backends', 
+                # 'social_django.context_processors.login_redirect', 
             ],
         },
     },
 ]
 
 
-AUTHENTICATION_BACKENDS = [
-    'social_core.backends.github.GithubOAuth2',
-    'social_core.backends.instagram.InstagramOAuth2',
-    'social_core.backends.facebook.FacebookOAuth2',
-    'django.contrib.auth.backends.ModelBackend',
+# AUTHENTICATION_BACKENDS = [
+#     'social_core.backends.github.GithubOAuth2',
+#     'social_core.backends.instagram.InstagramOAuth2',
+#     'social_core.backends.facebook.FacebookOAuth2',
+#     'django.contrib.auth.backends.ModelBackend',
 
-]
+# ]
 
 
 WSGI_APPLICATION = 'lamad.wsgi.application'
@@ -130,7 +130,8 @@ else:
     }
 
 LOGIN_REDIRECT_URL = '/'
-# LOGOUT_URL = 'account/logout'
+LOGOUT_URL = 'account/logout'
+
 
 # Password validation
 # https://docs.djangoproject.com/en/3.2/ref/settings/#auth-password-validators
@@ -184,8 +185,8 @@ MESSAGE_TAGS = {
     }
 
 # social login
-SOCIAL_AUTH_FACEBOOK_SECRET = os.environ.get('SOCIAL_AUTH_FACEBOOK_SECRET')
-SOCIAL_AUTH_FACEBOOK_KEY = os.environ.get('SOCIAL_AUTH_FACEBOOK_KEY')
+# SOCIAL_AUTH_FACEBOOK_SECRET = os.environ.get('SOCIAL_AUTH_FACEBOOK_SECRET')
+# SOCIAL_AUTH_FACEBOOK_KEY = os.environ.get('SOCIAL_AUTH_FACEBOOK_KEY')
 
 
 # Static files (CSS, JavaScript, Images)

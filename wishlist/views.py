@@ -22,7 +22,7 @@ def whish_list(request):
     return render(request, template_name, context)
 
 
-@login_required(login_url='account:signin')
+@login_required
 def add_to_wish_list(request):
     '''
         Adds a product to the user's
@@ -48,7 +48,7 @@ def add_to_wish_list(request):
             return HttpResponseRedirect(reverse('wishlist:wish_list'))
 
 
-@login_required(login_url='account:signin')
+@login_required
 def delete_item(request):
     '''
         Removes product item from user's wishlist

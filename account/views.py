@@ -285,7 +285,7 @@ def logout_page(request):
     return redirect('home:home')
 
 
-@login_required(login_url='account:signin')
+@login_required
 def edit_profile(request, user_id):
     """View to allow updating user account info"""
     user = get_object_or_404(CustomUser, id=user_id)
@@ -307,7 +307,7 @@ def edit_profile(request, user_id):
     return render(request, template, context)
 
 
-@login_required(login_url='account/signin')
+@login_required
 def edit_image(request, user_id):
     """Allow user to edit image from their account"""
     user = get_object_or_404(CustomUser, id=user_id)
@@ -332,7 +332,7 @@ def edit_image(request, user_id):
     return render(request, template, context)
 
 
-@login_required(login_url='account:signin')
+@login_required
 def order_history(request):
     """ A view to return profile page """
     orders = Order.objects.all()
@@ -343,7 +343,7 @@ def order_history(request):
     return render(request, template, context)
 
 
-@login_required(login_url='account:signin')
+@login_required
 def order_history_details(request, order_number):
     order = get_object_or_404(Order, order_number=order_number)
 
@@ -361,7 +361,7 @@ def order_history_details(request, order_number):
     return render(request, template, context)
 
 
-@login_required(login_url='account:signin')
+@login_required
 def shipping_details(request):
     """ A view to return profile page with user shipping addresses """
     # userprofile = get_object_or_404(Profile, user=request.user)
@@ -369,7 +369,7 @@ def shipping_details(request):
     return render(request, 'account/shipping_details.html')
 
 
-@login_required(login_url='account:signin')
+@login_required
 def edit_shipping(request, user_id):
     """View to allow updating user shipping info"""
     profile = get_object_or_404(Profile, user=user_id)
@@ -389,7 +389,7 @@ def edit_shipping(request, user_id):
     return render(request, template, context)
 
 
-@login_required(login_url='account:signin')
+@login_required
 def delete_account(request, user_id):
     '''
         this view enables user to delete his/her

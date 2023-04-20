@@ -30,6 +30,7 @@ urlpatterns = [
     path('checkout/', include('checkout.urls')),
     path('whishlist/', include('wishlist.urls')),
     path('', include('home.urls')),
+    path('social-auth/', include('social_django.urls', namespace="social")),
     # ~~~~~~ password reset ~~~~~~~~~~~~~~~~~~~~~~
     path('password-reset/', auth_views.PasswordResetView.as_view(
         template_name='account/password_reset.html'
@@ -55,4 +56,4 @@ urlpatterns = [
 ] + static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT)
 
 handler404 = "lamad.views.page_not_found_view"  # custom 404 handler
-handler500 = "lamad.views.internal_server_error" # cuctom 500 handler
+handler500 = "lamad.views.internal_server_error"  # cuctom 500 handler

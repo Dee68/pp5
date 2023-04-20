@@ -49,7 +49,7 @@ INSTALLED_APPS = [
     'crispy_forms',
     'crispy_bootstrap4',
     'storages',
-    # 'social_django',
+    'social_django',
 ]
 
 CRISPY_TEMPLATE_PACK = 'bootstrap4'
@@ -83,21 +83,21 @@ TEMPLATES = [
                 'shop.contexts.nav_menu',
                 'cart.contexts.cart_contents',
 
-                # 'social_django.context_processors.backends', 
-                # 'social_django.context_processors.login_redirect', 
+                'social_django.context_processors.backends', 
+                'social_django.context_processors.login_redirect', 
             ],
         },
     },
 ]
 
 
-# AUTHENTICATION_BACKENDS = [
-#     'social_core.backends.github.GithubOAuth2',
-#     'social_core.backends.instagram.InstagramOAuth2',
-#     'social_core.backends.facebook.FacebookOAuth2',
-#     'django.contrib.auth.backends.ModelBackend',
+AUTHENTICATION_BACKENDS = [
+    'social_core.backends.github.GithubOAuth2',
+    'social_core.backends.instagram.InstagramOAuth2',
+    'social_core.backends.facebook.FacebookOAuth2',
+    'django.contrib.auth.backends.ModelBackend',
 
-# ]
+]
 
 
 WSGI_APPLICATION = 'lamad.wsgi.application'
@@ -185,8 +185,8 @@ MESSAGE_TAGS = {
     }
 
 # social login
-# SOCIAL_AUTH_FACEBOOK_SECRET = os.environ.get('SOCIAL_AUTH_FACEBOOK_SECRET')
-# SOCIAL_AUTH_FACEBOOK_KEY = os.environ.get('SOCIAL_AUTH_FACEBOOK_KEY')
+SOCIAL_AUTH_FACEBOOK_SECRET = os.environ.get('SOCIAL_AUTH_FACEBOOK_SECRET')
+SOCIAL_AUTH_FACEBOOK_KEY = os.environ.get('SOCIAL_AUTH_FACEBOOK_KEY')
 
 
 # Static files (CSS, JavaScript, Images)

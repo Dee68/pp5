@@ -30,7 +30,7 @@ urlpatterns = [
     path('checkout/', include('checkout.urls')),
     path('whishlist/', include('wishlist.urls')),
     path('', include('home.urls')),
-    path('social-auth/', include('social_django.urls', namespace="social")),
+    # path('social-auth/', include('social_django.urls', namespace="social")),
     # ~~~~~~ password reset ~~~~~~~~~~~~~~~~~~~~~~
     path('password-reset/', auth_views.PasswordResetView.as_view(
         template_name='account/password_reset.html'

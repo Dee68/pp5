@@ -97,7 +97,6 @@ AUTHENTICATION_BACKENDS = [
     'social_core.backends.facebook.FacebookOAuth2',
     'django.contrib.auth.backends.ModelBackend',
 
-    'account.authentication.EmailAuthBackend',
 ]
 
 
@@ -131,8 +130,8 @@ else:
     }
 
 LOGIN_REDIRECT_URL = '/'
-LOGOUT_URL = 'account/logout'
-LOGIN_URL = 'account/signin'
+# LOGOUT_URL = 'account/logout'
+
 # Password validation
 # https://docs.djangoproject.com/en/3.2/ref/settings/#auth-password-validators
 

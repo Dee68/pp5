@@ -7,7 +7,6 @@ from .models import Wishlist
 # Create your views here.
 
 
-# @login_required(login_url='account:signin')
 def whish_list(request):
     '''
         this view displays the products the user

@@ -94,7 +94,7 @@ TEMPLATES = [
 
 DEFAULT_AUTHENTICATION_BACKEND = 'django.contrib.auth.backends.ModelBackend'
 AUTHENTICATION_BACKENDS = [
-    'account.auth_backends.Emailbackend',
+    'account.auth_backends.EmailBackend',
     'social_core.backends.github.GithubOAuth2',
     'social_core.backends.instagram.InstagramOAuth2',
     'social_core.backends.facebook.FacebookOAuth2',

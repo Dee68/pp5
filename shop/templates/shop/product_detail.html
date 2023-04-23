@@ -220,7 +220,7 @@
                     <br>
                 </div>
                 <div class="col-12 text-center">
-                    <p class="ml-10">  - {{ review.user.username }} on {{ review.created_at }}</p>
+                    <p class="ml-10">  - {{ review.user.username }} on {{ review.created_at | date:"D d M Y" }}</p>
                 </div>
                 {% endfor %}
             {% else %}

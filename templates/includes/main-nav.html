@@ -33,10 +33,10 @@
                 Contact
             </a>
             <div class="dropdown-menu border-0" aria-labelledby="contact-link">
-                <a href="#" class="dropdown-item">Contact</a>
-                <a href="#" class="dropdown-item">Shipping & Delivery</a>
-                <a href="#" class="dropdown-item">FAQ's</a>
-                <a href="#" class="dropdown-item">Returns</a>
+                <a href="{% url 'contact:contact' %}" class="dropdown-item">Contact</a>
+                <a href="{% url 'contact:shipping' %}" class="dropdown-item">Shipping & Delivery</a>
+                <a href="{% url 'contact:faq' %}" class="dropdown-item">FAQ's</a>
+                <a href="{% url 'contact:returns' %}" class="dropdown-item">Returns</a>
             </div>
         </li>
     </ul>

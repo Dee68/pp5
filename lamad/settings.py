@@ -46,6 +46,7 @@ INSTALLED_APPS = [
     'checkout',
     'wishlist',
     'blog',
+    'contact',
     'account.apps.AccountConfig',
     'django_summernote',
     'crispy_forms',
@@ -94,11 +95,12 @@ TEMPLATES = [
 
 DEFAULT_AUTHENTICATION_BACKEND = 'django.contrib.auth.backends.ModelBackend'
 AUTHENTICATION_BACKENDS = [
-    'account.auth_backends.EmailBackend',
     'social_core.backends.github.GithubOAuth2',
     'social_core.backends.instagram.InstagramOAuth2',
     'social_core.backends.facebook.FacebookOAuth2',
     'social_core.backends.google.GoogleOAuth2',
+    'account.auth_backends.EmailBackend',
+    DEFAULT_AUTHENTICATION_BACKEND,
 ]
 
 

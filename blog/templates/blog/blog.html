@@ -18,7 +18,7 @@
 
 {% block content %}
     <div class="container">
-        <div class="row">
+        <div class="row mt-5 mb-5">
             <!--Blog Entries-->
             {% for article in object_list %}
             <div class="col-xs-12 col-md-4">
@@ -29,9 +29,9 @@
                             <h5 class="card-title">{{article.title}}</h5>
                         </a>
                         <span><i class="fa-solid fa-heart"> {{ article.number_of_likes }}</i></span>
-                            <p class="card-text">{{article.excerpt}}</p>
+                            <p class="card-text">{{ article.content|truncatewords:20|striptags|safe}}</p>
                         
-                        <p class="card-text"><small class="text-muted">{{article.created_on}}</small></p>
+                        <p class="card-text"><small class="text-muted">{{article.created_on }}</small></p>
                         <p class="card-text"><small class="text-muted">Author: {{article.author.username}}</small></p>
                     </div>
                 </div>

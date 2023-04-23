@@ -10,6 +10,8 @@ class CustomUser(AbstractUser):
     username = models.CharField(max_length=8, unique=True)
     email = models.EmailField(_('email address'), unique=True, max_length=20)
     is_email_verified = models.BooleanField(default=False)
+    REQUIRED_FIELDS = []
+    USERNAME_FIELD = 'email'
 
     def __str__(self):
         return str(self.username)

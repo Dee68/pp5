@@ -60,8 +60,8 @@ class RegistrationView(View):
         if request.method == 'POST':
             reg_form = CustomUserCreationForm(request.POST)
             field_vals = request.POST
-            username = request.POST['username']
-            email = request.POST['email']
+            username = request.POST['username'].lower()
+            email = request.POST['email'].lower()
             password1 = request.POST['password1']
             password2 = request.POST['password2']
             context = {'reg_form': reg_form, 'field_vals': field_vals}
@@ -175,12 +175,12 @@ class LoginView(View):
         return render(request, template_name, context)
 
     def post(self, request):
-        username = request.POST['username']
+        email = request.POST['email']
         password = request.POST['password']
         context = {'data': request.POST}
         template_name = 'account/login.html'
-        if username and password:
-            user = authenticate(username=username, password=password)
+        if email and password:
+            user = authenticate(username=email, password=password)
             if user and not user.is_email_verified:
                 messages.error(request,
                                'Email is not verified,\

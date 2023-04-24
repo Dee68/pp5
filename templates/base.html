@@ -29,13 +29,15 @@
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.6.2/dist/css/bootstrap.min.css" integrity="sha384-xOolHFLEh07PJGoPkLv1IbcEPTNtaed2xpHsD9ESMhqIYd0nLMwNLD69Npy4HI+N" crossorigin="anonymous">
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.10.3/font/bootstrap-icons.css">
     <link href="{% static 'css/base.css' %}" rel="stylesheet">
+    <link href="//cdn-images.mailchimp.com/embedcode/classic-071822.css" rel="stylesheet" type="text/css">
     {% endblock %}
 
     {% block extra_css %}
     <!--Mailchimp Css-->
-    <link href="//cdn-images.mailchimp.com/embedcode/classic-071822.css" rel="stylesheet">
-    <style>
-        #mc_embed_signup{background:#fff; clear:left; font:14px Helvetica,Arial,sans-serif; }
+    <style type="text/css">
+      #mc_embed_signup{background:#fff; clear:left; font:14px Helvetica,Arial,sans-serif;  width:600px;}
+      /* Add your own Mailchimp form style overrides in your site stylesheet or in this style block.
+         We recommend moving this block and the preceding CSS link to the HEAD of your HTML file. */
     </style>
     {% endblock %}
 
@@ -194,7 +196,25 @@
       $('.toast').toast('show');
       });
     </script>
-
+  <script type='text/javascript' src='//s3.amazonaws.com/downloads.mailchimp.com/js/mc-validate.js'></script>
+  <script type='text/javascript'>
+  (function($) {window.fnames = new Array(); 
+    window.ftypes = new Array();
+    fnames[0]='EMAIL';
+    ftypes[0]='email';
+    fnames[1]='FNAME';
+    ftypes[1]='text';
+    fnames[2]='LNAME';
+    ftypes[2]='text';
+    fnames[3]='ADDRESS';
+    ftypes[3]='address';
+    fnames[4]='PHONE';
+    ftypes[4]='phone';
+    fnames[5]='BIRTHDAY';
+    ftypes[5]='birthday';}
+  (jQuery));
+  var $mcj = jQuery.noConflict(true);
+  </script>
     {% endblock %}
     <a href="#" id="to-top" aria-label="move to top of page">
       <span class="move_to_top">
@@ -209,7 +229,6 @@
           <div class="container py-5">
             <div class="row gx-5 gy-4">
               <div class="col-lg-4">
-                  <!-- <img src="{% static 'images/logo-no-background.webp' %}" alt="logo image" width="180" class="img-fluid"> -->
                  <h5 class="text-white text-uppercase mb-4">ABOUT</h5>
                  <p class="text-white">The lamad shop shipping policies: <a href="#" class='text-white'>Shipping</a></p>
                  <br>
@@ -222,22 +241,20 @@
                 </ul>
               </div>
               <div class="col-lg-2 col-md-6">
-                <h5 class="text-white text-uppercase mb-4">Shop</h5>
+                <h5 class="text-white text-uppercase mb-4">Lamad Shop</h5>
                 <ul class="list-unstyled text-sm fw-normal mb-0">
-                  <li class="mb-1 pb-1"> <a class="reset-anchor" href="#">Sewing Machines</a></li>
-                  <li class="mb-1 pb-1"> <a class="reset-anchor" href="#">Overlockers</a></li>
-                  <li class="mb-1 pb-1"> <a class="reset-anchor" href="#">Coverlockers</a></li>
-                  <li class="mb-1 pb-1"> <a class="reset-anchor" href="#">Our Blog</a></li>
+                  {% for category in menu %}
+                  <li class="mb-1 pb-1"><a href="{{ category.get_absolute_url }}" class="reset-anchor">{{category.name}}</a></li>
+                  {% endfor %}
                 </ul>
+                <li class="mb-1 pb-1"> <a class="reset-anchor" href="{% url 'blog:articles' %}">Our Blog</a></li>
               </div>
               <div class="col-lg-2 col-md-6">
-                <h5 class="text-white text-uppercase mb-4">Company</h5>
+                <h5 class="text-white text-uppercase mb-4">Pages</h5>
                 <ul class="list-unstyled text-sm fw-normal mb-0">
                   <li class="mb-1 pb-1"> <a class="reset-anchor" href="{% url 'account:signin' %}">Login</a></li>
                   <li class="mb-1 pb-1"> <a class="reset-anchor" href="{% url 'account:register' %}">Register</a></li>
-                  <li class="mb-1 pb-1"> <a class="reset-anchor" href="#">Wishlist</a></li>
-                  <li class="mb-1 pb-1"> <a class="reset-anchor" href="{% url 'shop:products' %}">Our Products</a></li>
-                  <li class="mb-1"> <a class="reset-anchor" href="#">Checkouts</a></li>
+                  <li class="mb-1 pb-1"> <a class="reset-anchor" href="{% url 'wishlist:wish_list' %}">Wishlist</a></li>
                 </ul>
               </div>
               <div class="newsletter col-lg-4">
@@ -245,7 +262,7 @@
                 <ul class="list-unstyled text-sm fw-normal mb-0">
                   <li class="mb-1 pb-1 text-white">Phone: 0877850472</li>
                   <li class="mb-1 pb-1 text-white">Email: helper@lamadshop.com</li>
-                  <li class="mb-1 pb-1"><a href="#" class="reset-anchor">Contact Form</a></li>
+                  <li class="mb-1 pb-1"><a href="{% url 'contact:contact' %}" class="reset-anchor">Contact Form</a></li>
                 </ul>
               </div>
             </div>
@@ -266,7 +283,55 @@
             </div>
           </div>
         </div>
+        <div class="container quotes-container content-container">
+          <section class="footer text-white">
+            <div class="row">
+              <div class="col-12 page-header mb-4">
+                <h2 class="text-uppercase">Stay in touch:</h2>
+                <hr class="block-divider block-divider--short">
+              </div>
+           </div>
+           <div class="row">
+             <div class="col-12 col-md-6">
+               <h3>Social</h3>
+               <p>Keep up to date with all our latest offers</p>
+               <a href="https://www.facebook.com/profile.php?id=100091956826416" target="_blank"><i class="fab fa-facebook-square"></i> Follow us on Facebook!</a>
+             </div>
+             <div class="col-12 col-md-6">
+               <h2>Subscribe!</h2>
+               <p>Get exclusive offers and discount codes by subscribing to our monthly newsletter</p>
+               <!-- Mailchimp signup form here -->
+              
+<div id="mc_embed_signup" style="background: #3a3a3a">
+    <form action="https://herokuapp.us8.list-manage.com/subscribe/post?u=cfe8cf38326aa0e625dd743b3&amp;id=141516ea83&amp;f_id=00af6ee0f0" method="post" id="mc-embedded-subscribe-form" name="mc-embedded-subscribe-form" class="validate" target="_blank" novalidate>
+        <div id="mc_embed_signup_scroll">
+        
+        <div class="indicates-required"><span class="asterisk">*</span> indicates required</div>
+<div class="mc-field-group">
+	<label for="mce-EMAIL">Email Address  <span class="asterisk">*</span>
+</label>
+	<input type="email" value="" name="EMAIL" class="required email" id="mce-EMAIL" required>
+	<span id="mce-EMAIL-HELPERTEXT" class="helper_text"></span>
+</div>
+	<div id="mce-responses" class="clear foot">
+		<div class="response" id="mce-error-response" style="display:none"></div>
+		<div class="response" id="mce-success-response" style="display:none"></div>
+	</div>    <!-- real people should not fill this in and expect good things - do not remove this or risk form bot signups-->
+    <div style="position: absolute; left: -5000px;" aria-hidden="true"><input type="text" name="b_cfe8cf38326aa0e625dd743b3_141516ea83" tabindex="-1" value=""></div>
+        <div class="optionalParent">
+            <div class="clear foot">
+                <input type="submit" value="Subscribe" name="subscribe" id="mc-embedded-subscribe" class="button">
+                <p class="brandingLogo"><a href="http://eepurl.com/ipKs8E" title="Mailchimp - email marketing made easy and fun"><img src="https://eep.io/mc-cdn-images/template_images/branding_logo_text_dark_dtp.svg"></a></p>
+            </div>
+        </div>
+    </div>
+</form>
+</div>
+<!--End mc_embed_signup-->
+             </div>
+           </div>
+         </section>
+       </div>
       </footer>
-
   </body>
 </html>

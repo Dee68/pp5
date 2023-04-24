@@ -95,11 +95,10 @@ TEMPLATES = [
 
 DEFAULT_AUTHENTICATION_BACKEND = 'django.contrib.auth.backends.ModelBackend'
 AUTHENTICATION_BACKENDS = [
-    'social_core.backends.github.GithubOAuth2',
-    'social_core.backends.instagram.InstagramOAuth2',
     'social_core.backends.facebook.FacebookOAuth2',
     'social_core.backends.google.GoogleOAuth2',
-    # 'account.auth_backends.EmailBackend',
+    'social_core.backends.github.GithubOAuth2',
+    'social_core.backends.instagram.InstagramOAuth2',
     DEFAULT_AUTHENTICATION_BACKEND,
 ]
 
@@ -133,6 +132,7 @@ else:
         'default': dj_database_url.parse(os.environ.get('DATABASE_URL'))
     }
 
+LOGIN_URL = 'account/signin'
 LOGIN_REDIRECT_URL = '/'
 LOGOUT_REDIRECT_URL = '/'
 LOGOUT_URL = 'account/logout'
@@ -196,16 +196,16 @@ SOCIAL_AUTH_FACEBOOK_KEY = os.environ.get('SOCIAL_AUTH_FACEBOOK_KEY')
 SOCIAL_AUTH_GOOGLE_OAUTH2_KEY = os.environ.get('SOCIAL_AUTH_GOOGLE_OAUTH2_KEY')
 SOCIAL_AUTH_GOOGLE_OAUTH2_SECRET = os.environ.get('SOCIAL_AUTH_GOOGLE_OAUTH2_SECRET')
 
-SOCIAL_AUTH_FACEBOOK_SCOPE = ['email', 'user_link']
-SOCIAL_AUTH_FACEBOOK_PROFILE_EXTRA_PARAMS = {
-  'fields': 'id, name, email, picture.type(large), link'
-}
-SOCIAL_AUTH_FACEBOOK_EXTRA_DATA = [
-    ('name', 'name'),
-    ('email', 'email'),
-    ('picture', 'picture'),
-    ('link', 'profile_url'),
-]
+# SOCIAL_AUTH_FACEBOOK_SCOPE = ['email', 'user_link']
+# SOCIAL_AUTH_FACEBOOK_PROFILE_EXTRA_PARAMS = {
+#   'fields': 'id, name, email, picture.type(large), link'
+# }
+# SOCIAL_AUTH_FACEBOOK_EXTRA_DATA = [
+#     ('name', 'name'),
+#     ('email', 'email'),
+#     ('picture', 'picture'),
+#     ('link', 'profile_url'),
+# ]
 
 
 # Static files (CSS, JavaScript, Images)

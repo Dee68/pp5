@@ -1,0 +1,3 @@
+User-agent: *
+Disallow: /cart/
+Sitemap: https://lamad-shop.herokuapp.com/sitemap.xml

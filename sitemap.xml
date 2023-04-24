@@ -1,0 +1,217 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<urlset
+      xmlns="http://www.sitemaps.org/schemas/sitemap/0.9"
+      xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+      xsi:schemaLocation="http://www.sitemaps.org/schemas/sitemap/0.9
+            http://www.sitemaps.org/schemas/sitemap/0.9/sitemap.xsd">
+<!-- created with Free Online Sitemap Generator www.xml-sitemaps.com -->
+
+
+<url>
+  <loc>https://lamad-shop.herokuapp.com/</loc>
+  <lastmod>2023-04-24T13:53:14+00:00</lastmod>
+  <priority>1.00</priority>
+</url>
+<url>
+  <loc>https://lamad-shop.herokuapp.com/account/register/</loc>
+  <lastmod>2023-04-24T13:53:14+00:00</lastmod>
+  <priority>0.80</priority>
+</url>
+<url>
+  <loc>https://lamad-shop.herokuapp.com/account/signin/</loc>
+  <lastmod>2023-04-24T13:53:14+00:00</lastmod>
+  <priority>0.80</priority>
+</url>
+<url>
+  <loc>https://lamad-shop.herokuapp.com/cart/</loc>
+  <lastmod>2023-04-24T13:53:14+00:00</lastmod>
+  <priority>0.80</priority>
+</url>
+<url>
+  <loc>https://lamad-shop.herokuapp.com/shop/sewing-machines</loc>
+  <lastmod>2023-04-24T13:53:14+00:00</lastmod>
+  <priority>0.80</priority>
+</url>
+<url>
+  <loc>https://lamad-shop.herokuapp.com/shop/overlockers</loc>
+  <lastmod>2023-04-24T13:53:14+00:00</lastmod>
+  <priority>0.80</priority>
+</url>
+<url>
+  <loc>https://lamad-shop.herokuapp.com/shop/coverlockers</loc>
+  <lastmod>2023-04-24T13:53:14+00:00</lastmod>
+  <priority>0.80</priority>
+</url>
+<url>
+  <loc>https://lamad-shop.herokuapp.com/shop/accessories</loc>
+  <lastmod>2023-04-24T13:53:14+00:00</lastmod>
+  <priority>0.80</priority>
+</url>
+<url>
+  <loc>https://lamad-shop.herokuapp.com/shop/</loc>
+  <lastmod>2023-04-24T13:53:14+00:00</lastmod>
+  <priority>0.80</priority>
+</url>
+<url>
+  <loc>https://lamad-shop.herokuapp.com/blog/</loc>
+  <lastmod>2023-04-24T13:53:14+00:00</lastmod>
+  <priority>0.80</priority>
+</url>
+<url>
+  <loc>https://lamad-shop.herokuapp.com/contact/shipping/</loc>
+  <lastmod>2023-04-24T13:53:14+00:00</lastmod>
+  <priority>0.80</priority>
+</url>
+<url>
+  <loc>https://lamad-shop.herokuapp.com/contact/faq/</loc>
+  <lastmod>2023-04-24T13:53:14+00:00</lastmod>
+  <priority>0.80</priority>
+</url>
+<url>
+  <loc>https://lamad-shop.herokuapp.com/contact/returns/</loc>
+  <lastmod>2023-04-24T13:53:14+00:00</lastmod>
+  <priority>0.80</priority>
+</url>
+<url>
+  <loc>https://lamad-shop.herokuapp.com/privacy/</loc>
+  <lastmod>2023-04-24T13:53:14+00:00</lastmod>
+  <priority>0.80</priority>
+</url>
+<url>
+  <loc>https://lamad-shop.herokuapp.com/terms/</loc>
+  <lastmod>2023-04-24T13:53:14+00:00</lastmod>
+  <priority>0.80</priority>
+</url>
+<url>
+  <loc>https://lamad-shop.herokuapp.com/password-reset/</loc>
+  <lastmod>2023-04-24T13:53:14+00:00</lastmod>
+  <priority>0.64</priority>
+</url>
+<url>
+  <loc>https://lamad-shop.herokuapp.com/shop/6/</loc>
+  <lastmod>2023-04-24T13:53:14+00:00</lastmod>
+  <priority>0.64</priority>
+</url>
+<url>
+  <loc>https://lamad-shop.herokuapp.com/shop/7/</loc>
+  <lastmod>2023-04-24T13:53:14+00:00</lastmod>
+  <priority>0.64</priority>
+</url>
+<url>
+  <loc>https://lamad-shop.herokuapp.com/shop/8/</loc>
+  <lastmod>2023-04-24T13:53:14+00:00</lastmod>
+  <priority>0.64</priority>
+</url>
+<url>
+  <loc>https://lamad-shop.herokuapp.com/shop/9/</loc>
+  <lastmod>2023-04-24T13:53:14+00:00</lastmod>
+  <priority>0.64</priority>
+</url>
+<url>
+  <loc>https://lamad-shop.herokuapp.com/shop/10/</loc>
+  <lastmod>2023-04-24T13:53:14+00:00</lastmod>
+  <priority>0.64</priority>
+</url>
+<url>
+  <loc>https://lamad-shop.herokuapp.com/shop/11/</loc>
+  <lastmod>2023-04-24T13:53:14+00:00</lastmod>
+  <priority>0.64</priority>
+</url>
+<url>
+  <loc>https://lamad-shop.herokuapp.com/shop/12/</loc>
+  <lastmod>2023-04-24T13:53:14+00:00</lastmod>
+  <priority>0.64</priority>
+</url>
+<url>
+  <loc>https://lamad-shop.herokuapp.com/shop/13/</loc>
+  <lastmod>2023-04-24T13:53:14+00:00</lastmod>
+  <priority>0.64</priority>
+</url>
+<url>
+  <loc>https://lamad-shop.herokuapp.com/shop/15/</loc>
+  <lastmod>2023-04-24T13:53:14+00:00</lastmod>
+  <priority>0.64</priority>
+</url>
+<url>
+  <loc>https://lamad-shop.herokuapp.com/shop/16/</loc>
+  <lastmod>2023-04-24T13:53:14+00:00</lastmod>
+  <priority>0.64</priority>
+</url>
+<url>
+  <loc>https://lamad-shop.herokuapp.com/shop/17/</loc>
+  <lastmod>2023-04-24T13:53:14+00:00</lastmod>
+  <priority>0.64</priority>
+</url>
+<url>
+  <loc>https://lamad-shop.herokuapp.com/blog/how-to-sew-a-dress/</loc>
+  <lastmod>2023-04-24T13:53:14+00:00</lastmod>
+  <priority>0.64</priority>
+</url>
+<url>
+  <loc>https://lamad-shop.herokuapp.com/blog/handling-fabrics/</loc>
+  <lastmod>2023-04-24T13:53:14+00:00</lastmod>
+  <priority>0.64</priority>
+</url>
+<url>
+  <loc>https://lamad-shop.herokuapp.com/blog/maintenance/</loc>
+  <lastmod>2023-04-24T13:53:14+00:00</lastmod>
+  <priority>0.64</priority>
+</url>
+<url>
+  <loc>https://lamad-shop.herokuapp.com/account/signin/?next=/shop/add_review/6/</loc>
+  <lastmod>2023-04-24T13:53:14+00:00</lastmod>
+  <priority>0.51</priority>
+</url>
+<url>
+  <loc>https://lamad-shop.herokuapp.com/account/signin/?next=/shop/add_review/7/</loc>
+  <lastmod>2023-04-24T13:53:14+00:00</lastmod>
+  <priority>0.51</priority>
+</url>
+<url>
+  <loc>https://lamad-shop.herokuapp.com/account/signin/?next=/shop/add_review/8/</loc>
+  <lastmod>2023-04-24T13:53:14+00:00</lastmod>
+  <priority>0.51</priority>
+</url>
+<url>
+  <loc>https://lamad-shop.herokuapp.com/account/signin/?next=/shop/add_review/9/</loc>
+  <lastmod>2023-04-24T13:53:14+00:00</lastmod>
+  <priority>0.51</priority>
+</url>
+<url>
+  <loc>https://lamad-shop.herokuapp.com/account/signin/?next=/shop/add_review/10/</loc>
+  <lastmod>2023-04-24T13:53:14+00:00</lastmod>
+  <priority>0.51</priority>
+</url>
+<url>
+  <loc>https://lamad-shop.herokuapp.com/account/signin/?next=/shop/add_review/11/</loc>
+  <lastmod>2023-04-24T13:53:14+00:00</lastmod>
+  <priority>0.51</priority>
+</url>
+<url>
+  <loc>https://lamad-shop.herokuapp.com/account/signin/?next=/shop/add_review/12/</loc>
+  <lastmod>2023-04-24T13:53:14+00:00</lastmod>
+  <priority>0.51</priority>
+</url>
+<url>
+  <loc>https://lamad-shop.herokuapp.com/account/signin/?next=/shop/add_review/13/</loc>
+  <lastmod>2023-04-24T13:53:14+00:00</lastmod>
+  <priority>0.51</priority>
+</url>
+<url>
+  <loc>https://lamad-shop.herokuapp.com/account/signin/?next=/shop/add_review/15/</loc>
+  <lastmod>2023-04-24T13:53:14+00:00</lastmod>
+  <priority>0.51</priority>
+</url>
+<url>
+  <loc>https://lamad-shop.herokuapp.com/account/signin/?next=/shop/add_review/16/</loc>
+  <lastmod>2023-04-24T13:53:14+00:00</lastmod>
+  <priority>0.51</priority>
+</url>
+<url>
+  <loc>https://lamad-shop.herokuapp.com/account/signin/?next=/shop/add_review/17/</loc>
+  <lastmod>2023-04-24T13:53:14+00:00</lastmod>
+  <priority>0.51</priority>
+</url>
+
+
+</urlset>

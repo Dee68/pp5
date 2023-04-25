@@ -461,7 +461,7 @@ When developing this application I decided I wanted to add a detailed footer as 
 <br>
 
 The authentication flows come from Allauth and have been styled to fit the theme of my website. At present when a user signs up a confirmation email is sent to their email address to confirm it before being able to access their account. Unfortunately due to gmail authentication issues preventing emails from being sent from the deployed project at this moment in time, new users cannot authenticate on their own. Will revisit this issue to resolve.
-![Sign Up](media/readme/sign-up.png)
+![Sign Up](media/readme/registration.png)
 
 ![Login](media/readme/login.png)
 

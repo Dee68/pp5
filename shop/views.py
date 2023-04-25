@@ -19,8 +19,8 @@ def products(request, category_slug=None):
         products = Product.objects.all().filter(in_stock=True)
         product_count = products.count()
     else:
-        categories = get_object_or_404(Category, slug=category_slug)
-        products = Product.objects.filter(category=categories,
+        category = get_object_or_404(Category, slug=category_slug)
+        products = Product.objects.filter(category=category,
                                           in_stock=True)
         product_count = products.count()
 
@@ -30,7 +30,7 @@ def products(request, category_slug=None):
             if not query:
                 messages.error(request,
                                "You did not enter any search creteria!")
-                return redirect('shop:products')
+                return redirect(reverse('shop:products'))
 
             queries = (Q(name__icontains=query) |
                        Q(description__icontains=query))

@@ -175,12 +175,12 @@ class LoginView(View):
         return render(request, template_name, context)
 
     def post(self, request):
-        email = request.POST['email']
+        username = request.POST['username']
         password = request.POST['password']
         context = {'data': request.POST}
         template_name = 'account/login.html'
-        if email and password:
-            user = authenticate(username=email, password=password)
+        if username and password:
+            user = authenticate(username=username, password=password)
             if user and not user.is_email_verified:
                 messages.error(request,
                                'Email is not verified,\

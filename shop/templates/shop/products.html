@@ -1,15 +1,25 @@
 {% extends 'base.html' %}
+
 {% load static %}
 
 {% block extra_css %}
     <link rel="stylesheet" href="{% static 'css/product.css' %}">
 {% endblock %}
 
+{% block page_header %}
+    <div class="container header-container">
+        <div class="row">
+            <div class="col"></div>
+        </div>
+    </div>
+{% endblock %}
+
 {% block content %}
 <div class="container-fluid products-page">
     <h2 class="text-center">Products Page</h2>
     <small class="text-muted">{{ product_count }} items found</small>
-    
+    <!-- partial messages goes here -->
+    {% include 'includes/messages.html' %}
     <hr>
     <div class="row product-row">
         {% for product in products %}

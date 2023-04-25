@@ -51,7 +51,7 @@
 
 This was the suspected preproject planning database structure. As the project was being developed changes were made to the final project due to time contraints and project scope.
 
-![Lucid Diagram](media/readme/erd-preproject.png)
+![Lucid Diagram](media/readme/lamad_db.png)
 </details>
 
 ---
@@ -62,17 +62,10 @@ This was the suspected preproject planning database structure. As the project wa
 #### Account Model
 | id | Field |
 |--|--|
-|first_name|CharField|
-|last_name|CharField|
 |username|CharField|
 |email|EmailField|
-|phone_number|CharField|
-|date_joined|DateTimeField|
-|last_login|DateTimeField|
-|is_admin|BooleanField|
-|is_staff|BooleanField|
-|is_active|BooleanField|
-|is_superadmin|BooleanField|
+
+|is_email_verified|BooleanField|
 
 #### UserProfile Model
 
@@ -85,7 +78,7 @@ This was the suspected preproject planning database structure. As the project wa
 |county|CharField|
 |postcode|CharField|
 |country|CountryField|
-|profile_picture|ImageField|
+|avatar|ImageField|
 
 </details>
 
@@ -95,7 +88,7 @@ This was the suspected preproject planning database structure. As the project wa
 <summary>Blog App</summary>
 <br>
 
-#### Post Model
+#### Article Model
 
 | id | Field |
 |--|--|
@@ -104,7 +97,7 @@ This was the suspected preproject planning database structure. As the project wa
 |author|ForeignKey|
 |updated_on|DateTimeField|
 |content|TextField|
-|featured_image|ImageField|
+|article_image|ImageField|
 |excerpt|TextField|
 |created_on|DateTimeField|
 |status|BooleanField|
@@ -114,10 +107,10 @@ This was the suspected preproject planning database structure. As the project wa
 
 | id | Field |
 |--|--|
-|post|ForeignKey|
+|article|ForeignKey|
 |body|TextField|
 |created_on|DateTimeField|
-|username|ForeignKey|
+|user|ForeignKey|
 
 </details>
 
@@ -196,7 +189,6 @@ This was the suspected preproject planning database structure. As the project wa
 |id|Field|
 |--|--|
 |email|EmailField|
-|subject|CharField|
 |message|TextField|
 |reason|CharField|
 
@@ -229,8 +221,8 @@ This was the suspected preproject planning database structure. As the project wa
 |in_stock|BooleanField|
 |has_sizes|BooleanField|
 |category|ForeignKey|
-|item_added|DateTimeField|
-|last_modified|DateTimeField|
+|created_at|DateTimeField|
+|updated_at|DateTimeField|
 |image_url|URLField|
 |image|ImageField|
 |rating|FloatField|
@@ -241,10 +233,8 @@ This was the suspected preproject planning database structure. As the project wa
 |--|--|
 |product|ForeignKey|
 |user|ForeignKey|
-|subject|CharField|
 |review|TextField|
 |rating|FloatField|
-|status|BooleanField|
 |created_at|DateTimeField|
   
 </details>
@@ -276,7 +266,7 @@ This was the suspected preproject planning database structure. As the project wa
 
 The business is a B2C e-commerce platform whose goal is to provide tangible products to it's customers through an online store.
 
-The types of products would be relatively low cost men's grooming products with low ($9.99) to medium($49.99) pricing.
+<!-- The types of products would be relatively low cost men's grooming products with low ($2.50) to medium($49.99) pricing. -->
 
 The benefits for the business owner are:
 

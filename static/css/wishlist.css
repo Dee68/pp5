@@ -126,12 +126,20 @@
     margin-top: 40px !important; 
 }
 .in-stock-box {
-	background: #ff0000;
+	background: #00ff00bc;
 	font-size: 12px;
 	text-align: center;
 	padding: 4px 15px;
 	display: inline-block;  
     color: #fff;
+}
+.not-in-stock-box {
+    background: #f1290ef6;
+	font-size: 12px;
+	text-align: center;
+	padding: 4px 15px;
+	display: inline-block;  
+    color: #fff;  
 }
 .trash-icon {
     font-size: 20px;

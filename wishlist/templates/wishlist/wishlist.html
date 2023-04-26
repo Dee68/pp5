@@ -45,7 +45,7 @@
                                 <td width="45%">
                                     <div class="display-flex align-center">
                                         <div class="img-product">
-                                            <img src="{{ item.product.image_url }}" alt="" class="mCS_img_loaded">
+                                            <img src="{{ item.product.image_url }}" alt="{{ item.product.name }}" class="mCS_img_loaded">
                                         </div>
                                         <div class="name-product">
                                             {{ item.product.name | title }}
@@ -53,8 +53,8 @@
                                     </div>
                                 </td>
                                 <td width="20%" class="price">${{ item.product.price }}</td>
-                                <td width="20%"><span class="in-stock-box">In Stock</span></td>
-                                <!-- <td width="15%"><button class="round-black-btn small-btn">Add to Cart</button></td> -->
+                                <td width="20%"><span {% if item.product.stock %}class="in-stock-box"{% else %}class="not-in-stock-box"{% endif %}>In Stock</span></td>
+                                
                                 <td width="15%" class="text-center">
                                      <form action="{% url 'wishlist:delete_item' %}" method="post">
                                         {% csrf_token %}

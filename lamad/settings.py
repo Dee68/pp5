@@ -133,9 +133,9 @@ else:
     }
 
 # LOGIN_URL = 'account/signin'
-LOGIN_REDIRECT_URL = '/'
-LOGOUT_REDIRECT_URL = 'account/signin'
-LOGOUT_URL = 'account/logout'
+# LOGIN_REDIRECT_URL = '/'
+# LOGOUT_REDIRECT_URL = 'account/signin'
+# LOGOUT_URL = 'account/logout'
 
 
 # Password validation

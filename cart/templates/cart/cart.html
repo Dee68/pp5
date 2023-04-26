@@ -57,8 +57,8 @@
                                         <div class="form-group">
                                             <div class="input-group">
                                                 <div class="input-group-prepend">
-                                                    <button class="decrement-qty btn btn-sm btn-custom-green rounded-0" 
-                                                        data-item_id="{{ cart_item.item_id }}" id="decrement-qty_{{ cart_item.item_id }}">
+                                                    <button class="decrement-qty cart_quantity_up btn btn-sm btn-custom-green rounded-0" 
+                                                        data-item_id="{{ cart_item.item_id }}" id="decrement-qty_{{ cart_item.item_id }}" onclick="change_quant('{{cart_item.item_id}}', 'minus')">
                                                         <span>
                                                             <i class="fas fa-minus fa-sm"></i>
                                                         </span>
@@ -69,8 +69,8 @@
                                                     data-item_id="{{ cart_item.item_id }}"
                                                     id="id_qty_{{ cart_item.item_id }}">
                                                 <div class="input-group-append">
-                                                    <button class="increment-qty btn btn-sm btn-custom-green rounded-0"
-                                                        data-item_id="{{ cart_item.item_id }}" id="increment-qty_{{ cart_item.item_id }}">
+                                                    <button class="increment-qty cart_quantity_up btn btn-sm btn-custom-green rounded-0"
+                                                        data-item_id="{{ cart_item.item_id }}" id="increment-qty_{{ cart_item.item_id }}" onclick="change_quant('{{cart_item.item_id}}', 'minus')">
                                                         <span>
                                                             <i class="fas fa-plus fa-sm"></i>
                                                         </span>
@@ -159,5 +159,6 @@
              location.reload();
          });
     })
+    
 </script>
 {% endblock %}

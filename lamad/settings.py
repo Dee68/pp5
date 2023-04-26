@@ -132,10 +132,8 @@ else:
         'default': dj_database_url.parse(os.environ.get('DATABASE_URL'))
     }
 
-# LOGIN_URL = 'account/signin'
 LOGIN_REDIRECT_URL = '/'
-# LOGOUT_REDIRECT_URL = 'account/signin'
-# LOGOUT_URL = 'account/logout'
+
 
 
 # Password validation

@@ -48,7 +48,7 @@
                                 <td class="py-3">
                                     <p class="my-0">${{ cart_item.product.price }}</p>
                                 </td>
-                                <td class="py-3 w-25" rowspan="3" id="repl">
+                                <td class="py-3 w-25" id="repl">
                                     <form class="form update-form" method="POST" action="{% url 'cart:adjust_cart' cart_item.item_id %}">
                                         {% csrf_token %}
                                         <div class="form-group">

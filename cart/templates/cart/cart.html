@@ -27,7 +27,6 @@
                         <thead class="text-black">
                             <tr>
                                 <th scope="col">Product Info</th>
-                                <th scope="col">Size</th>
                                 <th scope="col">Price</th>
                                 <th scope="col">Qty</th>
                                 <th scope="col">Subtotal</th>
@@ -42,35 +41,35 @@
                                     {% else %}
                                         <img class="card-img-top product-image" src="{% static 'images/noimage.jpg' %}" alt="{{cart_item.product.product_name}}">
                                     {% endif %}
+                                    <p class="my-0"><strong>{{ cart_item.product.name }}</strong></p>
                                         
                                 </td>
-                                <td class="py-3">
-                                    <p class="my-0"><strong>{{ cart_item.name }}</strong></p>
-                                    <p class="my-0">{% if cart_item.product.has_sizes %}{{cart_item.size|upper}}{% else %}N/A{% endif %}</p>
-                                </td>
+                 
                                 <td class="py-3">
                                     <p class="my-0">${{ cart_item.product.price }}</p>
                                 </td>
-                                <td class="py-3 w-25">
+                                <td class="py-3 w-25" rowspan="3" id="repl">
                                     <form class="form update-form" method="POST" action="{% url 'cart:adjust_cart' cart_item.item_id %}">
                                         {% csrf_token %}
                                         <div class="form-group">
                                             <div class="input-group">
                                                 <div class="input-group-prepend">
                                                     <button class="decrement-qty cart_quantity_up btn btn-sm btn-custom-green rounded-0" 
-                                                        data-item_id="{{ cart_item.item_id }}" id="decrement-qty_{{ cart_item.item_id }}" onclick="change_quant('{{cart_item.item_id}}', 'minus')">
+                                                        data-item_id="{{ cart_item.item_id }}" id="decrement-qty_{{ cart_item.item_id }}">
                                                         <span>
                                                             <i class="fas fa-minus fa-sm"></i>
                                                         </span>
                                                     </button>
                                                 </div>
+                                                <div>
                                                 <input class="form-control form-control-sm qty_input" type="number"
                                                     name="quantity" value="{{ cart_item.quantity }}" min="1" max="99"
                                                     data-item_id="{{ cart_item.item_id }}"
                                                     id="id_qty_{{ cart_item.item_id }}">
+                                                </div>
                                                 <div class="input-group-append">
                                                     <button class="increment-qty cart_quantity_up btn btn-sm btn-custom-green rounded-0"
-                                                        data-item_id="{{ cart_item.item_id }}" id="increment-qty_{{ cart_item.item_id }}" onclick="change_quant('{{cart_item.item_id}}', 'minus')">
+                                                        data-item_id="{{ cart_item.item_id }}" id="increment-qty_{{ cart_item.item_id }}">
                                                         <span>
                                                             <i class="fas fa-plus fa-sm"></i>
                                                         </span>
@@ -82,9 +81,10 @@
                                             </div>
                                         </div>
                                     </form>
-                                    <a class="update-link text-info"><small>Update</small></a>
-                                    <a class="remove-item text-danger float-right" id="remove_{{ cart_item.item_id }}" data-product-size="{{ cart_item.size }}"><small>Remove</small>
+                                    <a class="update-link text-info"><small><i class="fas fa-pen-square"></i></small></a>
+                                    <a class="remove-item text-danger float-right" id="remove_{{ cart_item.item_id }}" data-product-size="{{ cart_item.size }}"><small><i class="fas fa-trash-alt"></i></small>
                                 </td>
+                                
                                 <td class="py-3">
                                     <p class="my-0">${{ cart_item.product.price | calc_subtotal:cart_item.quantity}}</p>
                                 </td>

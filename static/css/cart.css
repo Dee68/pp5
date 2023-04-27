@@ -2,3 +2,16 @@
     background-color: #0d6316;
     color: white;
 }
+.fa-pen-square,.fa-trash-alt {
+    color:#0d6316;
+    font-size: 150%;
+}
+/* .update-form {
+    display: inline;
+}
+.update-link, .remove-item {
+    display: flex;
+} */
+#repl > *{
+    display: inline-block;
+}

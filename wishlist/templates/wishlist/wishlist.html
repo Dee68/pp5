@@ -48,7 +48,9 @@
                                             <img src="{{ item.product.image_url }}" alt="{{ item.product.name }}" class="mCS_img_loaded">
                                         </div>
                                         <div class="name-product">
+                                            <a href="{{ item.product.get_absolute_url }}">
                                             {{ item.product.name | title }}
+                                            </a>
                                         </div>
                                     </div>
                                 </td>

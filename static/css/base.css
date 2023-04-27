@@ -20,7 +20,15 @@ li > a{
     color: white;
 }
 
-
+.rounded-pill {
+    border-radius: 50rem!important;
+}
+.top-0 {
+    top: 0!important;
+}
+.bg-light {
+    background-color: #727475 !important;
+}
 footer a:hover{
     cursor: pointer;
     color: #59adaf!important;

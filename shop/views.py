@@ -1,5 +1,6 @@
 from django.shortcuts import render, get_object_or_404, redirect, reverse
 from django.contrib import messages
+from django.core.paginator import Paginator, EmptyPage, PageNotAnInteger
 from django.http import HttpResponseRedirect
 from django.db.models import Q
 from django.contrib.auth.decorators import login_required
@@ -18,11 +19,21 @@ def products(request, category_slug=None):
     if category_slug is None:
         products = Product.objects.all().filter(in_stock=True)
         product_count = products.count()
+        page = request.GET.get('page', 1)
+        paginator = Paginator(products, 4)
     else:
         category = get_object_or_404(Category, slug=category_slug)
         products = Product.objects.filter(category=category,
                                           in_stock=True)
         product_count = products.count()
+        page = request.GET.get('page', 1)
+        paginator = Paginator(products, 4)
+    try:
+        products = paginator.page(page)
+    except PageNotAnInteger:
+        products = paginator.page(1)
+    except EmptyPage:
+        products = paginator.page(paginator.num_pages)
 
     if request.GET:
         if 'q' in request.GET:

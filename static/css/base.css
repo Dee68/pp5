@@ -19,7 +19,9 @@ a{
 li > a{
     color: white;
 }
-
+.page-link {
+    color: #59adaf;
+}
 .rounded-pill {
     border-radius: 50rem!important;
 }

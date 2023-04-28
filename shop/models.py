@@ -29,15 +29,15 @@ class Product(models.Model):
     slug = models.SlugField(max_length=150, unique=True)
     description = models.TextField(max_length=500, blank=True)
     price = models.DecimalField(max_digits=6, decimal_places=2)
-    stock = models.IntegerField()
+    stock = models.SmallIntegerField()
     in_stock = models.BooleanField(default=True)
-    has_sizes = models.BooleanField(default=False, null=True, blank=True)
+    has_sizes = models.BooleanField(default=False, blank=True)
     category = models.ForeignKey(Category, on_delete=models.CASCADE)
     created_at = models.DateTimeField(auto_now_add=True)
     updated_at = models.DateTimeField(auto_now=True)
     image_url = models.URLField(max_length=1024, null=True, blank=True)
     image = models.ImageField(null=True, blank=True, upload_to='products/')
-    rating = models.FloatField(null=True)
+    rating = models.SmallIntegerField(null=True)
 
     def image_tag(self):
         if self.image:

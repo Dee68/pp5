@@ -197,7 +197,7 @@ This was the suspected preproject planning database structure. As the project wa
 ---
 
 <details>
-<summary>Products App</summary>
+<summary>Shop App</summary>
 <br>
 
 #### Category Model
@@ -213,7 +213,7 @@ This was the suspected preproject planning database structure. As the project wa
 
 |id|Field|
 |--|--|
-|product_name|CharField|
+|name|CharField|
 |slug|SlugField|
 |description|TextField|
 |price|DecimalField|
@@ -238,6 +238,23 @@ This was the suspected preproject planning database structure. As the project wa
 |created_at|DateTimeField|
   
 </details>
+
+---
+<details>
+<summary>Wishlist App</summary>
+<br>
+
+#### Wishlist Model
+
+|id|Field|
+|--|--|
+|user|ForeignKey|
+|product|ForeignKey|
+
+
+</details>
+
+---
 
 ## UX design
 
@@ -332,15 +349,15 @@ The businesses marketing strategy going forward is:
 
 ### SEO Project planning
 
-Once the business model was decided on as an a men's grooming store I started working on how to market the site and what keywords to target.
+<!-- Once the business model was decided on as an a men's grooming store I started working on how to market the site and what keywords to target.
 I utilised google trends to find more popular search terms and also used a tool called SEO quake to compare the competition and see what they are doing well.
-I checked for a number of keywords on wordtracker.com and signed up for a trial to get as much out of it as possible. From there I developed a list of short tail and long tail keywords I intended to use in this project.
+I checked for a number of keywords on wordtracker.com and signed up for a trial to get as much out of it as possible. From there I developed a list of short tail and long tail keywords I intended to use in this project. -->
 
 ### Keywords
 
-Short-tail - Razor Sharp, Hand Razor, Mens Razor, Men's Grooming, Beard Care, Beard Shaping, Razor Sharp, Men's Grooming, Hair Care, Beard Care, Shaving, Hair Styling, Skin Care, Grooming products, Affordable prices, Mens grooming
+<!-- Short-tail - Razor Sharp, Hand Razor, Mens Razor, Men's Grooming, Beard Care, Beard Shaping, Razor Sharp, Men's Grooming, Hair Care, Beard Care, Shaving, Hair Styling, Skin Care, Grooming products, Affordable prices, Mens grooming
 
-long-tail -  beard care gifts for men,  Shaving gifts for men,  Grooming gifts for men, hair care gifts for men, Men's Hair Care Men's Beard Care,  Razor for men, mens first razor
+long-tail -  beard care gifts for men,  Shaving gifts for men,  Grooming gifts for men, hair care gifts for men, Men's Hair Care Men's Beard Care,  Razor for men, mens first razor -->
 
 By utilising the short tail keywords and analysing the results from google trends, and the related questions I was able to generate a list of longtail keywords.
 The keywords are used throughoutn the site at different places.
@@ -364,7 +381,7 @@ This logo can be seen in the favicon of the site and on the facebook screenshots
 
 To view the facebook business page you can click on the link below:
 
-[Facebook Business Page](https://www.facebook.com/profile.php?id=100089813350334)
+[Facebook Business Page](https://www.facebook.com/profile.php?id=100091956826416)
 
 In case the page becomes inactive or deactivated by Facebook I have taken screenshots to display here also:
 
@@ -372,13 +389,13 @@ In case the page becomes inactive or deactivated by Facebook I have taken screen
   <summary>Facebook Business Page Screenshots</summary>
   <br>
 
-![FB Business page overview](media/readme/facebook-business-page.png)
+![FB Business page overview](media/readme/facebook1.png)
 
-![FB Business page overview](media/readme/facebook-business-page-2.png)
+![FB Business page overview](media/readme/facebook2.png)
 
-![FB Business page overview](media/readme/facebook-business-page-3.png)
+![FB Business page overview](media/readme/facebook3.png)
 
-![FB Business page overview](media/readme/facebook-business-page-4.png)
+![FB Business page overview](media/readme/facebook4.png)
 
 </details>
 
@@ -402,12 +419,12 @@ I also documented some of the bugs I have come across on this project in the pro
 One of the sections in my project boards is called NINTH. This stands for "Not importants, nice to have". This is usually for expanding the project beyond MVP and adding additional features to enhance user experience.
 
 ### Github Project Board
-To see the final project board for Razor Sharp you can click the link below:
-[Razor Sharp Project Board](https://github.com/users/Alan-Bushell/projects/8)
+To see the final project board for Lamad Shop you can click the link below:
+[Lamad Shop Project Board]()
 
 
 #### Epics
-
+<!-- 
  1. [Epic: Create Base Project](https://github.com/Alan-Bushell/razor-sharp/issues/1)
  2. [Epic: User Authentication](https://github.com/Alan-Bushell/razor-sharp/issues/2)
  3. [Epic: Navigation & Views](https://github.com/Alan-Bushell/razor-sharp/issues/39)
@@ -419,7 +436,7 @@ To see the final project board for Razor Sharp you can click the link below:
  9. [Epic: Post Order Options](https://github.com/Alan-Bushell/razor-sharp/issues/26)
  10. [Epic: Profiles](https://github.com/Alan-Bushell/razor-sharp/issues/9)
  11. [Epic: SEO](https://github.com/Alan-Bushell/razor-sharp/issues/29)
- 12. [Epic: Shopping Cart](https://github.com/Alan-Bushell/razor-sharp/issues/7)
+ 12. [Epic: Shopping Cart](https://github.com/Alan-Bushell/razor-sharp/issues/7) -->
 
 Each Epic may have one or more user stories associated and each user story may have tasks.
 
@@ -460,7 +477,7 @@ When developing this application I decided I wanted to add a detailed footer as 
 <summary> Authentication </summary>
 <br>
 
-The authentication flows come from Allauth and have been styled to fit the theme of my website. At present when a user signs up a confirmation email is sent to their email address to confirm it before being able to access their account. Unfortunately due to gmail authentication issues preventing emails from being sent from the deployed project at this moment in time, new users cannot authenticate on their own. Will revisit this issue to resolve.
+The authentication flows come from a Custom user model inherited from django abstractuser model and have been styled to fit the theme of my website. At present when a user signs up a confirmation email is sent to their email address to confirm it before being able to access their account. Unfortunately due to gmail authentication issues preventing emails from being sent from the deployed project at this moment in time, new users cannot authenticate on their own. Will revisit this issue to resolve.
 ![Sign Up](media/readme/registration.png)
 
 ![Login](media/readme/login.png)

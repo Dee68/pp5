@@ -17,14 +17,17 @@ def products(request, category_slug=None):
     query = None
 
     if category_slug is None:
-        products = Product.objects.all().filter(in_stock=True)
+        products = Product.objects.all().filter(in_stock=True)\
+            .order_by('-created_at')
         product_count = products.count()
         page = request.GET.get('page', 1)
         paginator = Paginator(products, 4)
     else:
         category = get_object_or_404(Category, slug=category_slug)
         products = Product.objects.filter(category=category,
-                                          in_stock=True)
+                                          in_stock=True).order_by(
+                                                                  '-created_at'
+                                                                  )
         product_count = products.count()
         page = request.GET.get('page', 1)
         paginator = Paginator(products, 4)

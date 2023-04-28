@@ -27,6 +27,7 @@
             {% else %}
                 <p class="text-muted">Sorry this item is currently out of stock</p>
             {% endif %}
+            <h4>Price: ${{ product.price }}</h4>
             <div class="product-rating">
                 <strong>
                     Rating: 
@@ -140,7 +141,9 @@
                   <a class="nav-link active" id="first-tab" data-toggle="tab" href="#first" role="tab" aria-controls="first" aria-selected="true">Description</a>
                 </li>
                 <li class="nav-item">
-                  <a class="nav-link" id="second-tab" data-toggle="tab" href="#second" role="tab" aria-controls="second" aria-selected="false">Review</a>
+                  <a class="nav-link" id="second-tab" data-toggle="tab" href="#second" role="tab" aria-controls="second" aria-selected="false">
+                    Review <span class="badge rounded-pill bg-light my-button">{{ reviews.count }}</span>
+                </a>
                 </li>
               </ul>
             </div>

@@ -7,7 +7,7 @@ from django.utils.translation import gettext_lazy as _
 
 
 class CustomUser(AbstractUser):
-    username = models.CharField(max_length=8, unique=True)
+    username = models.CharField(max_length=20, unique=True)
     email = models.EmailField(_('email address'), unique=True, max_length=100)
     is_email_verified = models.BooleanField(default=False)
 

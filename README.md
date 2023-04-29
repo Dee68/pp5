@@ -460,13 +460,13 @@ These remain unfinished and can also be viewed from the project board. This woul
 
 The Desktop navigation was based on Boutique Ado and seemed like a concise and clear option for an e-commerce store. 
 
-![Navbar Desktop](media/readme/navbar-desktop.png)
+![Navbar Desktop](media/readme/navigation.png)
 
 Mobile Navigation
   
-![Navbar Mobile](media/readme/mobile-nav.png)
+![Navbar Mobile](media/readme/nav_mobile.png)
 
-![Mobile Navbar Expanded](media/readme/mobile-nav-expanded.png)
+![Mobile Navbar Expanded](media/readme/nav_mobile_expd.png)
   
 When developing this application I decided I wanted to add a detailed footer as would be found on most e-commerce websites.
 ![Footer](media/readme/footer.png)
@@ -477,8 +477,10 @@ When developing this application I decided I wanted to add a detailed footer as 
 <summary> Authentication </summary>
 <br>
 
-The authentication flows come from a Custom user model inherited from django abstractuser model and have been styled to fit the theme of my website. At present when a user signs up a confirmation email is sent to their email address to confirm it before being able to access their account. Unfortunately due to gmail authentication issues preventing emails from being sent from the deployed project at this moment in time, new users cannot authenticate on their own. Will revisit this issue to resolve.
-![Sign Up](media/readme/registration.png)
+The authentication flows come from a Custom user model inherited from django abstractuser model and have been styled to fit the theme of my website. At present when a user signs up a confirmation email is sent to their email address to confirm it before being able to access their account.Username field, email field and password field are required fields to enable a user to signup.The username and email fields are validated using ajax for a better user experience.
+![Sign Up](media/readme/register.png)
+
+![Sign Up Ajax](media/readme/register_ajax.png)
 
 ![Login](media/readme/login.png)
 

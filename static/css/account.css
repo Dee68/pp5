@@ -72,3 +72,11 @@ hr {
 .kn {
     display: flex;
 }
+
+h3.text-bl {
+    color: #000!important;
+  }
+
+  li > a {
+    color: #000!important;
+  }

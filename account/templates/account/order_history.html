@@ -2,7 +2,7 @@
 {% load static %}
 
 {% block extra_css %}
-    <link rel="stylesheet" href="{% static 'css/account.css' %}">
+    <link rel="stylesheet" href="{% static 'css/profile.css' %}">
 {% endblock %}
 
 {% block page_header %}
@@ -18,9 +18,9 @@
 
 {% block content %}
     <div class="container-fluid profile-container justify-content-space-around">
-        <div class="row text-center">
+        <div class="row text-center border-guide">
             <div class="col-xs-12 col-md-4 profile-menu-items">
-                <h3>Profile Menu</h3>
+                <h3 class="text-bl">Profile Menu</h3>
                 <hr>
                 <ul class="profile-menu-list">
                     <li><a href="{% url 'account:profile' %}" class="menu-item active"><i class="fa-solid fa-info"></i> Personal Information</a></li><hr>
@@ -31,7 +31,7 @@
                     </ul>
             </div>
             <div class="col-xs-12 col-md-8 order-items">
-                <h3>Order History</h3>
+                <h3 class="text-bl">Order History</h3>
                 <hr>
 
                 <table class="table order-table table-bordered">
@@ -45,7 +45,7 @@
                     {% for order in orders %}
                     {% if order.user_id == user.id %}
                     <tr>
-                        <th><a href="{% url 'account:order_history_details' order.order_number %}" target="_blank">{{ order.order_number|slice:":12" }}</a></th>
+                        <th><a href="{% url 'account:order_history_details' order.order_number %}" target="_blank" class="menu-item">{{ order.order_number|slice:":12" }}</a></th>
                         <th>{{ order.date|date:"dS M Y" }}</th>
                         <th>{{ order.date|date:"h:ia"}}</th>
                         <th>{{ order.grand_total}}</th>

@@ -2,7 +2,7 @@
 {% load static %}
 
 {% block extra_css %}
-    <link rel="stylesheet" href="{% static 'css/account.css' %}">
+    <link rel="stylesheet" href="{% static 'css/profile.css' %}">
 {% endblock %}
 
 {% block page_header %}
@@ -20,7 +20,7 @@
     <div class="container-fluid profile-container justify-content-space-around">
         <div class="row text-center">
             <div class="col-xs-12 col-md-4 profile-menu-items">
-                <h3>Profile Menu</h3>
+                <h3 class="text-black">Profile Menu</h3>
                 <hr>
                 <ul class="profile-menu-list">
                     <li><a href="{% url 'account:profile' %}" class="menu-item"><i class="fa-solid fa-info"></i> Personal Information</a></li><hr>
@@ -31,7 +31,7 @@
                     </ul>
             </div>
             <div class="col-xs-12 col-md-8 profile-options-items">
-                <h3>Address information</h3>
+                <h3 class="text-black">Address information</h3>
                 <hr>
                 <h5><strong>Street Address:</strong>{{user.profile.street_address1}}</h5>
                 {% if user.profile.street_address2 %}

@@ -54,6 +54,10 @@ hr {
     color: white!important;
     background-color: #3b5998;
   }
+  .btn-github {
+    color: #fff!important;
+    background-color: #000;
+  }
   
   .cfm {
     color: #292F36!important;

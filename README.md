@@ -39,7 +39,7 @@
 <summary> Color Pallete </summary>
 <br>
 
-![Color Pallette](media/readme/color-pallette.png)
+![Color Pallette](media/readme/colorpalette.png)
 </details>
 
 
@@ -478,11 +478,40 @@ When developing this application I decided I wanted to add a detailed footer as 
 <br>
 
 The authentication flows come from a Custom user model inherited from django abstractuser model and have been styled to fit the theme of my website. At present when a user signs up a confirmation email is sent to their email address to confirm it before being able to access their account.Username field, email field and password field are required fields to enable a user to signup.The username and email fields are validated using ajax for a better user experience.
+
 ![Sign Up](media/readme/register.png)
 
 ![Sign Up Ajax](media/readme/register_ajax.png)
 
+A registererd user can login with either a username or an email
+
 ![Login](media/readme/login.png)
+
+</details>
+
+<details>
+<summary> Account Profiles </summary>
+<br>
+
+The account profilesmodel was designed to make it easy for customers to carry out some basic post order options. 
+The facility to update their account information, change their shipping address or profile photo. Even close their account if they no longer wish to have one.
+
+![Accounts](media/readme/profile.png)
+
+![Shipping Details](media/readme/shipping.png)
+
+We allow users to add and update their profile image as we display their image beside their username when they make comments on blog posts. 
+This was intended to create some form of personalisation and encourage people to discuss on the websites soon to be many topics.
+
+![Change Profile Photo](media/readme/chng_prof.png)
+
+The customer can visit their order confirmation by clicking on the order number in the order history page. Once directed to this page they will be notified by a pop up message that this is displaying a previous order and not a new one.
+  
+The customer can return to the profile by clicking on the button below the order form.
+
+![Order History](media/readme/order_history.png)
+
+![Order History Detail](media/readme/order_detail.png)
 
 </details>
 
@@ -490,15 +519,18 @@ The authentication flows come from a Custom user model inherited from django abs
 <summary> Products Page </summary>
 <br>
 
-The products page is responsive to allow equal spacing between products regardless of screen width.
+The products page is responsive to allow equal spacing between products regardless of screen width. The products page is paginated and shows a add review button for logged in users.
   
 Out of stock products do not show up to customers but in the event that the customer somehow gets access to a product that is out of stock, the add to card button is disabled to prevent out of stock purchases.
   
-![Products Page](media/readme/products-page.png)
+![Products Page](media/readme/products1.png)
 
-The product detail page was intended to include a reviews option for logged in users who also purchased the specific product. As you can see an option on the order model of is_ordered set as a boolean value that would be triggered on order completion and added to users profile. This functionality is not in place in this iteration of the project but will be added in the next iteration. From there the reviews rating would be calculated based on the average score of reviews.
+![Products Page pagination](media/readme/products2.png)
 
-![Products Details](media/readme/product-details.png)
+The product detail page includes a review and wishlist options but can only be accessed by logged in users.
+The logged in user can add a review with a rating that spans from 1 to 5 and can add the product to his/her wishlist.This page also shows the number of reviews made on the product.
+
+![Products Details](media/readme/product_detail.png)
 
 </details>
 
@@ -506,38 +538,26 @@ The product detail page was intended to include a reviews option for logged in u
 <summary> Cart & Checkout Flow </summary>
 <br>
 
-![Cart Page](media/readme/cart-page.png)
+The cart page displays the cart items with the product image, price and quantity.
+On the navigation bar cart icon shows the number of cart items in the cart.
+![Cart Page](media/readme/cart.png)
 
-![Checkout Page](media/readme/checkout-page.png)
+![Checkout Page](media/readme/checkout.png)
 
-![Payment Success Page](media/readme/payment-success-page.png)
+On filling the checkout form with a valid data, the user will be sent an email to confirm his/her order.
+
+![Payment Success Page](media/readme/success.png)
   
 Once the customer makes a successful paymeent they are redirected to the payment success page where they see a summary of their order. 
 
 </details>
 
-
 <details>
-<summary> Account Profiles </summary>
+<summary> Wishlist </summary>
 <br>
 
-The account profiles app was designed to make it easy for customers to carry out some basic post order options. 
-The facility to update their account information, change their shipping address or profile photo. Even close their account if they no longer wish to have one.
-
-![Accounts](media/readme/accounts-home.png)
-
-![Shipping Details](media/readme/shipping-info.png)
-
-We allow users to add and update their profile image as we display their image beside their username when they make comments on blog posts. 
-This was intended to create some form of personalisation and encourage people to discuss on the websites soon to be many topics.
-
-![Change Profile Photo](media/readme/change-profile-photo.png)
-
-The customer can visit their order confirmation by clicking on the order number in the order history page. Once directed to this page they will be notified by a pop up message that this is displaying a previous order and not a new one.
-  
-The customer can return to the profile by clicking on the button below the order form.
-
-![Order History](media/readme/order-history.png)
+The wishlist is only availabe for logged in users.A logged in user can add or delete a product to this list.
+![Whishlist](media/readme/whishlist.png)
 
 </details>
 
@@ -547,13 +567,15 @@ The customer can return to the profile by clicking on the button below the order
 
 The idea behind blogs was to firstly create informative and helpful articles to boost SEO and also to create a place for users to ask questions, share insights and converse with like minded people.  
 
-![Blog Page](media/readme/blog-page.png)
+![Blog Page](media/readme/blog.png)
 
-![Blog Details](media/readme/blog-details.png)
+![Blog Details](media/readme/blog_detail.png)
   
-The initial blog articles although basic are the start of what will be expanded on. At present users can comment on blogs and like blog articles. The future features will be added below.
+The blog articles page displays articles written by the admin user. Blog comments can be viewed by all users but only logged in users can comment on the articles.
 
-![Blog Comments](media/readme/blog-comments.png)
+![Blog Comments](media/readme/comment1.png)
+
+![Blog Comments User](media/readme/comment2.png)
 
 </details>
 
@@ -561,11 +583,16 @@ The initial blog articles although basic are the start of what will be expanded 
 <summary> Contact Page </summary>
 <br>
 
-![Contact Form](media/readme/contact-form.png)
+![Contact Form](media/readme/contact.png)
   
-The contact form was designed to be a model that sends the message to the backend of the website. In the future I will enable email notifications to the business email address and filter them depending on contact reason. For example if the query selected is complaint then the email will be forwarded to the complaints email address the ensure swift response from the correct employee of the business.
+The contact form was designed to be a model that sends the message to the backend of the website. Non logged in users are not permitted to view this page.
 
-![Contact form Dropdown](media/readme/contact-form-dropdown.png)
+![Contact](media/readme/contact1.png)
+
+The contact form specifies the reason for contact as shown in the dropdown list.
+
+
+![Contact form Dropdown](media/readme/cont_reas.png)
 
 </details>
 
@@ -612,9 +639,8 @@ To ensure the page reflects that of a genuine e-commerce page I wanted to includ
 
 ![FAQ's](media/readme/sample-faqs.png)
   
-I have included a subscribe option for customer to provide their emails to be added to mailing lists for offers tips and tricks. This service is provided by mailchimp.
+A subscribe option for customer to provide their emails to be added to mailing lists for offers tips and tricks. This service is provided by mailchimp.
   
-Initially I was considering creating a subscribe model and attaching it to the userprofile model so they can subscribe and unsub at their leisure but due to time constrainst i decided to go with mailchimp.
 
 ![Subscribe](media/readme/subscribe.png)
 
@@ -715,7 +741,7 @@ These would allow the business to track orders over days, months and year on yea
 - Used to host static and media files for this project and IAM for the permissions based roles for accessing the S3 buckets.
 
 ### Django-Crispy-Forms
-- Used to style the forms in this project.
+- Used to style some of the forms in this project.
 
 [Back to Top of page](#contents)
 

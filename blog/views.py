@@ -18,6 +18,7 @@ class ArticleDetail(View):
         queryset = Article.objects.filter(status=1)
         article = get_object_or_404(queryset, slug=slug)
         comments = article.comments.order_by('created_on')
+        comment_form = CommentForm()
         liked = False
         if article.likes.filter(id=self.request.user.id).exists():
             liked = True
@@ -25,7 +26,8 @@ class ArticleDetail(View):
         context = {
             'article': article,
             'comments': comments,
-            'liked': liked
+            'liked': liked,
+            'comment_form': comment_form
         }
         return render(request, template_name, context)
 

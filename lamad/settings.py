@@ -98,7 +98,6 @@ AUTHENTICATION_BACKENDS = [
     'social_core.backends.facebook.FacebookOAuth2',
     'social_core.backends.google.GoogleOAuth2',
     'social_core.backends.github.GithubOAuth2',
-    'social_core.backends.instagram.InstagramOAuth2',
     DEFAULT_AUTHENTICATION_BACKEND,
 ]
 

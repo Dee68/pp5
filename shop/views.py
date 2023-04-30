@@ -40,6 +40,8 @@ def products(request, category_slug=None):
 
     if request.GET:
         if 'q' in request.GET:
+            products = Product.objects.all().filter(in_stock=True)\
+                .order_by('-created_at')
             query = request.GET['q']
             if not query:
                 messages.error(request,

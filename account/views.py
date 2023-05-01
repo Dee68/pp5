@@ -133,7 +133,7 @@ class RegistrationView(View):
                                             password=password1
                                             )
             user.set_password(password1)
-            user.is_active = False
+            user.is_active = True         
             user.save()
             # send email to activate account
             email_subject = 'Account activation'
@@ -161,7 +161,6 @@ class RegistrationView(View):
                                                 )
                              )
             return render(request, template_name, context)
-        return render(request, template_name, context)
 
 
 class LoginView(View):
@@ -177,28 +176,31 @@ class LoginView(View):
     def post(self, request):
         username = request.POST['username']
         password = request.POST['password']
-        context = {'data': request.POST}
+        context = {'data': request.POST, 'has_error': False}
         template_name = 'account/login.html'
         if username and password:
             user = authenticate(username=username, password=password)
-            if user and not user.is_email_verified:
-                messages.error(request,
-                               'Email is not verified,\
-                                please check your inbox.'
-                               )
-                return render(request, template_name, context)
-            elif user and user.is_email_verified:
+            if user and user.is_email_verified:
                 login(request, user)
                 messages.success(request,
                                  mark_safe('Welcome ' + user.username)
                                  )
                 return redirect('home:home')
-            if not user:
+            elif user and not user.is_email_verified:
+                context['has_error'] = True
+                messages.error(request,
+                               'Email is not verified,\
+                                please check your inbox.'
+                               )
+                return render(request, template_name, context, status=401)
+            elif not user:
+                context['has_error'] = True
                 messages.error(request, 'Invalid credentials')
-                return render(request, template_name, context)
+                return render(request, template_name, context, status=401)
         else:
+            context['has_error'] = True
             messages.error(request, 'All fields are required')
-            return render(request, template_name, context)
+            return render(request, template_name, context, status=401)
 
 
 def validate_username(request):

@@ -23,11 +23,12 @@
                 <h3 class="text-black">Profile Menu</h3>
                 <hr>
                 <ul class="profile-menu-list">
-                    <li><a href="{% url 'account:profile' %}" class="menu-item"><i class="fa-solid fa-info"></i> Personal Information</a></li><hr>
-                    <li><a href="{% url 'account:shipping_details' %}" class="menu-item active"><i class="fa-solid fa-truck-fast"></i> Shipping Details</a></li><hr>
+                    <li><a href="{% url 'account:profile' %}" class="menu-item active"><i class="fa-solid fa-info"></i> Personal Information</a></li><hr>
+                    <li><a href="{% url 'account:shipping_details' %}" class="menu-item"><i class="fa-solid fa-truck-fast"></i> Shipping Details</a></li><hr>
                     <li><a href="{% url 'account:edit_image' user.id %}" class="menu-item"><i class="fa-regular fa-image"></i></i> Change Profile Photo</a></li><hr>
                     <li><a href="{% url 'account:order_history' %}" class="menu-item"><i class="fa-solid fa-receipt"></i> Order history</a></li><hr>
-                    <li><a href="#cancelModal" data-toggle="modal" class="menu-item"><i class="fa-regular fa-circle-xmark"></i> Close Account</a></li><hr>
+                    <li><a href="{% url 'account:reviews' %}" class="menu-item"><i class="far fa-edit"></i> Reviews</a></li><hr>
+                    <li><a href="#" class="menu-item btn btn-primary" data-toggle="modal" data-target="#myCenteredModal"><i class="fa-regular fa-circle-xmark"></i> Close Account</a></li><hr>
                     </ul>
             </div>
             <div class="col-xs-12 col-md-8 profile-options-items">

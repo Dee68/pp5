@@ -40,4 +40,4 @@ class Profile(models.Model):
         return self.user.username
 
     def full_address(self):
-        return f'(self.street_address1) (self.street_address2)'
+        return f'{self.street_address1} {self.street_address2}'

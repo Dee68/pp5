@@ -19,7 +19,8 @@ from django.urls import reverse
 from django.core.mail import send_mail
 from django.utils.safestring import mark_safe
 from .utils import token_generator
-from shop.models import Product
+from shop.models import Product, Review
+from shop.forms import ReviewForm
 from checkout.models import Order, OrderLineItem
 from .models import Profile, CustomUser
 from .forms import (CustomUserCreationForm,
@@ -133,7 +134,7 @@ class RegistrationView(View):
                                             password=password1
                                             )
             user.set_password(password1)
-            user.is_active = True         
+            user.is_active = True     
             user.save()
             # send email to activate account
             email_subject = 'Account activation'
@@ -179,7 +180,7 @@ class LoginView(View):
         context = {'data': request.POST, 'has_error': False}
         template_name = 'account/login.html'
         if username and password:
-            user = authenticate(username=username, password=password)
+            user = authenticate(request, username=username, password=password)
             if user and user.is_email_verified:
                 login(request, user)
                 messages.success(request,
@@ -344,6 +345,54 @@ def order_history(request):
     }
     return render(request, template, context)
 
+
+@login_required
+def review_list(request):
+    '''
+        This view displays the reviews made by
+        a logged in user of products
+    '''
+    # user_id=request.user.id
+    reviews = Review.objects.filter(user=request.user).all()
+    print(reviews)
+    context = {'reviews': reviews}
+    template_name = 'account/reviews.html'
+    return render(request, template_name, context)
+
+
+@login_required
+def edit_review(request, rev_id):
+    '''
+        This view enables logged in user to
+        edit his/her review
+    '''
+    review = get_object_or_404(Review, id=rev_id)
+    if request.method == 'POST':
+        form = ReviewForm(request.POST, instance=review)
+        if form.is_valid():
+            form.save()
+            messages.success(request, 'Successfully updated review!')
+            return redirect(reverse('shop:products'))
+        else:
+            messages.error(request, 'Failed to update review. Please ensure the form is valid')
+    else:
+        form = ReviewForm(instance=review)
+        messages.info(request, f'You are editing the review of product - {review.product.name}')
+    template = 'account/edit_review.html'
+    context = {
+        'form': form,
+        'review': review
+    }
+    return render(request, template, context)
+
+
+@login_required
+def delete_review(request, rev_id):
+    '''
+        This view enables user to remove
+        a review from his/her list
+    '''
+    pass
 
 @login_required
 def order_history_details(request, order_number):

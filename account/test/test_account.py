@@ -6,9 +6,10 @@ from django.urls import reverse
 from django.shortcuts import redirect
 from django.utils.safestring import mark_safe
 from django.contrib.messages import get_messages
+from django.contrib.auth import get_user_model
 # ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 # Internal:
-from account.models import CustomUser, Profile
+from account.models import Profile
 # ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 # This tests check the creation, update of the user profile
 
@@ -94,6 +95,7 @@ class BaseTest(TestCase):
             'username': '',
             'password': ''
         }
+        
         return super().setUp()
 
 
@@ -112,8 +114,8 @@ class RegisterTest(BaseTest):
         message = "Account created successfully.\
                    Check your mail to activate\
                    account."
-        self.assertEquals(response.status_code, 200, msg=message)
-        
+        self.user['is_active'] = True
+        self.assertEquals(response.status_code, 200,  msg=message)
 
     def test_can_not_register_user_with_empty_username(self):
         response = self.client.post(
@@ -197,21 +199,35 @@ class LoginTest(BaseTest):
         message = 'All fields are required'
         self.assertEquals(response.status_code, 401, msg=message)
 
-    # def test_signin_user(self):
-    #     self.client.post(self.register_url, self.user, format='text/html')
-    #     username = self.user['username']
-    #     password = self.user['password1']
-    #     self.user_login = {
-    #                         'username': username,
-    #                         'password': password,
-    #                         }
-    #     self.user_login['is_email_verified'] = True
-    #     response = self.client.post(self.login_url, self.user_login)
-        # message = f'Welcome {self.user_login["username"]}'
-        # self.assertEquals(response.status_code, 200, msg=message)
-        # self.assertRedirects(response, self.home_url)
+    def test_signin_user(self):
+        self.client.post(self.register_url, self.user, format='text/html')
+        self.user_verified = {
+                              'username': self.user['username'],
+                              'password': self.user['password1'],
+                              'is_email_verified': True
+                             }
+        
+    def test_signin_email_not_verified_user(self):
+        self.client.post(self.register_url, self.user, format='text/html')
+        username = self.user['username']
+        password = self.user['password1']
+        user = get_user_model().objects.filter(email=self.user['email']).first()
+        user.is_active = True
+        user.save()
+        self.user_login = {
+                            'username': username,
+                            'password': password,
+                            'is_email_verified': False
+                          }
+        response = self.client.post(
+                                    self.login_url,
+                                    self.user_login,
+                                    format='text/html'
+                                    )
+        message = f'Email is not verified,please check your inbox.'
+        self.assertEquals(response.status_code, 401, msg=message)
 
-    def test_email_not_verified_signin(self):
+    def test_invalid_input_signin(self):
         self.user_bad_inputs = {
                                 'username': 'user#',
                                 'password': 'password',
@@ -222,8 +238,9 @@ class LoginTest(BaseTest):
                                     self.user_bad_inputs,
                                     format='text/html'
                                     )
-        message = 'Email is not verified,please check your inbox.'
+        message = 'Invalid credentials.'
         self.assertEquals(response.status_code, 401, msg=message)
+        self.assertTemplateUsed(response, 'account/login.html')
 
     # def test_log_out_user(self):
     #     response = self.client.get(self.logout_url)
@@ -233,19 +250,24 @@ class LoginTest(BaseTest):
 
 class ProfileTest(BaseTest):
     def test_should_create_user_profile(self):
-        user = CustomUser.objects.create_user(
+        user = get_user_model().objects.create_user(
                                         username='testme',
                                         email='noreply@gmail.com',
                                         password='password'
                                         )
         user.set_password('password')
+        user.is_active = True
         user.save()
-        self.assertEqual(str(user), 'testme')
+        self.assertEqual(str(user), user.username)
         pr = Profile.objects.get(user=user)
+        pr.street_address1 = 'street1'
+        pr.street_address2 = 'street2'
         self.assertEqual(
                          str(pr),
                          f"{user.username}"
                          )
+        msg = pr.full_address()
+        self.assertEqual(str(msg), f'{pr.street_address1} {pr.street_address2}')
         self.assertEqual(pr.image_tag(), 'No image found')
 
     # def test_user_open_profile(self):

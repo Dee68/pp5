@@ -98,6 +98,34 @@ def add_review(request, product_id):
 
 
 @login_required(login_url='account:signin')
+def edit_review(request, product_id):
+    '''
+        This view enables logged in user to
+        edit his/her review
+    '''
+    product = get_object_or_404(Product, pk=product_id)
+    review = Review.objects.filter(user=request.user, product=product).first()
+    if request.method == 'POST':
+        form = ReviewForm(request.POST, instance=review)
+        if form.is_valid():
+            form.save()
+            messages.success(request, 'Successfully updated review!')
+            return redirect(reverse('shop:products'))
+        else:
+            messages.error(request, 'Failed to update review. Please ensure the form is valid')
+    else:
+        form = ReviewForm(instance=review)
+        messages.info(request, f'You are editing the review of product - {product.name}')
+    template = 'shop/edit_review.html'
+    context = {
+        'form': form,
+        'product': product,
+        'review': review
+    }
+    return render(request, template, context)
+
+
+@login_required(login_url='account:signin')
 def add_product(request):
     if not request.user.is_superuser:
         messages.error(request, 'Sorry, that action is not permitted')

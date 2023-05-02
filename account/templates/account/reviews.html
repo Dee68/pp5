@@ -1,0 +1,144 @@
+{% extends "base.html" %}
+{% load static %}
+
+{% block extra_css %}
+    <link rel="stylesheet" href="{% static 'css/profile.css' %}">
+    <link rel="stylesheet" href="{% static 'css/custom.css' %}">
+{% endblock %}
+
+{% block page_header %}
+    <div class="container header-container">
+        <div class="row">
+            <div class="col text-center">
+                <h2 class="text-black">Accounts</h2>
+                <hr>
+            </div>
+        </div>
+    </div>
+{% endblock %}
+
+{% block content %}
+    <div class="container-fluid profile-container justify-content-space-around">
+        <div class="row text-center">
+            <div class="col-xs-12 col-md-4 profile-menu-items">
+                <h3 class="text-black">Profile Menu</h3>
+                <hr>
+                <ul class="profile-menu-list">
+                    <li><a href="{% url 'account:profile' %}" class="menu-item active"><i class="fa-solid fa-info"></i> Personal Information</a></li><hr>
+                    <li><a href="{% url 'account:shipping_details' %}" class="menu-item"><i class="fa-solid fa-truck-fast"></i> Shipping Details</a></li><hr>
+                    <li><a href="{% url 'account:edit_image' user.id %}" class="menu-item"><i class="fa-regular fa-image"></i></i> Change Profile Photo</a></li><hr>
+                    <li><a href="{% url 'account:order_history' %}" class="menu-item"><i class="fa-solid fa-receipt"></i> Order history</a></li><hr>
+                    <li><a href="{% url 'account:reviews' %}" class="menu-item"><i class="far fa-edit"></i> Reviews</a></li><hr>
+                    <li><a href="#" class="menu-item btn btn-primary" data-toggle="modal" data-target="#myCenteredModal"><i class="fa-regular fa-circle-xmark"></i> Close Account</a></li><hr>
+                    </ul>
+            </div>
+            <div class="col-xs-12 col-md-8 profile-options-items">
+                <h3 class="text-black">Review List</h3>
+                <hr>
+                
+                    <div class="row mr-4 ml-4">
+                            <div class="table-whishlist table">
+                                <table cellpadding="0" cellspacing="0" border="0" width="100%">
+                                    <thead>
+                                        <tr>
+                                            <th width="35%">Review Rating</th>
+                                            <th width="35%">Review Content</th>
+                                            <th width="20%">Review Date</th>
+                                            <th width="10%">Remove</th>
+                                        </tr>
+                                    </thead>
+                        {% if reviews %}
+                                    <tbody>
+                        {% for review in reviews %}
+                            <tr>
+                                <td width="10%" class="text-center">
+                                    <small class="text-muted ml-5">
+                                        <strong>
+                                            <span class="text-black"> Rating:</span>
+                                            {% if review.rating.rating == 1 %}
+                                            <i class="fa-solid fa-star fa-orange"></i>
+                                            <i class="fa-regular fa-star"></i>
+                                            <i class="fa-regular fa-star"></i>
+                                            <i class="fa-regular fa-star"></i>
+                                            <i class="fa-regular fa-star"></i>
+                                            {% elif review.rating.rating == 2 %}
+                                            <i class="fa-solid fa-star fa-orange"></i>
+                                            <i class="fa-solid fa-star fa-orange"></i>
+                                            <i class="fa-regular fa-star"></i>
+                                            <i class="fa-regular fa-star"></i>
+                                            <i class="fa-regular fa-star"></i>
+                                            {% elif review.rating.rating == 3 %}
+                                            <i class="fa-solid fa-star fa-orange"></i>
+                                            <i class="fa-solid fa-star fa-orange"></i>
+                                            <i class="fa-solid fa-star fa-orange"></i>
+                                            <i class="fa-regular fa-star"></i>
+                                            <i class="fa-regular fa-star"></i>
+                                            {% elif review.rating.rating == 4 %}
+                                            <i class="fa-solid fa-star fa-orange"></i>
+                                            <i class="fa-solid fa-star fa-orange"></i>
+                                            <i class="fa-solid fa-star fa-orange"></i>
+                                            <i class="fa-solid fa-star fa-orange"></i>
+                                            <i class="fa-regular fa-star"></i>
+                                            {% else %}
+                                            <i class="fa-solid fa-star fa-orange"></i>
+                                            <i class="fa-solid fa-star fa-orange"></i>
+                                            <i class="fa-solid fa-star fa-orange"></i>
+                                            <i class="fa-solid fa-star fa-orange"></i>
+                                            <i class="fa-solid fa-star fa-orange"></i>
+                                            {% endif %}
+                                        </strong>
+                                    </small> 
+                                </td>
+                                <td width="25%">{{ review.review }}</td>
+                                <td width="25%" class="text-center">
+                                    <a href="{% url 'account:edit_review' review.id %}">
+                                    <p class="ml-10">  - {{ review.user.username }} on {{ review.created_at | date:"D d M Y" }}</p>
+                                    </a>
+                                </td>
+                                <td>
+                                    <form action="#" method="post">
+                                        {% csrf_token %}
+                                        <input type="hidden" name="review-id" value="{{ review.id }}">
+                                    <button type="submit" class="trash-icon"><i class="far fa-trash-alt"></i></button>
+                                    </form>
+                                </td>
+                            </tr>
+                                
+                                    
+                        {% endfor %}
+                        </tbody>
+                        {% else %}
+                            <p>No reviews yet done.</p>
+                        {% endif %}
+                        </table>
+                        </div>
+                    </div>
+                  
+            </div>
+        </div>
+    </div>
+
+     <!-- Close Account Modal -->
+     <div class="modal fade" id="cancelModal" tabindex="-1" role="dialog" aria-labelledby="cancelModalLabel" aria-hidden="true">
+        <div class="modal-dialog" role="document">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h5 class="modal-title" id="cancelModalLabel"><strong>Close account confirmation</strong></h5>
+                    <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                        <span aria-hidden="true"><strong>&times;</strong></span>
+                    </button>
+                </div>
+                <div class="modal-body">
+                    <h3 class="text-center">Are you sure you want to close your account?</h3>
+                    <p class="text-center"><strong>This action is not reversable!</strong></p>
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-secondary" data-dismiss="modal">Go Back</button>
+                    <a href="#" class="btn btn-danger">Close Account</a>
+                </div>
+            </div>
+        </div>
+    </div>
+
+{% endblock %}
+

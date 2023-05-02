@@ -19,6 +19,28 @@ li > a {
     min-width: 100%;
     padding: 0px 21px;
     }
+
+.fa-orange {
+    color: orange!important;
+}
+
+.fa-regular {
+    color: aliceblue!important;
+}
+
+.table-wishlist table {
+    width: 100%;
+}
+.table-wishlist thead {
+    border-bottom: 1px solid #e5e5e5;
+    margin-bottom: 5px;
+}
+.table-wishlist thead tr th {
+    padding: 8px 0 18px;
+    color: #484848;
+    font-size: 15px;
+    font-weight: 400;
+}
 .nav-item {
         display: inline-block;
 }  

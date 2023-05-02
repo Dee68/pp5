@@ -163,10 +163,9 @@
             </div>
             <div class="tab-pane fade" id="second" role="tabpanel" aria-labelledby="second-tab">
               <div class="row">
-               <div class="col-lg-6">
                 {% if reviews %}
                 {% for review in reviews %}
-                <div class="col-12">
+                <div class="col-12 mt-3">
                     <small class="text-muted ml-5">
                         <strong>
                             <span class="text-black"> Rating:</span>
@@ -203,28 +202,22 @@
                             {% endif %}
                         </strong>
                     </small>
-                    <p class="ml-5">{{ review.review}}</p>
+                    <p class="ml-5">{{ review.review}} - by {{ review.user.username }} on {{ review.created_at | date:"D d M Y" }}</p>
                     <br>
                 </div>
-                <div class="col-12 text-center">
-                    <p class="ml-10">  - {{ review.user.username }} on {{ review.created_at | date:"D d M Y" }}</p>
-                </div>
+                <!-- <div class="col-12 text-center">
+                    <p class="ml-10">  - </p>
+                </div> -->
                 {% endfor %}
             {% else %}
             <p>No review on this product yet.</p>
             {% endif %}
-               </div>
-               <div class="col-lg-6">
-                <!-- <a href="{% url 'shop:add_review' product.id  %}" class="btn btn-warning rounded-0 mt-5 text-uppercase">Add Review</a> -->
-               </div>
               </div>
             </div>
     
           </div>      
         </div>
       </div>
-    
-  
 </div>
 
 {% endblock %}

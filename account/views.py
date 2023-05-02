@@ -392,7 +392,11 @@ def delete_review(request, rev_id):
         This view enables user to remove
         a review from his/her list
     '''
-    pass
+    review = get_object_or_404(Review, id=rev_id)
+    review.delete()
+    messages.warning(request, 'Review deleted')
+    return redirect('account:profile')
+
 
 @login_required
 def order_history_details(request, order_number):
@@ -447,5 +451,6 @@ def delete_account(request, user_id):
         account
     '''
     user = get_object_or_404(CustomUser, id=user_id)
+    user.delete()
     messages.warning(request, 'Your account has been closed.')
     return redirect('home:home')

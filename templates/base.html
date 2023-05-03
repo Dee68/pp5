@@ -34,7 +34,7 @@
 
     {% block extra_css %}
     <!--Mailchimp Css-->
-    <style type="text/css">
+    <style>
       #mc_embed_signup{background:#fff; clear:left; font:14px Helvetica,Arial,sans-serif;  width:600px;}
     </style>
     {% endblock %}
@@ -213,7 +213,7 @@
             <div class="row gx-5 gy-4">
               <div class="col-lg-4">
                  <h5 class="text-white text-uppercase mb-4">ABOUT</h5>
-                 <p class="text-white">The lamad shop shipping policies: <a href="#" class='text-white'>Shipping</a></p>
+                 <p class="text-white">The lamad shop shipping policies: <a href="{% url 'contact:shipping' %}" class='text-white'>Shipping</a></p>
                  <br>
                 <ul class="list-inline mb-0">
                   <li class="list-inline-item me-3"><a class="reset-anchor" href="https://twitter.com" target="_blank" rel="noopener" aria-label="Visit our twitter page(opens on a new tab)"><i class="fab fa-twitter"></i></a></li>

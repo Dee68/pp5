@@ -310,7 +310,7 @@ The best approach would be to provide products on a pay as you go traditional e-
 ---
 
 #### Site User
-User 1: The typical site user would be a male aged between 18 and 50 who has an interest in self care, grooming and presenting a good outward image. 
+User 1: The typical site user would be a male/female aged between 18 and 50 who has an interest in tailoring, clothes desigigning and presenting a good outfit. 
 
 User 2: Additional site users could be partners of user 1 and may be browsing the site to purchase gifts for them.
 
@@ -370,12 +370,12 @@ I generated a sitemap for the site so that once ready engines like google can se
 ### Robots.txt
 I generated a robots.txt file so that google could crawl the site. I have blocked off the accounts app as there is no benefit for google to crawl those pages.
 
-### Logo
+<!-- ### Logo
 For the favicon and logo for facebook I needed to manually create a logo to fit the theme of the store.
 
 I created a custom logo in Canva. This logo was created using the base color scheme and includes a razor blade with the name of the store across it horizontally.
 
-This logo can be seen in the favicon of the site and on the facebook screenshots below from the business page.
+This logo can be seen in the favicon of the site and on the facebook screenshots below from the business page. -->
 
 ### Facebook Business Page
 
@@ -493,7 +493,7 @@ A registererd user can login with either a username or an email
 <summary> Account Profiles </summary>
 <br>
 
-The account profilesmodel was designed to make it easy for customers to carry out some basic post order options. 
+The account profiles model was designed to make it easy for customers to carry out some basic post order options. 
 The facility to update their account information, change their shipping address or profile photo. Even close their account if they no longer wish to have one.
 
 ![Accounts](media/readme/profile.png)
@@ -603,15 +603,19 @@ The contact form specifies the reason for contact as shown in the dropdown list.
 
 When a user signs in or out they see a notification like the below to indicate this with the relevant action just taken.
 
-![Sign-in Notification](media/readme/sign-in-notification.png)
+![Sign-in Notification](media/readme/success_msg.png)
+
+![Sign-out Confirmation](media/readme/confirm_lgt.png)
+
+![Sign-out Notification](media/readme/logout_info.png)
 
 If a user navigates from their account profile to the below they are notified as it is reusing the same payment confirmation page once the user makes an order and pays.
 
-![Order History Notification](media/readme/order-history-notification.png)
+![Order History Notification](media/readme/order_history_alert.png)
 
 When a user adds an item to cart they see the below notification.
   
-![Add to cart notification](media/readme/add-cart-notification.png)
+![Add to cart notification](media/readme/add_cart.png)
 
 </details>
 
@@ -622,9 +626,9 @@ When a user adds an item to cart they see the below notification.
 When the superuser logs into the account they have additional front end permissions to edit, delete and add products to the website.
 The edit option and delete options are available on the products page and the add product option is on the product management page on the my account dropdown.
 
-![Admin Product Permissions](media/readme/admin-product-permissions.png)
+![Admin Product Permissions](media/readme/prod_admin.png)
 
-![Admin Product Add Form](media/readme/admin-product-add-form.png)
+![Admin Product Add Form](media/readme/prod_man.png)
 
 </details>
 
@@ -633,11 +637,13 @@ The edit option and delete options are available on the products page and the ad
 <summary> Additional Pages </summary>
 <br>
 
-To ensure the page reflects that of a genuine e-commerce page I wanted to include shipping policy's and FAQ's to ensure customers common queries are available.
+To ensure the page reflects that of a genuine e-commerce page I wanted to include shipping policy's, return policy's and FAQ's to ensure customers common queries are available.
   
-![Shipping Policy](media/readme/shipping-policy.png)
+![Return Policy](media/readme/return.png)
 
-![FAQ's](media/readme/sample-faqs.png)
+![Shipping Policy](media/readme/shipping_policy.png)
+
+![FAQ's](media/readme/faq.png)
   
 A subscribe option for customer to provide their emails to be added to mailing lists for offers tips and tricks. This service is provided by mailchimp.
   
@@ -651,7 +657,6 @@ A subscribe option for customer to provide their emails to be added to mailing l
 
 When an unverified or not logged in user trys to access the accounts section of the site they are notified they do not have permissions and then redirected back to home.
 
-For the short term and to prevent spam, when a non logged in user trys to access the contact form page they are advised to login and redirected back to the home page. This was a personal choice and by design but in the next iteration I would add a "honey pot" type input that is hidden from the front end user. If this option is checked then it would be prevented from being submitted as it would show signs of spam / bot activity.
 
 
 [Back to Top of page](#contents)
@@ -671,12 +676,6 @@ I would also like to add a notification system for users to be able to see reply
 #### Frequently Bought Items
 In future iterations I would implement a Frequently added products section that would present itself on the initial cart page before checkout to help drive upsells.
 
-#### Product Reviews
-At present the products have a fixed rating set by the site admin which is not a true reflection of customer satisfaction. In the next iteration customers would be able to leave reviews on products they have successfully purchased once they are logged in. I will then calculate the average and return a star rating based on the float figure.
-
-#### Honey Pot spam filter for contact form
-This is a basic feature to prevent bot spam messages and while it is not 100% effective, coupled with other features it would reduce spam to close to zero. 
-This works as a hidden input value on the form that the front end user cannot click. However bots can and generally do. If the option is ticked the submitted form is either not forwarded to staff or the form is disabled completely.
 
 #### E-mail forwarding for all site actions.
 As I have a dropdown model for the contact form, depending on the size of the business I would like to forward the emails to specific email addresses monitored by different staff departments. For example the complaints emails go to the complaints teams to ensure quick responses and reduce friction.
@@ -757,14 +756,6 @@ These would allow the business to track orders over days, months and year on yea
 
 > If the intended outcome completes then this will be flagged as pass. If it does not then this is a fail.
 
-Please see a table of acronyms used throughout testing:
-
-| Key | Value |
-|--|--|
-|NLI|Non logged in user|
-|LIU|Logged in customer who does not have staff permissions.|
-|SUP|Superuser or staff permissions
-
 
 <details>
 <summary>Account Registration Tests </summary>
@@ -777,7 +768,7 @@ Please see a table of acronyms used throughout testing:
 |User can log out of account|Pass|
 |User is notified of logging in to account|Pass|
 |User is notified of logging out of account|Pass|
-|User receives email verification email|Fail|
+|User receives email verification email|Pass|
 
 </details>
 
@@ -802,6 +793,10 @@ Please see a table of acronyms used throughout testing:
 |User can access the blog section of the page|Pass|
 |User can access specific blogs|Pass|
 |User can access the contact page and form|Pass|
+|User can access the review page|pass|
+|Logged in User can review any product|pass|
+|Logged in User can edit or delete their reviews|pass|
+|Logged in User can add to his/her wish list|pass|
 |All links on footer open to correct pages|Pass|
 |All links on Heading Navigation open to correct option|Pass|
 
@@ -815,17 +810,17 @@ Please see a table of acronyms used throughout testing:
 
 | Test |Result  |
 |--|--|
-|NLI cannot make reservation | Pass |
-|NLI cannot access profile page| Pass|
-|NLI cannot access admin panel|Pass|
-|NLI cannot access products management|Pass|
-|NLI cannot access the contact form page|Pass|
-|NLI cannot leave comments on blog|Pass|
-|LIU cannot access admin panel|Pass|
-|LIU cannot access products management|Pass|
-|LIU can access the contact form page|Pass|
-|LIU cannot edit products|Pass|
-|LIU can leave comments on blog articles|Pass|
+|Not logged in User cannot make review | Pass |
+|Not logged in User cannot access profile page| Pass|
+|Not logged in User cannot access admin panel|Pass|
+|Not logged in User cannot access products management|Pass|
+|Not logged in User cannot access the contact form page|Pass|
+|Not logged in User cannot leave comments on blog|Pass|
+|Logged in User cannot access admin panel|Pass|
+|Logged in User cannot access products management|Pass|
+|Logged in User can access the contact form page|Pass|
+|Logged in User cannot edit products|Pass|
+|Logged in User can leave comments on blog articles|Pass|
 
 </details>
 
@@ -837,27 +832,28 @@ Please see a table of acronyms used throughout testing:
 
 | Test |Result|
 |--|--|
-|NLI cannot access profile page | Pass |
-|LIU can access profile page|Pass|
-|LIU can see their details on the accounts home page|Pass|
-|LIU can update their first name|Pass|
-|LIU can update their last name|Pass|
-|LIU can update their email|Pass|
-|LIU can update their phone number|Pass|
-|LIU can navigate to their shipping information|Pass|
-|LIU can update street address 1 and 2|Pass|
-|LIU can update town or city|Pass|
-|LIU can update county|Pass|
-|LIU can update postcode|Pass|
-|LIU can update country|Pass|
-|LIU can navigate to change profile image page|Pass|
-|LIU who does not have a personal image has the default image|Pass|
-|LIU can add an image to their profile|Pass|
-|LIU can change their profile image once they have one set |Pass|
-|LIU can remove a personal image entirely |Pass|
-|LIU can select delete account|Pass|
+|Not logged in User cannot access profile page | Pass |
+|Logged in User can access profile page|Pass|
+|Logged in User can see their details on the accounts home page|Pass|
+|Logged in User can update their first name|Pass|
+|Logged in User can update their last name|Pass|
+|Logged in User can update their email|Pass|
+|Logged in User can update their phone number|Pass|
+|Logged in User can navigate to their shipping information|Pass|
+|Logged in User can update street address 1 and 2|Pass|
+|Logged in User can update town or city|Pass|
+|Logged in User can update county|Pass|
+|Logged in User can update postcode|Pass|
+|Logged in User can update country|Pass|
+|Logged in User can navigate to change profile image page|Pass|
+|Logged in User who does not have a personal image has the default image|Pass|
+|Logged in User can add an image to their profile|Pass|
+|Logged in User can change their profile image once they have one set |Pass|
+|Logged in User can remove a personal image entirely |Pass|
+|Logged in User can select delete account|Pass|
+|Pop-up modal prompts the user to confirm sign out before signing out|Pass|
 | Pop-up modal prompts the user to confirm account deletion before closing account |Pass|
-|LIU can close account successfully |Pass|
+|Logged in User can close account successfully |Pass|
 |When user closes their account they are redirected to the home page|Pass|
 |When user closes account they receive a pop up notification advising them the account is closed|Pass|
 
@@ -871,13 +867,13 @@ Please see a table of acronyms used throughout testing:
 
 | Test |Result  |
 |--|--|
-|SUP can access admin panel from the my account dropdown | Pass |
-|SUP can access add product page from my account dropdown|Pass|
-|SUP can see the edit product option on the products page|Pass|
-|SUP can see the delete option on the products page|Pass|
-|SUP can write blogs from the admin panel and publish them|Pass|
-|SUP can edit products and update all fields successfully|Pass|
-|SUP can delete products from the products page|Pass|
+|Super User can access admin panel from the my account dropdown | Pass |
+|Super User can access add product page from my account dropdown|Pass|
+|Super User can see the edit product option on the products page|Pass|
+|Super User can see the delete option on the products page|Pass|
+|Super User can write blogs from the admin panel and publish them|Pass|
+|Super User can edit products and update all fields successfully|Pass|
+|Super User can delete products from the products page|Pass|
 
 </details>
 
@@ -889,13 +885,14 @@ Please see a table of acronyms used throughout testing:
 
 | Test |Result  |
 |--|--|
-|NLI cannot access contact page| Pass |
-|LIU can submit contact form to business|Pass|
-|SUP can view submitted forms from the admin panel|Pass|
-|LIU receives notification the form has been submitted|Pass|
+|Not logged in User cannot access contact page| Pass |
+|Logged in User can submit contact form to business|Pass|
+|Super User can view submitted forms from the admin panel|Pass|
+|Logged in User receives notification the form has been submitted|Pass|
 |User can navigate to privacy policy|Pass|
 |User can navigate to shipping policy|Pass|
 |User can navigate to terms of use page|Pass|
+|User can log in with facebook credentials|Pass|
 |Social links open up to the correct pages|Pass|
 |Social links open up in a new tab|Pass|
 
@@ -909,9 +906,9 @@ Please see a table of acronyms used throughout testing:
 
 | Test |Result  |
 |--|--|
-|NLI can successfully make a payment & order| Pass |
-|LIU can successfully make a payment & order| Pass|
-|All users receive an email confirmation of order on deployed site|Fail|
+|Not logged in User can successfully make a payment & order| Fail |
+|Logged in User can successfully make a payment & order| Pass|
+|All users receive an email confirmation of order on deployed site|Pass|
 |In development email confirmation is printed to terminal|Pass|
 |If payment is successful user will be redirected to order success page|Pass|
 |If order fails due to incorrect information being submitted order will not be submitted|Pass|
@@ -927,12 +924,12 @@ Please see a table of acronyms used throughout testing:
 
 | Test |Result  |
 |--|--|
-|NLI can access blog pages| Pass |
-|NLI cannot post a comment on blog posts|Pass|
-|LIU can comment on blog posts|Pass|
-|LIU can like blog posts|Pass|
-|LIU's information shows in the comment section after they post comment|Pass|
-|LIU's correct profile image shows on the comment they made|Pass|
+|Not logged in User can access blog pages| Pass |
+|Not logged in User cannot post a comment on blog posts|Pass|
+|Logged in User can comment on blog posts|Pass|
+|Logged in User can like blog posts|Pass|
+|Logged in User information shows in the comment section after they post comment|Pass|
+|Logged in User correct profile image shows on the comment they made|Pass|
   
 </details>
 
@@ -948,7 +945,7 @@ Please see a table of acronyms used throughout testing:
   <summary>Index.html Screenshot</summary>
   <br>
 
-![Google Lighthouse Index](media/readme/lighthouse-index-updated.png)
+![Google Lighthouse Index](media/readme/index_light.png)
   
   </details>
 

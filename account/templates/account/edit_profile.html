@@ -64,7 +64,7 @@
                 </div>
                 <div class="modal-footer">
                     <button type="button" class="btn btn-secondary" data-dismiss="modal">Go Back</button>
-                    <a href="#" class="btn btn-danger">Close Account</a>
+                    <a href="{% url 'account:delete_account' user.id %}" class="btn btn-danger">Close Account</a>
                 </div>
             </div>
         </div>

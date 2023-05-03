@@ -126,7 +126,7 @@
     margin-top: 40px !important; 
 }
 .in-stock-box {
-	background: #00ff00bc;
+	background: #0d6316;
 	font-size: 12px;
 	text-align: center;
 	padding: 4px 15px;
@@ -142,6 +142,10 @@
     color: #fff;  
 }
 .trash-icon {
-    font-size: 20px;
-    color: #212529;
+   border: none!important;
+   background-color: transparent;
+}
+.fa-trash-alt {
+    color:red!important;
+    font-size: 120%;
 }

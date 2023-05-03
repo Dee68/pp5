@@ -3,6 +3,10 @@
     display: none;
 }
 
+.fa-trash-alt {
+  color: red;
+  font-size: 120%;
+}
 .profile-menu-items{
     min-height: 100%;
     border-right: solid black 1px;
@@ -22,6 +26,10 @@
     font-size: 20px;
 }
 
+.fa-image:before {
+  content: "\f03e";
+  color: black;
+}
 .order-table {
     font-family: arial, sans-serif;
     border-collapse: collapse;

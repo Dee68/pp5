@@ -1,6 +1,6 @@
 # Lamad Shop
 
-![am I responsive screenshot](media/readme/amiresponsive.png)
+![am I responsive screenshot](media/readme/amires.png)
 
 ## A Sewing machines E-commerce Store.
 > A Sewing machines shop e-commerce website that provides goods for sale as well as blog content to share tips and advice.
@@ -967,7 +967,7 @@ These would allow the business to track orders over days, months and year on yea
   <summary>W3 HTML Validation Screenshot</summary>
     </br>
 
-![W3 HTML Validation](media/readme/w3-html-validator.png)
+![W3 HTML Validation](media/readme/html_validate.png)
   
   </details>
   
@@ -979,7 +979,7 @@ These would allow the business to track orders over days, months and year on yea
   <summary>W3 CSS Jigsaw Screenshot</summary>
   </br>
   
-![w3 Jigsaw CSS checker](media/readme/w3-css-jigsaw.png)
+![w3 Jigsaw CSS checker](media/readme/css_validate.png)
 
 </details>
 
@@ -1168,7 +1168,7 @@ The steps to fork this repository are:
   - The final articles were off and requires some tweeking to make sense and then were formatted for this site.
 
 ##### Remove.bg
-  - Used remove.bg to remove the background on the amiresponsive.png as i felt the original black background didn't work with the readme layout.
+  - Used remove.bg to remove the background on the amires.png as i felt the original black background didn't work with the readme layout.
   - The new image fits in nicely and is more aestetically pleasing for readers.
   
 [Back to Top of page](#contents)
@@ -1183,9 +1183,6 @@ The steps to fork this repository are:
   
 ##### W3 Schools
   - Used for reference throughout for simple css examples.
-
-##### Canva
-  - Used to create the logo used for the facebook business page and favicon
 
 ##### Favicon.ico
   - Used to create the favicon from the logo

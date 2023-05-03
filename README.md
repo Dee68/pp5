@@ -1,6 +1,6 @@
 # Lamad Shop
 
-![am I responsive screenshot](media/readme/amires.png)
+![am I responsive screenshot](media/readme/amiresponsive.png)
 
 ## A Sewing machines E-commerce Store.
 > A Sewing machines shop e-commerce website that provides goods for sale as well as blog content to share tips and advice.

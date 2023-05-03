@@ -1,7 +1,7 @@
 ---
-name: User Story Template
+name: Epic
 about: User Story
-title: 'USER STORY:'
+title: 'Epic:'
 labels: ''
 assignees: Dee68
 

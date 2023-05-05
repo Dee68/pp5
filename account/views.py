@@ -18,6 +18,7 @@ from django.contrib.sites.shortcuts import get_current_site
 from django.urls import reverse
 from django.core.mail import send_mail
 from django.utils.safestring import mark_safe
+from django.utils.datastructures import MultiValueDictKeyError
 from .utils import token_generator
 from shop.models import Product, Review
 from shop.forms import ReviewForm
@@ -180,7 +181,7 @@ class LoginView(View):
         context = {'data': request.POST}
         template_name = 'account/login.html'
         if username and password:
-            user = authenticate(username=username, password=password)
+            user = authenticate(request, username=username, password=password)
             if user:
                 if user.is_active:
                     login(request, user)
@@ -193,7 +194,7 @@ class LoginView(View):
                                    'Email is not verified,\
                                    please check your inbox.'
                                    )
-                    return render(request, template_name, context, status=401)
+                    return render(request, template_name, context)
             messages.error(request, 'Invalid credentials')
             return render(request, template_name, context, status=401)
         messages.error(request, 'All fields are required')
@@ -314,7 +315,10 @@ def edit_image(request, user_id):
     if request.POST:
         form = ImageForm(request.POST, request.FILES)
         if form.is_valid():
-            userprofile.avatar = request.FILES['avatar']
+            try:
+                userprofile.avatar = request.FILES['avatar']
+            except MultiValueDictKeyError as exc:
+                messages.error(request, f'{exc}: key not defined')
             userprofile.save()
 
             messages.success(request,
@@ -348,9 +352,7 @@ def review_list(request):
         This view displays the reviews made by
         a logged in user of products
     '''
-    # user_id=request.user.id
     reviews = Review.objects.filter(user=request.user).all()
-    print(reviews)
     context = {'reviews': reviews}
     template_name = 'account/reviews.html'
     return render(request, template_name, context)

@@ -227,6 +227,12 @@ This was the suspected preproject planning database structure. As the project wa
 |image|ImageField|
 |rating|FloatField|
 
+#### Rating Model
+|id|Field|
+|--|--|
+|rating|SmallIntegerField|
+
+
 #### Review Model
 
 |id|Field|
@@ -310,7 +316,7 @@ The best approach would be to provide products on a pay as you go traditional e-
 ---
 
 #### Site User
-User 1: The typical site user would be a male/female aged between 18 and 50 who has an interest in tailoring, clothes desigigning and presenting a good outfit. 
+User 1: The typical site user would be a male/female aged between 18 and 50 who has an interest in tailoring, clothes designing and presenting a good outfit. 
 
 User 2: Additional site users could be partners of user 1 and may be browsing the site to purchase gifts for them.
 
@@ -752,6 +758,18 @@ These would allow the business to track orders over days, months and year on yea
 
 ### Testing Phase
 
+
+### Unit Test
+  - Due to the limited time for the project only a few unit test was implemented
+
+<details>
+<summary>Account App Tests </summary>
+<br>
+
+![Account coverage](media/readme/coverage_account.png)
+</details>
+
+
 #### Manual Testing
 
 > If the intended outcome completes then this will be flagged as pass. If it does not then this is a fail.
@@ -1183,22 +1201,24 @@ The steps to fork this repository are:
   
 ##### W3 Schools
   - Used for reference throughout for simple css examples.
-
+  - Used for reference to create accordion
 ##### Favicon.ico
   - Used to create the favicon from the logo
   
 ##### Code Institute
   - Course content for portfolio project 5 helped greatly in being able to complete this project.
   - I found the walkthroughs informative and well paced.
-  - Initial structure based heavily on the CI walkthrough until I got more comfortable with the framework and started to make it my own.
   - Some legacy code regarding nav remains.
 
-##### Dennis Ivy
-  - Dennis has a great video series on Youtube that covers off how to build an e-commerce platform with django from scratch.
-  - He provides good bitesize lessons that give a different perspective on building a django e-commerce store.
+##### Alan Bushell
+  - Alans pp5 project models and in particular the layout of the readme.
+ 
 
 ##### Geek4Geeks
   - Really good resource for tutorials and guides relating to all forms of programming. Really helpful for templating or sythax reference.
+
+#### Cryce Truly
+  - Cryce youtube videos are very informative and well paced to understand the basics of writing unit test.
 
 [Back to Top of page](#contents)
 
@@ -1207,12 +1227,12 @@ The steps to fork this repository are:
 <a name="acknowlegements"></a>
 ## Acknowledgements
 
-### Dick Vlandeeren
+### Jack Wachira
 > My mentor who provided me with constructive feedback and guidance throughout.
 
-### The CI tutor support team
+<!-- ### The CI tutor support team
 > The Tutor support team in the Code Institute were always on hand to answer any queries or questions if things got too clouded.
 > I found myself needing to speak with them less and less over the course and have contacted them over 50% less than project 4 alone.
-> Regardless I do appreciate their guidance and support.
+> Regardless I do appreciate their guidance and support. -->
 
 [Back to Top of page](#contents)

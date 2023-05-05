@@ -135,7 +135,7 @@ class RegistrationView(View):
                                             password=password1
                                             )
             user.set_password(password1)
-            user.is_active = False     
+            user.is_active = False
             user.save()
             # send email to activate account
             email_subject = 'Account activation'
@@ -372,10 +372,16 @@ def edit_review(request, rev_id):
             messages.success(request, 'Successfully updated review!')
             return redirect(reverse('shop:products'))
         else:
-            messages.error(request, 'Failed to update review. Please ensure the form is valid')
+            messages.error(
+                request,
+                'Failed to update review. Please ensure the form is valid'
+                )
     else:
         form = ReviewForm(instance=review)
-        messages.info(request, f'You are editing the review of product - {review.product.name}')
+        messages.info(
+            request,
+            f'You are editing the review of product - {review.product.name}'
+            )
     template = 'account/edit_review.html'
     context = {
         'form': form,
@@ -407,8 +413,7 @@ def order_history_details(request, order_number):
 
     template = 'checkout/checkout_success.html'
     context = {
-        'order': order,
-        # 'from_profile': True,
+        'order': order
     }
 
     return render(request, template, context)
@@ -417,8 +422,6 @@ def order_history_details(request, order_number):
 @login_required
 def shipping_details(request):
     """ A view to return profile page with user shipping addresses """
-    # userprofile = get_object_or_404(Profile, user=request.user)
-    # context = {'userprofile': userprofile, 'user:'}
     return render(request, 'account/shipping_details.html')
 
 

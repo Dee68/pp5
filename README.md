@@ -289,8 +289,6 @@ This was the suspected preproject planning database structure. As the project wa
 
 The business is a B2C e-commerce platform whose goal is to provide tangible products to it's customers through an online store.
 
-<!-- The types of products would be relatively low cost men's grooming products with low ($2.50) to medium($49.99) pricing. -->
-
 The benefits for the business owner are:
 
 1. Easy to scale the business as it grows
@@ -355,18 +353,17 @@ The businesses marketing strategy going forward is:
 
 ### SEO Project planning
 
-<!-- Once the business model was decided on as an a men's grooming store I started working on how to market the site and what keywords to target.
-I utilised google trends to find more popular search terms and also used a tool called SEO quake to compare the competition and see what they are doing well.
-I checked for a number of keywords on wordtracker.com and signed up for a trial to get as much out of it as possible. From there I developed a list of short tail and long tail keywords I intended to use in this project. -->
+Once the business model was decided on as an a sewing machine I started working on how to market the site and what keywords to target.
+
+I checked for a number of keywords on semrush.com and signed up for a trial to get as much out of it as possible. From there I developed a list of short tail and long tail keywords I intended to use in this project.
 
 ### Keywords
 
-<!-- Short-tail - Razor Sharp, Hand Razor, Mens Razor, Men's Grooming, Beard Care, Beard Shaping, Razor Sharp, Men's Grooming, Hair Care, Beard Care, Shaving, Hair Styling, Skin Care, Grooming products, Affordable prices, Mens grooming
-
-long-tail -  beard care gifts for men,  Shaving gifts for men,  Grooming gifts for men, hair care gifts for men, Men's Hair Care Men's Beard Care,  Razor for men, mens first razor -->
+Short-tail - Sewing Machine, Machine, Overlock Machine, Pfaff Coverlock, Wrap Dress, Coverlock, Overlock,Tailoring
+long-tail -  dress making gift,  clothes designing,  clothes alteration
 
 By utilising the short tail keywords and analysing the results from google trends, and the related questions I was able to generate a list of longtail keywords.
-The keywords are used throughoutn the site at different places.
+The keywords are used throughout the site at different places.
 
 I make use of the <strong>Strong</strong> tag where necessary and ensure all links are described correctly.
 
@@ -422,7 +419,7 @@ As I worked through the workload I moved tasks from not started to in progress t
 
 I also documented some of the bugs I have come across on this project in the projects board.
 
-One of the sections in my project boards is called NINTH. This stands for "Not importants, nice to have". This is usually for expanding the project beyond MVP and adding additional features to enhance user experience.
+<!-- One of the sections in my project boards is called NINTH. This stands for "Not importants, nice to have". This is usually for expanding the project beyond MVP and adding additional features to enhance user experience. -->
 
 ### Github Project Board
 To see the final project board for Lamad Shop you can click the link below:
@@ -448,9 +445,9 @@ Each Epic may have one or more user stories associated and each user story may h
 
 The full breakdown of user stories and tasks are included on the project board above.
 
-Due to time contsraints some aspects of the project were deemed not mandatory and moved into the NINTH column. 
+<!-- Due to time contsraints some aspects of the project were deemed not mandatory and moved into the NINTH column. 
 
-These remain unfinished and can also be viewed from the project board. This would give an indication of the direction the site would move in going forward.
+These remain unfinished and can also be viewed from the project board. This would give an indication of the direction the site would move in going forward. -->
 
 [Back to Top of page](#contents)
 
@@ -672,9 +669,6 @@ When an unverified or not logged in user trys to access the accounts section of 
 <a name="left"></a>
 ## Features left to Implement 
 
-#### Subscriptions
-My intention for this project was to implement subscriptions but due to time constraints it became unrealistic to implement them effectively. This will be one of the first options I intend to include upon developing this project further.
-
 #### User interaction features
 Features including allowing users to reply directly to each other through blog articles, possible even add threads that users can generate themselves to increase and develop a community.
 I would also like to add a notification system for users to be able to see replys, likes in a bell icon from their account.
@@ -787,6 +781,24 @@ These would allow the business to track orders over days, months and year on yea
 |User is notified of logging in to account|Pass|
 |User is notified of logging out of account|Pass|
 |User receives email verification email|Pass|
+
+</details>
+
+---
+
+
+<details>
+<summary>Account Login Tests </summary>
+<br>
+
+| Test |Result  |
+|--|--|
+|Verified User can log into account| Pass|
+|Non verified User is notified to check email|Fail|
+|User can log out of account|Pass|
+|User is notified of logging in to account|Pass|
+|User is notified of logging out of account|Pass|
+|User can log in with facebook credentials|Pass|
 
 </details>
 
@@ -910,7 +922,6 @@ These would allow the business to track orders over days, months and year on yea
 |User can navigate to privacy policy|Pass|
 |User can navigate to shipping policy|Pass|
 |User can navigate to terms of use page|Pass|
-|User can log in with facebook credentials|Pass|
 |Social links open up to the correct pages|Pass|
 |Social links open up in a new tab|Pass|
 
@@ -1161,7 +1172,7 @@ Click on open app at the top of the page to view your deployed app.
 
 The steps to fork this repository are:
 
- 1. Login to github and find the respitory  [here](https://github.com/Alan-Bushell/razor-sharp)
+ 1. Login to github and find the respitory  [here](https://github.com/dee68/pp5)
  2. Under your profile photo on the right hand side you will see the fork button.
  3. Click the fork button and github will create a copy to your account.
 
@@ -1178,11 +1189,10 @@ The steps to fork this repository are:
   - Rathan does really well to cover off correctly extending the user model through the django documentation and filled in some knowledge gaps I had. 
 
 ##### Chat GPT
-  - For this project I had personally written 3-4 blog articles focusing on SEO and related to the niche of this project.
-  - However once I deployed the project my articles were lost for some reason.
+  - For this project I had personally written 3 blog articles focusing on SEO and related to the niche of this project.
   - To save time and also to try out some AI resources I have used ChatGPT to write my blog articles. 
   - These articles were not written by myself.
-  - I provided the title of the article and instructed the AI application to write a blog related post for a mens e-commerce store.
+  - I provided the title of the article and instructed the AI application to write a blog related article for a sewing machine e-commerce shop.
   - The final articles were off and requires some tweeking to make sense and then were formatted for this site.
 
 ##### Remove.bg
@@ -1230,9 +1240,5 @@ The steps to fork this repository are:
 ### Jack Wachira
 > My mentor who provided me with constructive feedback and guidance throughout.
 
-<!-- ### The CI tutor support team
-> The Tutor support team in the Code Institute were always on hand to answer any queries or questions if things got too clouded.
-> I found myself needing to speak with them less and less over the course and have contacted them over 50% less than project 4 alone.
-> Regardless I do appreciate their guidance and support. -->
 
 [Back to Top of page](#contents)

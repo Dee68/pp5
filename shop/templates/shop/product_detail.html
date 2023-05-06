@@ -107,7 +107,7 @@
                     </form>
                     
                 </div>
-           
+                {% if request.user.is_authenticated %}
                 <div class="col-6">
                     <form class="form" action="{% url 'wishlist:add_to_wishlist' %}" method="POST">
                         {% csrf_token %}
@@ -117,8 +117,11 @@
                                 </div>
                                 <input type="hidden" name="product-id" value="{{ product.id }}">
                         </div>
-                    </form>
+                    </form> 
                 </div>
+                {% else %}
+                <div class="col-6"></div>
+                {% endif %}
             </div>
         </div>
     </div>

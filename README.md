@@ -360,6 +360,7 @@ I checked for a number of keywords on semrush.com and signed up for a trial to g
 ### Keywords
 
 Short-tail - Sewing Machine, Machine, Overlock Machine, Pfaff Coverlock, Wrap Dress, Coverlock, Overlock,Tailoring
+
 long-tail -  dress making gift,  clothes designing,  clothes alteration
 
 By utilising the short tail keywords and analysing the results from google trends, and the related questions I was able to generate a list of longtail keywords.
@@ -373,12 +374,8 @@ I generated a sitemap for the site so that once ready engines like google can se
 ### Robots.txt
 I generated a robots.txt file so that google could crawl the site. I have blocked off the accounts app as there is no benefit for google to crawl those pages.
 
-<!-- ### Logo
-For the favicon and logo for facebook I needed to manually create a logo to fit the theme of the store.
-
-I created a custom logo in Canva. This logo was created using the base color scheme and includes a razor blade with the name of the store across it horizontally.
-
-This logo can be seen in the favicon of the site and on the facebook screenshots below from the business page. -->
+### Logo
+The logo of the site was made with an online app from LOGO(logo.com)
 
 ### Facebook Business Page
 
@@ -423,7 +420,7 @@ I also documented some of the bugs I have come across on this project in the pro
 
 ### Github Project Board
 To see the final project board for Lamad Shop you can click the link below:
-[Lamad Shop Project Board]()
+[Lamad Shop Project Board](https://github.com/users/Dee68/projects/12)
 
 
 #### Epics
@@ -978,13 +975,35 @@ These would allow the business to track orders over days, months and year on yea
   
   </details>
 
+> product.html
+
+<details>
+  <summary>Product.html Screenshot</summary>
+  <br>
+  
+![Google Lighthouse Profile](media/readme/product_lighthouse.png)
+  
+  </details
+
+
+> blog.html
+
+  <details>
+  <summary>Blog.html Screenshot</summary>
+  <br>
+  
+![Google Lighthouse Blog](media/readme/blog_lighthouse.png)
+  
+  </details
+
+
 > profile.html
 
 <details>
   <summary>Profile.html Screenshot</summary>
   <br>
   
-![Google Lighthouse Profile](media/readme/lighthouse-profiles.png)
+![Google Lighthouse Profile](media/readme/profile_lighthouse.png)
   
   </details
 

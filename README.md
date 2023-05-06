@@ -270,11 +270,11 @@ This was the suspected preproject planning database structure. As the project wa
 <summary> Wireframes </summary>
 <br>
 
-![Wireframe Index](media/readme/wireframe-index.png)
+![Wireframe Home](media/readme/home_wireframe.png)
 
-![Wireframe Mobile](media/readme/wireframe-mobile.png)
 
-![Wireframe Products](media/readme/wireframe-products.png)
+![Wireframe Mobile](media/readme/home_mobile_wireframe.png)
+
 </details>
 
 [Back to Top of page](#contents)
@@ -424,27 +424,20 @@ To see the final project board for Lamad Shop you can click the link below:
 
 
 #### Epics
-<!-- 
- 1. [Epic: Create Base Project](https://github.com/Alan-Bushell/razor-sharp/issues/1)
- 2. [Epic: User Authentication](https://github.com/Alan-Bushell/razor-sharp/issues/2)
- 3. [Epic: Navigation & Views](https://github.com/Alan-Bushell/razor-sharp/issues/39)
- 4. [Epic: Admin & Stock Management](https://github.com/Alan-Bushell/razor-sharp/issues/44)
- 5. [Epic: Blog](https://github.com/Alan-Bushell/razor-sharp/issues/13)
- 6. [Epic: Contact](https://github.com/Alan-Bushell/razor-sharp/issues/60)
- 7. [Epic: Deploy Project](https://github.com/Alan-Bushell/razor-sharp/issues/35)
- 8. [Epic: Newsletter](https://github.com/Alan-Bushell/razor-sharp/issues/17)
- 9. [Epic: Post Order Options](https://github.com/Alan-Bushell/razor-sharp/issues/26)
- 10. [Epic: Profiles](https://github.com/Alan-Bushell/razor-sharp/issues/9)
- 11. [Epic: SEO](https://github.com/Alan-Bushell/razor-sharp/issues/29)
- 12. [Epic: Shopping Cart](https://github.com/Alan-Bushell/razor-sharp/issues/7) -->
+ 1. [Epic: Navigation & Views](https://github.com/Dee68/pp5/issues/33)
+ 2. [Epic: Admin & Stock Management](https://github.com/Dee68/pp5/issues/30)
+ 3. [Epic: Profiles](https://github.com/Dee68/pp5/issues/34)
+ 4. [Epic: Deploy Project](https://github.com/Dee68/pp5/issues/36)
+ 5. [Epic: Contact](https://github.com/Dee68/pp5/issues/35)
+ 6. [Epic: User Authentication](https://github.com/Dee68/pp5/issues/31)
+ 7. [Epic: Readme](https://github.com/Dee68/pp5/issues/29)
+ 8. [Epic: SEO](https://github.com/Dee68/pp5/issues/37)
+ 9. [Epic: Shopping Cart](https://github.com/Dee68/pp5/issues/38)
 
 Each Epic may have one or more user stories associated and each user story may have tasks.
 
 The full breakdown of user stories and tasks are included on the project board above.
 
-<!-- Due to time contsraints some aspects of the project were deemed not mandatory and moved into the NINTH column. 
-
-These remain unfinished and can also be viewed from the project board. This would give an indication of the direction the site would move in going forward. -->
 
 [Back to Top of page](#contents)
 
@@ -655,7 +648,7 @@ A subscribe option for customer to provide their emails to be added to mailing l
 
 #### Account restrictions:
 
-When an unverified or not logged in user trys to access the accounts section of the site they are notified they do not have permissions and then redirected back to home.
+When an unverified or not logged in user trys to access the accounts section of the site they are notified they do not have permissions.
 
 
 
@@ -913,6 +906,7 @@ These would allow the business to track orders over days, months and year on yea
 | Test |Result  |
 |--|--|
 |Not logged in User cannot access contact page| Pass |
+|Not logged in user cannot access wishlist page|Pass|
 |Logged in User can submit contact form to business|Pass|
 |Super User can view submitted forms from the admin panel|Pass|
 |Logged in User receives notification the form has been submitted|Pass|
@@ -1203,9 +1197,20 @@ The steps to fork this repository are:
 <a name="credits"></a>
 ## Credits
 
+#### Code Institute
+  - Course content for portfolio project 5 helped greatly in being able to complete this project.
+  - Setting up an ecommerce project template
+  - Implementing payment with stripe api was explained and made simple.
+
+#### Cryce Truly
+  - Cryce youtube videos are very informative and well paced to understand the basics of writing unit test.
+
+#### Vitor Freitas(Simpleisbetterthancomplex.com)
+  - Very informative articles on how to extend Django user model diversely.
+
 ##### Rathan Kumar
-  - Prior to starting this project I went through Rathan's course on building a django e-commerce store and combined the knowledge learned through the code institute and rathan to implement my own creation as best as I could. 
-  - Rathan does really well to cover off correctly extending the user model through the django documentation and filled in some knowledge gaps I had. 
+  - A slightly different approach to creating an ecommerce website. 
+  - combining Rathan videos with the course content of code institute gives you good enough skill to complete the project.
 
 ##### Chat GPT
   - For this project I had personally written 3 blog articles focusing on SEO and related to the niche of this project.
@@ -1240,14 +1245,13 @@ The steps to fork this repository are:
   - Some legacy code regarding nav remains.
 
 ##### Alan Bushell
-  - Alans pp5 project models and in particular the layout of the readme.
+  - Alan's portfolio project 5 project models and in particular the layout of the readme.
  
 
 ##### Geek4Geeks
   - Really good resource for tutorials and guides relating to all forms of programming. Really helpful for templating or sythax reference.
 
-#### Cryce Truly
-  - Cryce youtube videos are very informative and well paced to understand the basics of writing unit test.
+
 
 [Back to Top of page](#contents)
 
@@ -1258,6 +1262,12 @@ The steps to fork this repository are:
 
 ### Jack Wachira
 > My mentor who provided me with constructive feedback and guidance throughout.
+
+### Irene Nedved
+> My code institute facilitator in keeping up with my schedule.
+
+### Collegues
+> For advices and testing my website.
 
 
 [Back to Top of page](#contents)

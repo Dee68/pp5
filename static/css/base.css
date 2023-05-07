@@ -203,7 +203,9 @@ button.navbar-toggler{
     text-align: center;
     width: 100%;
 }
-
+.text-red {
+    color: #dc3545;
+}
 .footer-heading{
     color: #fd473b;
     font-weight: 800;

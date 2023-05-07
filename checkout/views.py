@@ -63,7 +63,10 @@ def checkout(request):
         order_form = OrderForm(form_data)
         if not request.user.is_authenticated:
             current_cart = cart_contents(request)
-            messages.warning(request, f'Please signup and login to make a purchase')
+            messages.warning(
+                request,
+                f'Please signup and login to make a purchase'
+                )
             order = None
             current_cart = {}
             return redirect('account:register')

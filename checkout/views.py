@@ -61,7 +61,12 @@ def checkout(request):
         }
 
         order_form = OrderForm(form_data)
-
+        if not request.user.is_authenticated:
+            current_cart = cart_contents(request)
+            messages.warning(request, f'Please signup and login to make a purchase')
+            order = None
+            current_cart = {}
+            return redirect('account:register')
         if order_form.is_valid():
             order = order_form.save(commit=False)
             pid = request.POST.get('client_secret').split('_secret')[0]
@@ -69,7 +74,6 @@ def checkout(request):
             order.original_cart = json.dumps(cart)
             user = request.user
             order.user = user
-
             order.save()
             for item_id, item_data in cart.items():
                 try:

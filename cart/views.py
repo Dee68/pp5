@@ -36,14 +36,29 @@ def add_to_cart(request, item_id):
             cart[item_id] = {'items_by_size': {size: quantity}}
     else:
         if item_id in list(cart.keys()):
-            cart[item_id] += quantity
-            messages.success(request,
-                             f'You have added another {product_name} '
-                             'to your cart')
+            if (product.stock - quantity > 1):
+                cart[item_id] += quantity
+                messages.success(
+                    request,
+                    f'You have added another {product_name} to your cart'
+                    )
+            else:
+                messages.warning(
+                    request,
+                    f'Not enough of {product_name} in stock'
+                    )
         else:
-            cart[item_id] = quantity
-            messages.success(request, f'You have added {product_name} '
-                             ' to your cart')
+            if (product.stock - quantity) >= 0:
+                cart[item_id] = quantity
+                messages.success(
+                    request,
+                    f'You have added {product_name} to your cart'
+                    )
+            else:
+                messages.warning(
+                    request,
+                    f'Not enough of {product_name} in stock'
+                    )
 
     request.session['cart'] = cart
     return redirect(redirect_url)
@@ -72,11 +87,19 @@ def adjust_cart(request, item_id):
                                  ' from your cart')
     else:  # if no sizes run this
         if quantity > 0:
-            cart[item_id] = quantity
+            if (product.stock - quantity) >= 0:
+                cart[item_id] = quantity
+            else:
+                messages.warning(
+                    request,
+                    f'You can not add or remove more than stock'
+                    )
         else:
             cart.pop(item_id)
-            messages.success(request, f'You have removed {product_name} '
-                             ' from your cart')
+            messages.success(
+                request,
+                f'You have removed {product_name} from your cart'
+                )
 
     request.session['cart'] = cart
     return redirect(reverse('cart:cart'))

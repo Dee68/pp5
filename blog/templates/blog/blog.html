@@ -22,8 +22,10 @@
             <!--Blog Entries-->
             {% for article in object_list %}
             <div class="col-xs-12 col-md-4">
-                <div class="card">
+                <div class="card grow shadow">
+                    <a href="{% url 'blog:article_detail' article.slug %}">
                     <img class="card-img-top" src=" {{ article.article_img.url }}" alt="Card image cap" style="height: 300px;">
+                    </a>
                     <div class="card-body">
                         <a href="{% url 'blog:article_detail' article.slug %}">
                             <h5 class="card-title">{{article.title}}</h5>

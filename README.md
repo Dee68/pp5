@@ -1042,11 +1042,10 @@ These would allow the business to track orders over days, months and year on yea
 
 | Bug |Outcome  |
 |--|--|
-|[User getting 404 when trying to change address](https://github.com/Alan-Bushell/razor-sharp/issues/56)| Resolved |
-|[Incorrect logo showing on mobile](https://github.com/Alan-Bushell/razor-sharp/issues/58)| Resolved |
-|[My account not showing on mobile](https://github.com/Alan-Bushell/razor-sharp/issues/59)|Resolved|
-|[Profile image in navbar causing errors for new users](https://github.com/Alan-Bushell/razor-sharp/issues/57)|Not Resolved|
-|[Emails not sending in deployment](https://github.com/Alan-Bushell/razor-sharp/issues/62)|Not Resolved|
+|[User purchasing more than stock](https://github.com/Dee68/pp5/issues/39)| Resolved |
+|[Email verification error](https://github.com/Dee68/pp5/issues/32)| Not Resolved |
+|[ Anonymous User checkout returning 500 error page](https://github.com/Dee68/pp5/issues/40)|Resolved|
+
 
 </details>
 
@@ -1236,8 +1235,6 @@ The steps to fork this repository are:
 ##### W3 Schools
   - Used for reference throughout for simple css examples.
   - Used for reference to create accordion
-##### Favicon.ico
-  - Used to create the favicon from the logo
   
 ##### Code Institute
   - Course content for portfolio project 5 helped greatly in being able to complete this project.

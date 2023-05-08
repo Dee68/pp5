@@ -208,9 +208,6 @@
                     <p class="ml-5">{{ review.review}} - by {{ review.user.username }} on {{ review.created_at | date:"D d M Y" }}</p>
                     <br>
                 </div>
-                <!-- <div class="col-12 text-center">
-                    <p class="ml-10">  - </p>
-                </div> -->
                 {% endfor %}
             {% else %}
             <p>No review on this product yet.</p>

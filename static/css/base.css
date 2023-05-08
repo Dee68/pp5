@@ -203,6 +203,15 @@ button.navbar-toggler{
     text-align: center;
     width: 100%;
 }
+.shadow {
+    box-shadow: 0 .5rem 1rem rgba(0,0,0,.15)!important;
+}
+.grow {
+    transition: all .2s ease-in-out;
+}
+.grow:hover {
+    transform: scale(1.1)!important;
+}
 .text-red {
     color: #dc3545;
 }
@@ -449,6 +458,14 @@ li{
     #small_screen {
         visibility: visible;
     }
+    #mc_embed_signup .mc-field-group {
+        clear: left;
+        position: relative;
+        width: 68%;
+        padding-bottom: 3%;
+        min-height: 50px;
+        display: grid;
+    }
   }
 
   @media (min-width: 768px ) and (max-width:920px){
@@ -470,6 +487,13 @@ li{
     }
     img {
         width: 50%;  
+    }
+    
+    #mc_embed_signup .mc-field-group input {
+        display: block;
+        width: 68%;
+        padding: 8px 0;
+        text-indent: 2%;
     }
   }
 
@@ -546,6 +570,13 @@ li{
     }
     #small_screen {
         visibility: visible;
+    }
+    
+    #mc_embed_signup .mc-field-group input {
+        display: block;
+        width: 68%;
+        padding: 8px 0;
+        text-indent: 2%;
     }
 }
 

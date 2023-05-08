@@ -6,12 +6,7 @@
     color:#0d6316;
     font-size: 120%;
 }
-/* .update-form {
-    display: inline;
-}
-.update-link, .remove-item {
-    display: flex;
-} */
+
 #repl > *{
     display: inline-block;
 }

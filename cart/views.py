@@ -19,6 +19,12 @@ def add_to_cart(request, item_id):
     quantity = int(request.POST.get('quantity'))
     redirect_url = request.POST.get('redirect_url')
     size = None
+    if not request.user.is_authenticated:
+        messages.warning(
+            request,
+            'Please you need to login to make a purchase.'
+            )
+        return redirect('shop:products')
     if 'product_size' in request.POST:
         size = request.POST['product_size']
     cart = request.session.get('cart', {})

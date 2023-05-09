@@ -578,6 +578,23 @@ li{
         width: 68%;
         text-indent: 2%;
     }
+    .table thead th,.table td {
+        font-size: 70%!important;
+    }
+    .input-group-append,.input-group-prepend {
+        visibility: hidden;
+    }
+    .btn-group-lg>.btn, .btn-lg {
+        padding: 0.2rem 0.6rem;
+        font-size: 1.0rem;
+        line-height: 1.2;
+        border-radius: 0.1rem;
+    }
+    .btn-custom-green {
+        background-color: #0d6316;
+        color: white;
+        margin-top: 5px!important;
+    }
 }
 
 @media only screen and (max-width: 320px){
@@ -593,11 +610,7 @@ li{
     img {
         width: 50%;
     }
-    .btn-custom-green {
-        background-color: #0d6316;
-        color: white;
-        margin-top: 5px!important;
-    }
+    
     #mc_embed_signup {
         background: #fff;
         clear: left;

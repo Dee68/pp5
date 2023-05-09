@@ -926,9 +926,9 @@ These would allow the business to track orders over days, months and year on yea
 
 | Test |Result  |
 |--|--|
-|Not logged in User can successfully make a payment & order| Fail |
+|Not logged in User is notified to signup before making a purchase| Pass |
 |Logged in User can successfully make a payment & order| Pass|
-|All users receive an email confirmation of order on deployed site|Pass|
+|All logged in users receive an email confirmation of order on deployed site|Pass|
 |In development email confirmation is printed to terminal|Pass|
 |If payment is successful user will be redirected to order success page|Pass|
 |If order fails due to incorrect information being submitted order will not be submitted|Pass|
@@ -1042,7 +1042,7 @@ These would allow the business to track orders over days, months and year on yea
 
 | Bug |Outcome  |
 |--|--|
-|[User purchasing more than stock](https://github.com/Dee68/pp5/issues/39)| Resolved |
+|[User purchasing more than product quantity in stock](https://github.com/Dee68/pp5/issues/39)| Resolved |
 |[Email verification error](https://github.com/Dee68/pp5/issues/32)| Not Resolved |
 |[ Anonymous User checkout returning 500 error page](https://github.com/Dee68/pp5/issues/40)|Resolved|
 

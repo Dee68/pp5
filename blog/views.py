@@ -1,5 +1,11 @@
-from django.shortcuts import render, get_object_or_404, HttpResponseRedirect, reverse
+from django.shortcuts import (
+    render,
+    get_object_or_404,
+    HttpResponseRedirect,
+    reverse
+    )
 from django.views import generic, View
+from django.core.paginator import Paginator, EmptyPage
 from django.contrib import messages
 from .models import Article, Comment
 from .forms import CommentForm

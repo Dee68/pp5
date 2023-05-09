@@ -19,7 +19,7 @@ a{
 li > a{
     color: white;
 }
-.page-link {
+.page-link, .mx-4 {
     color: #59adaf;
 }
 .rounded-pill {

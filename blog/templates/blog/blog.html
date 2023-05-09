@@ -37,9 +37,25 @@
                         <p class="card-text"><small class="text-muted">Author: {{article.author.username}}</small></p>
                     </div>
                 </div>
+  
             </div>
             {% endfor %}
         </div>
+    <!-- Pagination -->
+  <div class='pagination justify-content-center mb-3'>
+    {% if page_obj.has_previous %}
+      <a href='{% url "blog:articles" %}?page={{ page_obj.previous_page_number }}' class="mx-4">Previous </a>
+    {% endif %}
+
+    <span class='mx-4'>
+      Page {{ page_obj.number }} of {{ page_obj.paginator.num_pages }}
+    </span>
+
+    {% if page_obj.has_next %}
+      <a href='{% url "blog:articles" %}?page={{ page_obj.next_page_number }}' class="mx-4" > Next</a>
+    {% endif %}
+  </div>
+  <!-- END Pagination -->
     </div>
 
 {% endblock %}

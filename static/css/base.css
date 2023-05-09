@@ -48,6 +48,7 @@ footer a:hover{
     color: #fda93b;
 }
 
+
 .title-lead {
     text-align: center;
     color: #058a34;
@@ -523,7 +524,7 @@ li{
     }
 
     img {
-        width: 50%;  
+        width: 60%;  
     }
 
     .navbar{
@@ -594,6 +595,9 @@ li{
         background-color: #0d6316;
         color: white;
         margin-top: 5px!important;
+    }
+    .ml-5, .mx-5 {
+        margin-left: 0.5rem!important;
     }
 }
 

@@ -14,7 +14,7 @@
         <div class="col text-center">
             <h2 class="text-black">Cart</h2>
             <hr>
-            <div class="col align-self-center text-right text-muted mt-5 mb-5">{{ product_count }} item</div>
+            <div class="col align-self-center text-right text-muted mt-5 mb-5">{{ product_count }} item{{ product_count | pluralize }}</div>
         </div>
     </div>
 </div>

@@ -305,7 +305,7 @@ The cons of this business model are:
 2. Establishing a brand from the ground up takes time and immediate results are unlikely without a sound marketing strategy.
 3. Getting customers organically takes time so the business would need to manually market the business or use paid advertising.
 4. Not having a physical business can make it harder to build trust and loyalty with customers without offering discounts and offers.
-5. As the price point fo the items is lower, the business would need to process a reasonable number of orders per day / week / month for the business to be viable.
+
 
 Taking the pros and cons of this business, a subscription model seems to be an unlikely viable model as it requires a customer base and some form of brand loyalty.
 
@@ -325,7 +325,7 @@ The goals for the website are:
 - An easy to navigate website with clear purpose
 - Provide users with products that meet their expectations
 - Allow users to view, read and comment on articles that may help or interest them.
-- To provide users with insights or tips on self care through helpful articles to build brand trust and loyalty.
+- To provide users with insights or tips on  machine maintenance and tips to choose the right fabrics for clothing.
 - Allow users to checkout quickly and easily
 - To allow users to create a profile to view past orders and update profile information
 
@@ -338,7 +338,7 @@ The businesses marketing strategy going forward is:
 2. Share the page with friends and family and ask them to like it and share the pafe to their wider circle.
 3. Have a soft online launce sale to encourage early adoption and purchases from prospective clients
 4. Gain subscribers through the mailchimp option on the site and then send out offers and promotions to encourage repeat business
-5. Write meaningful and helpful articles / blog posts to help with SEO ranking in search engines like google.
+5. Write meaningful and helpful articles / blog articles to help with SEO ranking in search engines like google.
 6. Potentially use paid advertisement like google ads, facebook ads to promote to our target demographic.
 7. Set up multiple ads with a different product as the cover image, track the click through rate and stick with the high peformers.
 8. Depending on budget the business may look at promoting it's custom made products to influencers in the brands niche, offering complimentary goods or a small fee for a shout out  or review. Ideally targetting low to medium influencers with a following of at least 10k in target niche. This would be realistic with a low budget for the business starting off and can start pushing traffic towards the site. 
@@ -361,7 +361,7 @@ I checked for a number of keywords on semrush.com and signed up for a trial to g
 
 Short-tail - Sewing Machine, Machine, Overlock Machine, Pfaff Coverlock, Wrap Dress, Coverlock, Overlock,Tailoring
 
-long-tail -  dress making gift,  clothes designing,  clothes alteration
+long-tail -  dress making gift,  clothes designing,  clothes alteration, gif for a tailor
 
 By utilising the short tail keywords and analysing the results from google trends, and the related questions I was able to generate a list of longtail keywords.
 The keywords are used throughout the site at different places.
@@ -410,13 +410,10 @@ In case the page becomes inactive or deactivated by Facebook I have taken screen
 ### Agile Overview
 Once I had an initial idea of the website I was going to build I started the preplanning by creating a github projects page to track the epics, user stories and tasks required to work through for this project.
 
-It gave me an idea of how long this project was expected to take and how to manage my workload effectively.
-
 As I worked through the workload I moved tasks from not started to in progress to completed once the task was done. Occasionally I would find other work that were either new tasks or subtasks that required attention before completing a larger task.
 
 I also documented some of the bugs I have come across on this project in the projects board.
 
-<!-- One of the sections in my project boards is called NINTH. This stands for "Not importants, nice to have". This is usually for expanding the project beyond MVP and adding additional features to enhance user experience. -->
 
 ### Github Project Board
 To see the final project board for Lamad Shop you can click the link below:
@@ -520,6 +517,7 @@ Out of stock products do not show up to customers but in the event that the cust
 
 ![Products Page pagination](media/readme/products2.png)
 
+
 The product detail page includes a review and wishlist options but can only be accessed by logged in users.
 The logged in user can add a review with a rating that spans from 1 to 5 and can add the product to his/her wishlist.This page also shows the number of reviews made on the product.
 
@@ -531,6 +529,8 @@ The logged in user can add a review with a rating that spans from 1 to 5 and can
 <summary> Cart & Checkout Flow </summary>
 <br>
 
+Only logged in users can access the cart page with cart items.
+Non logged in user is notified to signup and signin in other to purchase products.
 The cart page displays the cart items with the product image, price and quantity.
 On the navigation bar cart icon shows the number of cart items in the cart.
 ![Cart Page](media/readme/cart.png)
@@ -542,6 +542,17 @@ On filling the checkout form with a valid data, the user will be sent an email t
 ![Payment Success Page](media/readme/success.png)
   
 Once the customer makes a successful paymeent they are redirected to the payment success page where they see a summary of their order. 
+
+</details>
+
+
+<details>
+<summary> Review </summary>
+<br>
+
+A logged in user can make review of any product with a rating range of 1 to 5 he/she wishes.
+He/she can also update and delete his/her review.
+Non logged in user can only read the reviews of logged in users.
 
 </details>
 
@@ -602,7 +613,7 @@ When a user signs in or out they see a notification like the below to indicate t
 
 ![Sign-out Notification](media/readme/logout_info.png)
 
-If a user navigates from their account profile to the below they are notified as it is reusing the same payment confirmation page once the user makes an order and pays.
+If a user navigates from their account profile to the below link they are notified as it is reusing the same payment confirmation page once the user makes an order and pays.
 
 ![Order History Notification](media/readme/order_history_alert.png)
 
@@ -650,7 +661,9 @@ A subscribe option for customer to provide their emails to be added to mailing l
 
 When an unverified or not logged in user trys to access the accounts section of the site they are notified they do not have permissions.
 
+![Contact Page Access](media/readme/contact_warn.png)
 
+![Whish List Page Access](media/readme/whislist_warn.png)
 
 [Back to Top of page](#contents)
 

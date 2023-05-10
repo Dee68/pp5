@@ -554,6 +554,14 @@ A logged in user can make review of any product with a rating range of 1 to 5 he
 He/she can also update and delete his/her review.
 Non logged in user can only read the reviews of logged in users.
 
+![Review Button For Logged In User](media/readme/review_lu.png)
+
+![Review Update/Delete](media/readme/review_acc.png)
+
+![Review Form ](media/readme/review_fm.png)
+
+![Reviews For Non logged in User](media/readme/review_nlu.png)
+
 </details>
 
 <details>
@@ -661,9 +669,16 @@ A subscribe option for customer to provide their emails to be added to mailing l
 
 When an unverified or not logged in user trys to access the accounts section of the site they are notified they do not have permissions.
 
+<details>
+<summary>Restrictions</summary>
+<br>
+
 ![Contact Page Access](media/readme/contact_warn.png)
 
 ![Whish List Page Access](media/readme/whislist_warn.png)
+</details>
+
+
 
 [Back to Top of page](#contents)
 

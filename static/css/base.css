@@ -482,6 +482,16 @@ li{
     img {
         width: 50%;  
     }
+    #mc_embed_signup .indicates-required {
+        font-size: 11px;
+        margin-right: 4%;
+    }
+    #mc_embed_signup h2 {
+        font-weight: bold;
+        padding: 0;
+        margin: 15px 0;
+        font-size: 1.0em;
+    }
     
   }
 
@@ -579,6 +589,18 @@ li{
     }
     .ml-5, .mx-5 {
         margin-left: 0.5rem!important;
+    }
+    #mc_embed_signup h2 {
+        font-weight: bold;
+        padding: 0;
+        margin: 15px 0;
+        font-size: 1.0em;
+    }
+    #mc_embed_signup .mc-field-group input {
+        display: block;
+        width: 68%;
+        padding: 8px 0;
+        text-indent: 2%;
     }
 }
 

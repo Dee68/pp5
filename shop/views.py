@@ -86,12 +86,13 @@ def add_review(request, product_id):
     form = ReviewForm()
     product = get_object_or_404(Product, pk=product_id)
     user = request.user
+    review = Review(user=user, product=product)
     if request.method == 'POST':
-        form = ReviewForm(request.POST)
+        form = ReviewForm(request.POST, instance=review)
         if form.is_valid():
             form.save()
             messages.success(request, 'Review added successfully')
-            return redirect(reverse('shop:products'))
+            return redirect(reverse('shop:product_detail', args=[product_id]))
         else:
             messages.error(request, 'All fields are required')
             return HttpResponseRedirect(request.META.get('HTTP_REFERER'))
@@ -101,10 +102,10 @@ def add_review(request, product_id):
 
 @login_required(login_url='account:signin')
 def add_product(request):
+    """ Add a product to the store """
     if not request.user.is_superuser:
         messages.error(request, 'Sorry, that action is not permitted')
         return redirect(reverse('home'))
-    """ Add a product to the store """
 
     if request.method == 'POST':
         form = ProductForm(request.POST, request.FILES)
@@ -159,12 +160,13 @@ def edit_product(request, product_id):
 
 @login_required(login_url='account:signin')
 def delete_product(request, product_id):
+    """Delete a product function"""
     if not request.user.is_superuser:
         messages.error(request, 'Sorry, that action is not permitted')
         return redirect(reverse('home:home'))
-
-    """Delete a product function"""
-    product = get_object_or_404(Product, pk=product_id)
-    product.delete()
-    messages.success(request, f"{product.name} has been deleted")
-    return redirect(reverse('shop:products'))
+    product = get_object_or_404(Product, id=product_id)
+    if request.method == 'POST':
+        product.delete()
+        messages.success(request, f"{product.name} has been deleted")
+        return redirect(reverse('shop:products'))
+    return render(request, 'shop/confirm.html', {'product': product})

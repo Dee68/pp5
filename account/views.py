@@ -182,7 +182,7 @@ class LoginView(View):
         template_name = 'account/login.html'
         if username and password:
             user = authenticate(request, username=username, password=password)
-            if user:
+            if user:            
                 if user.is_active:
                     login(request, user)
                     messages.success(request,
@@ -195,7 +195,8 @@ class LoginView(View):
                                    please check your inbox.'
                                    )
                     return render(request, template_name, context)
-            messages.error(request, 'Invalid credentials')
+            else:
+                messages.error(request, 'Invalid credentials')
             return render(request, template_name, context, status=401)
         messages.error(request, 'All fields are required')
         return render(request, template_name, context, status=401)
@@ -370,7 +371,7 @@ def edit_review(request, rev_id):
         if form.is_valid():
             form.save()
             messages.success(request, 'Successfully updated review!')
-            return redirect(reverse('shop:products'))
+            return redirect(reverse('account:reviews'))
         else:
             messages.error(
                 request,
@@ -398,7 +399,7 @@ def delete_review(request, rev_id):
     '''
     review = get_object_or_404(Review, id=rev_id)
     review.delete()
-    messages.warning(request, 'Review deleted')
+    messages.error(request, 'Review deleted')
     return redirect('account:profile')
 
 
@@ -453,5 +454,5 @@ def delete_account(request, user_id):
     '''
     user = get_object_or_404(CustomUser, id=user_id)
     user.delete()
-    messages.warning(request, 'Your account has been closed.')
+    messages.error(request, 'Your account has been closed.')
     return redirect('home:home')

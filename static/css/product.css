@@ -2,6 +2,15 @@
     background-color: #59adaf;
     color: white;
 }
+.logout {
+    border: 2px solid #1b6f70;
+    background-color: #59adaf;
+    box-shadow: 15px 10px 10px rgba(143, 227, 181, 0.5); 
+    
+}
+.title-lead,.cfm {
+    color: #fff;
+}
 #sly {
     background-color: #90bd90!important;
 }

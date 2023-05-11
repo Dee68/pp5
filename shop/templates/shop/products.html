@@ -95,10 +95,9 @@
                             <a href="{% url 'shop:edit_product' product.id %}" class="btn btn-warning mt-2">
                                 <span class="text-uppercase">Edit</span>
                             </a>
-                            <!--Delete product modal button-->
+                           
                             <a href="{% url 'shop:delete_product' product.id %}"  class="btn btn-danger mt-2"><span class="text-uppercase">Delete</span></a>
-                            <!-- delete product Modal -->
-                            
+                           
                         {% endif %}
                     </form>
                     {% if user.is_authenticated %}
@@ -156,5 +155,5 @@
 </div>
 {% endblock %}
 {% block postloadjs %}
-    <script src="{% static 'js/timer.js' %}"></script>
+<script src="{% static 'js/timer.js' %}"></script>  
 {% endblock %}

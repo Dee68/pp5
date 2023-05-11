@@ -1,4 +1,4 @@
-from django.shortcuts import render, reverse, redirect
+from django.shortcuts import render, reverse, redirect, get_object_or_404
 from django.http import HttpResponseRedirect
 from django.contrib.auth.decorators import login_required
 from django.contrib import messages
@@ -13,9 +13,9 @@ def whish_list(request):
         wishes to buy
     '''
     if not request.user.is_authenticated:
-        messages.warning(request, 'You need to signin to view this page.')
+        messages.error(request, 'You need to signin to view this page.')
         return redirect('home:home')
-    wish_list = Wishlist.objects.filter(user=request.user)
+    wish_list = Wishlist.objects.filter(user=request.user).all()
     context = {'wish_list': wish_list}
     template_name = 'wishlist/wishlist.html'
     return render(request, template_name, context)
@@ -48,12 +48,11 @@ def add_to_wish_list(request):
 
 
 @login_required(login_url='account:signin')
-def delete_item(request):
+def delete_item(request, ws_id):
     '''
         Removes product item from user's wishlist
     '''
-    if request.method == 'POST':
-        item_id = request.POST.get('item-id')
-        Wishlist.objects.filter(id=item_id).delete()
-        messages.info(request, f'You have deleted the item from your wishlist')
-        return HttpResponseRedirect(reverse('wishlist:wish_list'))
+    wishlist = get_object_or_404(Wishlist, id=ws_id)
+    wishlist.delete()
+    messages.info(request, f'You have deleted the item from your wishlist')
+    return HttpResponseRedirect(reverse('wishlist:wish_list'))

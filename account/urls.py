@@ -35,7 +35,7 @@ urlpatterns = [
          name='order_history_details'),
     path('reviews/', review_list, name='reviews'),
     path('edit_review/<rev_id>/', edit_review, name='edit_review'),
-    path('delete_review/<rev_id>/', delete_review, name='delete_review'),
+    path('delete_review/<int:rev_id>/', delete_review, name='delete_review'),
     path('delete_account/<user_id>/', delete_account, name='delete_account'),
     path(
         'validate-username',

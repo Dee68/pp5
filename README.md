@@ -473,7 +473,7 @@ The authentication flows come from a Custom user model inherited from django abs
 
 ![Sign Up Ajax](media/readme/register_ajax.png)
 
-A registererd user can login with either a username or an email
+A registererd user can login with his/her a username and password
 
 ![Login](media/readme/login.png)
 

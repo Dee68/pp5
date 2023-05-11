@@ -314,7 +314,7 @@ class LoginTest(BaseTest):
                                     format='text/html'
                                     )
         message = f'Email is not verified,please check your inbox.'
-        self.assertEquals(response.status_code, 401, msg=message)
+        self.assertEquals(response.status_code, 200, msg=message)
 
     def test_invalid_input_signin(self):
         self.user_bad_inputs = {

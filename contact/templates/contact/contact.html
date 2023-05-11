@@ -26,7 +26,16 @@
         <div class="col-12 col-md-6">
             <form method="POST" action="" class="form mb-2">
                 {% csrf_token %}
-                {{ form | crispy }}
+                <div class="form-group">
+                    <label for="email">Email:</label>
+                    <input type="email" class="form-control" id="email" name="email" value="{{ request.user.email }}" disabled>
+                  </div>
+                  <div class="form-group">
+                    {{ form.message|as_crispy_field }}
+                  </div>
+                  <div class="form-group">
+                    {{ form.reason|as_crispy_field }}
+                  </div>
                 <div class="text-right">
                     <a class="btn btn-warning rounded-0" href="{% url 'home:home' %}">Cancel Request</a>
                     <button class="btn btn-danger rounded-0" type="submit">Submit form</button>

@@ -167,6 +167,6 @@ def delete_product(request, product_id):
     product = get_object_or_404(Product, id=product_id)
     if request.method == 'POST':
         product.delete()
-        messages.success(request, f"{product.name} has been deleted")
+        messages.success(request, f"{product.name} successfully deleted")
         return redirect(reverse('shop:products'))
     return render(request, 'shop/confirm.html', {'product': product})

@@ -325,6 +325,8 @@ The goals for the website are:
 - An easy to navigate website with clear purpose
 - Provide users with products that meet their expectations
 - Allow users to view, read and comment on articles that may help or interest them.
+- Allow users to give their review on any product.
+- Allow users to add products to a wishlis of theirs.
 - To provide users with insights or tips on  machine maintenance and tips to choose the right fabrics for clothing.
 - Allow users to checkout quickly and easily
 - To allow users to create a profile to view past orders and update profile information
@@ -512,11 +514,16 @@ The customer can return to the profile by clicking on the button below the order
 The products page is responsive to allow equal spacing between products regardless of screen width. The products page is paginated and shows a add review button for logged in users.
   
 Out of stock products do not show up to customers but in the event that the customer somehow gets access to a product that is out of stock, the add to card button is disabled to prevent out of stock purchases.
+
+Users can not also purchase products more than what is in stock
   
 ![Products Page](media/readme/products1.png)
 
 ![Products Page pagination](media/readme/products2.png)
 
+![Product stock Page](media/readme/stock.png)
+
+![Product Stock Handled](media/readme/stock_handled.png)
 
 The product detail page includes a review and wishlist options but can only be accessed by logged in users.
 The logged in user can add a review with a rating that spans from 1 to 5 and can add the product to his/her wishlist.This page also shows the number of reviews made on the product.
@@ -531,7 +538,7 @@ The logged in user can add a review with a rating that spans from 1 to 5 and can
 
 Only logged in users can access the cart page with cart items.
 Non logged in user is notified to signup and signin in other to purchase products.
-The cart page displays the cart items with the product image, price and quantity.
+The cart page displays the cart items with the product image, price, quantity and the number of individual items in the cart.
 On the navigation bar cart icon shows the number of cart items in the cart.
 ![Cart Page](media/readme/cart.png)
 
@@ -687,21 +694,21 @@ When an unverified or not logged in user trys to access the accounts section of 
 <a name="left"></a>
 ## Features left to Implement 
 
-#### User interaction features
+### User interaction features
 Features including allowing users to reply directly to each other through blog articles, possible even add threads that users can generate themselves to increase and develop a community.
 I would also like to add a notification system for users to be able to see replys, likes in a bell icon from their account.
 
-#### Frequently Bought Items
+### Frequently Bought Items
 In future iterations I would implement a Frequently added products section that would present itself on the initial cart page before checkout to help drive upsells.
 
 
 #### E-mail forwarding for all site actions.
 As I have a dropdown model for the contact form, depending on the size of the business I would like to forward the emails to specific email addresses monitored by different staff departments. For example the complaints emails go to the complaints teams to ensure quick responses and reduce friction.
 
-#### Order Tracking
+### Order Tracking
 Going forward I would like to add an order tracking system for the user profile section. Once order placed the merchant can move the product to dispatched and add tracking that can then be viewed by the customer from within their account and also receive an email with the updates.
 
-#### Front end order tracking and accounts management for business
+### Front end order tracking and accounts management for business
 This would involve creating a front end accounts page to display orders and graphs for employees of the business beyond django cms. 
 These would allow the business to track orders over days, months and year on year as well as track most popular products.
 
@@ -781,6 +788,7 @@ These would allow the business to track orders over days, months and year on yea
 ![Account coverage](media/readme/coverage_account.png)
 </details>
 
+---
 
 #### Manual Testing
 
@@ -812,7 +820,7 @@ These would allow the business to track orders over days, months and year on yea
 | Test |Result  |
 |--|--|
 |Verified User can log into account| Pass|
-|Non verified User is notified to check email|Fail|
+|Non verified User is notified to check email|Pass|
 |User can log out of account|Pass|
 |User is notified of logging in to account|Pass|
 |User is notified of logging out of account|Pass|
@@ -900,7 +908,7 @@ These would allow the business to track orders over days, months and year on yea
 |Logged in User can remove a personal image entirely |Pass|
 |Logged in User can select delete account|Pass|
 |Pop-up modal prompts the user to confirm sign out before signing out|Pass|
-| Pop-up modal prompts the user to confirm account deletion before closing account |Pass|
+|Pop-up modal prompts the user to confirm account deletion before closing account|Pass|
 |Logged in User can close account successfully |Pass|
 |When user closes their account they are redirected to the home page|Pass|
 |When user closes account they receive a pop up notification advising them the account is closed|Pass|
@@ -935,7 +943,7 @@ These would allow the business to track orders over days, months and year on yea
 |--|--|
 |Not logged in User cannot access contact page| Pass |
 |Not logged in user cannot access wishlist page|Pass|
-|Logged in User can submit contact form to business|Pass|
+|Logged in User can submit contact form to website|Pass|
 |Super User can view submitted forms from the admin panel|Pass|
 |Logged in User receives notification the form has been submitted|Pass|
 |User can navigate to privacy policy|Pass|
@@ -943,6 +951,7 @@ These would allow the business to track orders over days, months and year on yea
 |User can navigate to terms of use page|Pass|
 |Social links open up to the correct pages|Pass|
 |Social links open up in a new tab|Pass|
+|All delete buttons are promted for confirmation before action|Pass|
 
 </details>
 
@@ -958,6 +967,7 @@ These would allow the business to track orders over days, months and year on yea
 |Logged in User can successfully make a payment & order| Pass|
 |All logged in users receive an email confirmation of order on deployed site|Pass|
 |In development email confirmation is printed to terminal|Pass|
+|In production email confirmation is sent to user|Pass|
 |If payment is successful user will be redirected to order success page|Pass|
 |If order fails due to incorrect information being submitted order will not be submitted|Pass|
 |If there is an error when processing the order the site returns a 500 error without processing order|Pass|
@@ -1071,7 +1081,7 @@ These would allow the business to track orders over days, months and year on yea
 | Bug |Outcome  |
 |--|--|
 |[User purchasing more than product quantity in stock](https://github.com/Dee68/pp5/issues/39)| Resolved |
-|[Email verification error](https://github.com/Dee68/pp5/issues/32)| Not Resolved |
+|[Email verification error](https://github.com/Dee68/pp5/issues/32)|Resolved|
 |[ Anonymous User checkout returning 500 error page](https://github.com/Dee68/pp5/issues/40)|Resolved|
 
 

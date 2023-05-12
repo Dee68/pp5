@@ -425,7 +425,7 @@ To see the final project board for Lamad Shop you can click the link below:
 #### Epics
  1. [Epic: Navigation & Views](https://github.com/Dee68/pp5/issues/33)
  2. [Epic: Admin & Stock Management](https://github.com/Dee68/pp5/issues/30)
- 3. [Epic: Profiles](https://github.com/Dee68/pp5/issues/34)
+ 3. [Epic: Payment](https://github.com/Dee68/pp5/issues/16)
  4. [Epic: Deploy Project](https://github.com/Dee68/pp5/issues/36)
  5. [Epic: Contact](https://github.com/Dee68/pp5/issues/35)
  6. [Epic: User Authentication](https://github.com/Dee68/pp5/issues/31)

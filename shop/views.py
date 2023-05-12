@@ -102,7 +102,7 @@ def add_review(request, product_id):
 
 @login_required(login_url='account:signin')
 def add_product(request):
-    """ Add a product to the store """
+    """ Add a product to the store by super user """
     if not request.user.is_superuser:
         messages.error(request, 'Sorry, that action is not permitted')
         return redirect(reverse('home'))
@@ -129,11 +129,11 @@ def add_product(request):
 
 @login_required(login_url='account:signin')
 def edit_product(request, product_id):
+    """ Edit a product by super user"""
     if not request.user.is_superuser:
         messages.error(request, 'Sorry, that action is not permitted')
         return redirect(reverse('home:home'))
 
-    """ Edit a product """
     product = get_object_or_404(Product, pk=product_id)
     if request.method == 'POST':
         form = ProductForm(request.POST, request.FILES, instance=product)
@@ -160,7 +160,7 @@ def edit_product(request, product_id):
 
 @login_required(login_url='account:signin')
 def delete_product(request, product_id):
-    """Delete a product function"""
+    """Delete a product by super user"""
     if not request.user.is_superuser:
         messages.error(request, 'Sorry, that action is not permitted')
         return redirect(reverse('home:home'))

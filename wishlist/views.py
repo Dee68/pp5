@@ -56,5 +56,8 @@ def delete_item(request):
         item_id = request.POST.get('item-id')
         wishlist = get_object_or_404(Wishlist, id=item_id)
         wishlist.delete()
-        messages.info(request, f'You have deleted the {wishlist.product.name} from your wishlist')
+        messages.info(
+            request,
+            f'You have deleted the {wishlist.product.name} from your wishlist'
+            )
         return HttpResponseRedirect(reverse('wishlist:wish_list'))

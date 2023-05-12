@@ -93,11 +93,11 @@
                                     
                                 </div>
                                 <div class="col-6 mt-2"> 
-                                    {% if product.in_stock %}
+                                    {% if product.in_stock and product.stock != 0 %}
                                     <input type="submit" class="btn btn-danger rounded-0 text-uppercase mt-5" value="Add to Cart">
                                     
                                     {% else %}
-                                    <input type="submit" class="btn btn-black rounded-0 text-uppercase mt-5 disabled" value="Out of Stock">
+                                    <input type="submit" class="btn btn-black rounded-0 text-uppercase mt-5 disabled" value="Out of Stock" disabled>
                                     {% endif %}
                                 </div>
                                 </div>

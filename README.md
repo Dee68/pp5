@@ -19,7 +19,7 @@
  3. [ SEO ](#seo)
  4. [Agile Development](#agile)
  5. [ Features ](#features)  
- 6. [ Features Left to Implement ](#left)  
+ 6. [ Future Features ](#future)  
  7. [ Technology used ](#tech) 
  8. [ Testing ](#testing)  
  9. [ Bugs ](#bugs)  
@@ -326,7 +326,7 @@ The goals for the website are:
 - Provide users with products that meet their expectations
 - Allow users to view, read and comment on articles that may help or interest them.
 - Allow users to give their review on any product.
-- Allow users to add products to a wishlis of theirs.
+- Allow users to add products to a wishlist of theirs.
 - To provide users with insights or tips on  machine maintenance and tips to choose the right fabrics for clothing.
 - Allow users to checkout quickly and easily
 - To allow users to create a profile to view past orders and update profile information
@@ -691,8 +691,8 @@ When an unverified or not logged in user trys to access the accounts section of 
 
 ---
 
-<a name="left"></a>
-## Features left to Implement 
+<a name="future"></a>
+## Future Features 
 
 ### User interaction features
 Features including allowing users to reply directly to each other through blog articles, possible even add threads that users can generate themselves to increase and develop a community.
@@ -894,7 +894,6 @@ These would allow the business to track orders over days, months and year on yea
 |Logged in User can update their first name|Pass|
 |Logged in User can update their last name|Pass|
 |Logged in User can update their email|Pass|
-|Logged in User can update their phone number|Pass|
 |Logged in User can navigate to their shipping information|Pass|
 |Logged in User can update street address 1 and 2|Pass|
 |Logged in User can update town or city|Pass|
@@ -943,6 +942,7 @@ These would allow the business to track orders over days, months and year on yea
 |--|--|
 |Not logged in User cannot access contact page| Pass |
 |Not logged in user cannot access wishlist page|Pass|
+|Logged in user can add a review to product of choice|Pass|
 |Logged in User can submit contact form to website|Pass|
 |Super User can view submitted forms from the admin panel|Pass|
 |Logged in User receives notification the form has been submitted|Pass|
@@ -951,7 +951,6 @@ These would allow the business to track orders over days, months and year on yea
 |User can navigate to terms of use page|Pass|
 |Social links open up to the correct pages|Pass|
 |Social links open up in a new tab|Pass|
-|All delete buttons are promted for confirmation before action|Pass|
 
 </details>
 
@@ -1083,6 +1082,7 @@ These would allow the business to track orders over days, months and year on yea
 |[User purchasing more than product quantity in stock](https://github.com/Dee68/pp5/issues/39)| Resolved |
 |[Email verification error](https://github.com/Dee68/pp5/issues/32)|Resolved|
 |[ Anonymous User checkout returning 500 error page](https://github.com/Dee68/pp5/issues/40)|Resolved|
+|[Empty input field error](https://github.com/Dee68/pp5/issues/47)|Resolved|
 
 
 </details>

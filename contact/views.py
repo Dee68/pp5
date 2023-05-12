@@ -12,8 +12,6 @@ from django.contrib import messages
 def contact(request):
     """A view to return contact form and page"""
 
-    """customer must be logged in to prevent spam."""
-
     if not request.user.is_authenticated:
         messages.error(request, 'Please login to contact us')
         return redirect(reverse('home:home'))

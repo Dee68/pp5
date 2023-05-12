@@ -565,7 +565,7 @@ Non logged in user can only read the reviews of logged in users.
 
 ![Review Update/Delete](media/readme/review_acc.png)
 
-![Review Form ](media/readme/review_fm.png)
+![Review Form ](media/readme/review_form.png)
 
 ![Reviews For Non logged in User](media/readme/review_nlu.png)
 
@@ -1298,7 +1298,7 @@ The steps to fork this repository are:
 ### Jack Wachira
 > My mentor who provided me with constructive feedback and guidance throughout.
 
-### Irene Nedved
+### Irene Neville
 > My code institute facilitator in keeping up with my schedule.
 
 ### Collegues

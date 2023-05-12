@@ -44,7 +44,7 @@ def add_to_wish_list(request):
             Wishlist.objects.create(user=request.user, product=product)
             messages.success(request, f'Item added to wish list')
         finally:
-            return HttpResponseRedirect(reverse('wishlist:wish_list'))
+            return HttpResponseRedirect(request.META.get('HTTP_REFERER'))
 
 
 @login_required(login_url='account:signin')

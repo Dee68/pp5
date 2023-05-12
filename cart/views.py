@@ -1,7 +1,8 @@
 from django.shortcuts import (render,
                               redirect,
                               reverse,
-                              HttpResponse
+                              HttpResponse,
+                              HttpResponseRedirect
                               )
 from django.contrib import messages
 from shop.models import Product
@@ -16,6 +17,9 @@ def add_to_cart(request, item_id):
     """ Add a quantity of the specified product to the shopping cart """
     product = Product.objects.get(id=item_id)
     product_name = product.name
+    if not request.POST.get('quantity') or request.POST.get('quantity') == '0':
+        messages.error(request, 'Please enter a positive number')
+        return HttpResponseRedirect(request.META.get('HTTP_REFERER'))
     quantity = int(request.POST.get('quantity'))
     redirect_url = request.POST.get('redirect_url')
     size = None
@@ -74,6 +78,9 @@ def adjust_cart(request, item_id):
     """ Adjust quantity of the specified product to the shopping cart """
     product = Product.objects.get(id=item_id)
     product_name = product.name
+    if not request.POST.get('quantity') or request.POST.get('quantity') == '0' or int(request.POST.get('quantity')) < 0:
+        messages.error(request, 'Please enter a positive number')
+        return HttpResponseRedirect(request.META.get('HTTP_REFERER'))
     quantity = int(request.POST.get('quantity'))
     size = None
     if 'product_size' in request.POST:

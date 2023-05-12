@@ -58,28 +58,13 @@
                                 
                                 <td width="15%" class="text-center">
                                     
-                                    <a href="#" class="trash-icon" data-toggle="modal" data-target="#wishModal"><i class="far fa-trash-alt"></i></a>
+                                    <form action="{% url 'wishlist:delete_item'  %}" method="post">
+                                            {% csrf_token %}
+                                        <input type="hidden" name="item-id" value="{{ item.id }}">
+                                        <button type="submit" class="trash-icon btn btn-danger"><i class="far fa-trash-alt"></i></button>
+                                    </form>
                                    
-                                     <!-- delete review modal -->
-                                    <div class="modal fade" id="wishModal" tabindex="-1" role="dialog" aria-labelledby="wishModalLabel" aria-hidden="true">
-                                        <div class="modal-dialog" role="document">
-                                            <div class="modal-content">
-                                                <div class="modal-header">
-                                                    <h5 class="modal-title" id="wishModalLabel"><strong>Delete confirmation</strong></h5>
-                                                    <button type="button" class="close" data-dismiss="modal" aria-label="Close">
-                                                        <span aria-hidden="true"><strong>&times;</strong></span>
-                                                    </button>
-                                                </div>
-                                                <div class="modal-body">
-                                                    <h3 class="text-center">Are you sure you want to remove this item from wish list?</h3>
-                                                </div>
-                                                <div class="modal-footer">
-                                                    <button type="button" class="btn btn-secondary" data-dismiss="modal">Go Back</button>
-                                                    <a href="{% url 'wishlist:delete_item' item.id %}" class="btn btn-danger">Delete</a>
-                                                </div>
-                                            </div>
-                                        </div>
-                                    </div>
+                                    
                                 </td>
 
                             </tr>

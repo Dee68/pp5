@@ -48,11 +48,13 @@ def add_to_wish_list(request):
 
 
 @login_required(login_url='account:signin')
-def delete_item(request, ws_id):
+def delete_item(request):
     '''
         Removes product item from user's wishlist
     '''
-    wishlist = get_object_or_404(Wishlist, id=ws_id)
-    wishlist.delete()
-    messages.info(request, f'You have deleted the item from your wishlist')
-    return HttpResponseRedirect(reverse('wishlist:wish_list'))
+    if request.method == 'POST':
+        item_id = request.POST.get('item-id')
+        wishlist = get_object_or_404(Wishlist, id=item_id)
+        wishlist.delete()
+        messages.info(request, f'You have deleted the {wishlist.product.name} from your wishlist')
+        return HttpResponseRedirect(reverse('wishlist:wish_list'))

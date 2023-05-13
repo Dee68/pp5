@@ -301,7 +301,7 @@ The benefits for the business owner are:
 
 The cons of this business model are:
 
-1. Getting customers initally can be difficult due to saturation in certain industrys
+1. Getting customers initally can be difficult due to saturation in certain industries
 2. Establishing a brand from the ground up takes time and immediate results are unlikely without a sound marketing strategy.
 3. Getting customers organically takes time so the business would need to manually market the business or use paid advertising.
 4. Not having a physical business can make it harder to build trust and loyalty with customers without offering discounts and offers.
@@ -314,7 +314,7 @@ The best approach would be to provide products on a pay as you go traditional e-
 ---
 
 #### Site User
-User 1: The typical site user would be a male/female aged between 18 and 50 who has an interest in tailoring, clothes designing and presenting a good outfit. 
+User 1: The typical site user would be a male/female aged between 18 and 70 who has an interest in tailoring, clothes designing and presenting a good outfit. 
 
 User 2: Additional site users could be partners of user 1 and may be browsing the site to purchase gifts for them.
 
@@ -355,7 +355,7 @@ The businesses marketing strategy going forward is:
 
 ### SEO Project planning
 
-Once the business model was decided on as an a sewing machine I started working on how to market the site and what keywords to target.
+Once the business model was decided on as an a sewing machine store I started working on how to market the site and what keywords to target.
 
 I checked for a number of keywords on semrush.com and signed up for a trial to get as much out of it as possible. From there I developed a list of short tail and long tail keywords I intended to use in this project.
 
@@ -363,7 +363,7 @@ I checked for a number of keywords on semrush.com and signed up for a trial to g
 
 Short-tail - Sewing Machine, Machine, Overlock Machine, Pfaff Coverlock, Coverlock machine,Tailoring, Fabrics, Clothes
 
-long-tail -  dress making ,  clothes designing,  clothes alteration, gift for a tailor,
+Long-tail -  dress making ,  clothes designing,  clothes alteration, gift for a tailor,
 maintenance of sewing machine
 
 By utilising the short tail keywords and analysing the results from google trends, and the related questions I was able to generate a list of longtail keywords.
@@ -476,7 +476,7 @@ The authentication flows come from a Custom user model inherited from django abs
 
 ![Sign Up Ajax](media/readme/register_ajax.png)
 
-A registererd user can login with his/her a username and password
+A registererd user can login with his/her a username and password after email verification.
 
 ![Login](media/readme/login.png)
 
@@ -545,7 +545,7 @@ On the navigation bar cart icon shows the number of cart items in the cart.
 
 ![Checkout Page](media/readme/checkout.png)
 
-On filling the checkout form with a valid data, the user will be sent an email to confirm his/her order.
+On filling the checkout form with a valid data, the user will be sent an email of confirmation for his/her order.
 
 ![Payment Success Page](media/readme/success.png)
   
@@ -577,7 +577,7 @@ Non logged in user can only read the reviews of logged in users.
 <br>
 
 The wishlist is only availabe for logged in users.A logged in user can add or delete a product to this list.
-![Whishlist](media/readme/whishlist.png)
+![Whishlist](media/readme/wishlist.png)
 
 </details>
 
@@ -683,7 +683,7 @@ When an unverified or not logged in user trys to access the accounts section of 
 
 ![Contact Page Access](media/readme/contact_warn.png)
 
-![Whish List Page Access](media/readme/whislist_warn.png)
+![Whish List Page Access](media/readme/wishlist_warn.png)
 </details>
 
 

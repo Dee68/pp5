@@ -77,12 +77,16 @@
                     {% csrf_token %}
                     <fieldset class="rounded px-3 mb-5">
                         <legend class="fieldset-label small text-black px-2 w-auto">Personal Details</legend>
-                        {{ order_form.first_name | as_crispy_field}}
-                        {{ order_form.last_name | as_crispy_field}}
+                        <div class="form-group">
+                            <input type="text" class="form-control" id="first_name" name="first_name" value="{{ request.user.first_name }}" placeholder="First Name *">
+                        </div>
+                        <div class="form-group">
+                            <input type="text" class="form-control" id="last_name" name="last_name" value="{{ request.user.last_name }}" placeholder="Last Name *">
+                        </div>
 
                         <div class="form-group">
                             <input type="email" class="form-control" id="email" name="email" value="{{ request.user.email }}" disabled>
-                          </div>
+                        </div>
                         {{ order_form.phone_number | as_crispy_field}}
                     </fieldset>
                     <fieldset class="rounded px-3 mb-5">

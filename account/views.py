@@ -400,7 +400,7 @@ def delete_review(request, rev_id):
     review = get_object_or_404(Review, id=rev_id)
     review.delete()
     messages.error(request, 'Review deleted')
-    return redirect('account:profile')
+    return redirect('account:reviews')
 
 
 @login_required

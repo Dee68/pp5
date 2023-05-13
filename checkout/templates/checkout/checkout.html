@@ -79,7 +79,10 @@
                         <legend class="fieldset-label small text-black px-2 w-auto">Personal Details</legend>
                         {{ order_form.first_name | as_crispy_field}}
                         {{ order_form.last_name | as_crispy_field}}
-                        {{ order_form.email | as_crispy_field}}
+
+                        <div class="form-group">
+                            <input type="email" class="form-control" id="email" name="email" value="{{ request.user.email }}" disabled>
+                          </div>
                         {{ order_form.phone_number | as_crispy_field}}
                     </fieldset>
                     <fieldset class="rounded px-3 mb-5">

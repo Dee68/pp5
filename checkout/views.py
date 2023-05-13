@@ -44,13 +44,13 @@ def checkout(request):
     """Checkout function to to process order"""
     stripe_public_key = settings.STRIPE_PUBLIC_KEY
     stripe_secret_key = settings.CLIENT_SECRET
-
+    user = request.user
     if request.method == 'POST':
-        cart = request.session.get('cart', {})
+        cart = request.session.get('cart', {})      
         form_data = {
             'first_name': request.POST['first_name'],
             'last_name': request.POST['last_name'],
-            'email': request.POST['email'],
+            'email': request.user.email,
             'phone_number': request.POST['phone_number'],
             'street_address1': request.POST['street_address1'],
             'street_address2': request.POST['street_address2'],
@@ -59,8 +59,8 @@ def checkout(request):
             'postcode': request.POST['postcode'],
             'country': request.POST['country'],
         }
-
-        order_form = OrderForm(form_data)
+        order = Order(user=request.user)
+        order_form = OrderForm(form_data, instance=order)
         if not request.user.is_authenticated:
             current_cart = cart_contents(request)
             messages.warning(
@@ -89,7 +89,7 @@ def checkout(request):
                         )
                         order_line_item.save()
                         product.stock -= item_data
-                        product.save()                      
+                        product.save()                 
                     else:
                         for size, quantity in item_data['items_by_size'].items():
                             order_line_item = OrderLineItem(
@@ -139,6 +139,7 @@ def checkout(request):
         'order_form': order_form,
         'stripe_public_key': stripe_public_key,
         'client_secret': intent.client_secret,
+        'user': user
     }
 
     return render(request, template, context)

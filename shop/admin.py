@@ -17,7 +17,12 @@ class ProductAdmin(admin.ModelAdmin):
     search_fields = ('category__name',)
 
 
+class ReviewAdmin(admin.ModelAdmin):
+    list_display = ['user', 'review', 'created_at']
+    list_filter = ['user', 'created_at']
+
+
 admin.site.register(Category, CategoryAdmin)
 admin.site.register(Product, ProductAdmin)
-admin.site.register(Review)
+admin.site.register(Review, ReviewAdmin)
 admin.site.register(Rating)

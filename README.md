@@ -18,7 +18,7 @@
  2. [ Business Model ](#biz)
  3. [ SEO ](#seo)
  4. [Agile Development](#agile)
- 5. [ Features ](#features)  
+ 5. [ Existing Features ](#features)  
  6. [ Future Features ](#future)  
  7. [ Technology used ](#tech) 
  8. [ Testing ](#testing)  
@@ -361,9 +361,10 @@ I checked for a number of keywords on semrush.com and signed up for a trial to g
 
 ### Keywords
 
-Short-tail - Sewing Machine, Machine, Overlock Machine, Pfaff Coverlock, Wrap Dress, Coverlock, Overlock,Tailoring
+Short-tail - Sewing Machine, Machine, Overlock Machine, Pfaff Coverlock, Coverlock machine,Tailoring, Fabrics, Clothes
 
-long-tail -  dress making gift,  clothes designing,  clothes alteration, gif for a tailor
+long-tail -  dress making ,  clothes designing,  clothes alteration, gift for a tailor,
+maintenance of sewing machine
 
 By utilising the short tail keywords and analysing the results from google trends, and the related questions I was able to generate a list of longtail keywords.
 The keywords are used throughout the site at different places.
@@ -442,7 +443,7 @@ The full breakdown of user stories and tasks are included on the project board a
 
 ---
 
-## Features
+## Existing Features
 
 <a name="features"></a>
 
@@ -469,7 +470,7 @@ When developing this application I decided I wanted to add a detailed footer as 
 <summary> Authentication </summary>
 <br>
 
-The authentication flows come from a Custom user model inherited from django abstractuser model and have been styled to fit the theme of my website. At present when a user signs up a confirmation email is sent to their email address to confirm it before being able to access their account.Username field, email field and password field are required fields to enable a user to signup.The username and email fields are validated using ajax for a better user experience.
+The authentication flows come from a Custom user model inherited from django abstractuser model and have been styled to fit the theme of my website. At present when a user signs up a confirmation email is sent to their email address to confirm it before being able to access their account.Username field, email field and password field are required fields to enable a user to signup.The username and email fields are validated using ajax for a better user experience. Refraining from using the django-allauth library was a personal choice to try and understand how the best brains that built this library came about it.
 
 ![Sign Up](media/readme/register.png)
 
@@ -694,23 +695,29 @@ When an unverified or not logged in user trys to access the accounts section of 
 <a name="future"></a>
 ## Future Features 
 
-### User interaction features
-Features including allowing users to reply directly to each other through blog articles, possible even add threads that users can generate themselves to increase and develop a community.
-I would also like to add a notification system for users to be able to see replys, likes in a bell icon from their account.
+### Future features to add to improve user interface would be:
 
-### Frequently Bought Items
-In future iterations I would implement a Frequently added products section that would present itself on the initial cart page before checkout to help drive upsells.
+- Features including allowing users to reply directly to each other through blog       
+  articles, possible even add threads that users can generate themselves to increase and develop a community.
+  I would also like to add a notification system for users to be able to see replys, likes in a bell icon from their account.
 
 
-#### E-mail forwarding for all site actions.
-As I have a dropdown model for the contact form, depending on the size of the business I would like to forward the emails to specific email addresses monitored by different staff departments. For example the complaints emails go to the complaints teams to ensure quick responses and reduce friction.
+- In future iterations I would implement a Frequently added products section that      
+  would present itself on the initial cart page before checkout to help drive upsells.
 
-### Order Tracking
-Going forward I would like to add an order tracking system for the user profile section. Once order placed the merchant can move the product to dispatched and add tracking that can then be viewed by the customer from within their account and also receive an email with the updates.
 
-### Front end order tracking and accounts management for business
-This would involve creating a front end accounts page to display orders and graphs for employees of the business beyond django cms. 
-These would allow the business to track orders over days, months and year on year as well as track most popular products.
+
+- As I have a dropdown model for the contact form, depending on the size of the       
+  business I would like to forward the emails to specific email addresses monitored by different staff departments. For example the complaints emails go to the complaints teams to ensure quick responses and reduce friction.
+
+
+- Going forward I would like to add an order tracking system for the user profile 
+  section. Once order placed the merchant can move the product to dispatched and add tracking that can then be viewed by the customer from within their account and also receive an email with the updates.
+
+
+- This would involve creating a front end accounts page to display orders and graphs 
+  for employees of the business beyond django cms. 
+  These would allow the business to track orders over days, months and year on year as well as track most popular products.
 
 [Back to Top of page](#contents)
 

@@ -78,7 +78,9 @@ def adjust_cart(request, item_id):
     """ Adjust quantity of the specified product to the shopping cart """
     product = Product.objects.get(id=item_id)
     product_name = product.name
-    if not request.POST.get('quantity') or request.POST.get('quantity') == '0' or int(request.POST.get('quantity')) < 0:
+    if not request.POST.get('quantity')\
+            or request.POST.get('quantity') == '0'\
+            or int(request.POST.get('quantity')) < 0:
         messages.error(request, 'Please enter a positive number')
         return HttpResponseRedirect(request.META.get('HTTP_REFERER'))
     quantity = int(request.POST.get('quantity'))

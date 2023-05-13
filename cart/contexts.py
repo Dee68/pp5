@@ -5,7 +5,10 @@ from shop.models import Product
 
 
 def cart_contents(request):
-
+    """
+      This function shows the content of the cart
+      and is made global through the use of context.
+    """
     cart_items = []
     total = 0
     product_count = 0

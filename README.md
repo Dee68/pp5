@@ -585,7 +585,7 @@ The wishlist is only availabe for logged in users.A logged in user can add or de
 <summary> Blog </summary>
 <br>
 
-The idea behind blogs was to firstly create informative and helpful articles to boost SEO and also to create a place for users to ask questions, share insights and converse with like minded people.  
+The idea behind blogs was to firstly create informative and helpful articles to boost SEO and also to create a place for users to ask questions, share insights and converse with like minded people. The blog app idea was taken from the code institute blog walkthrough project and modified to suit the topic of this project. 
 
 ![Blog Page](media/readme/blog.png)
 

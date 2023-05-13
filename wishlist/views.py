@@ -9,7 +9,7 @@ from .models import Wishlist
 
 def whish_list(request):
     '''
-        this view displays the products the user
+        this view displays the list of products the user
         wishes to buy
     '''
     if not request.user.is_authenticated:
@@ -40,7 +40,7 @@ def add_to_wish_list(request):
                               request,
                               f'{wish_item.product.name }\
                               already in wish list.')
-        except:
+        except Wishlist.DoesNotExist:
             Wishlist.objects.create(user=request.user, product=product)
             messages.success(request, f'Item added to wish list')
         finally:

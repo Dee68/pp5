@@ -76,7 +76,7 @@
                 <!-- We want a for loop inside the empty control tags to iterate through each comment in comments -->
                 {% for comment in comments %}
                 <div class="comments" style="padding: 10px;">
-                    {% if comment.user.profile.avatar.url %}
+                    {% if comment.user.profile.avatar %}
                     <img src="{{comment.user.profile.avatar.url}}" class="comment-photo">
                     {% else %}
                     <img src="{% static 'images/userimage.png'%}" class="comment-photo">
